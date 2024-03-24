@@ -1,1 +1,18 @@
 @use 'custom';
+
+// ADD COMPONENTS
+@use 'components/buttons';
+@use 'components/mixins';
+@use 'components/typography';
+@use 'components/animations.scss';
+
+// ADD SECTIONS
+@use 'sections/blog';
+@use 'sections/business-inquires-contact';
+@use 'sections/education';
+@use 'sections/footer';
+@use 'sections/intro-section';
+@use 'sections/navbar';
+@use 'sections/portfolio';
+@use 'sections/services';
+@use 'sections/skills';
