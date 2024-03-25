@@ -1,9 +1,32 @@
-@import "../custom";
+@use "../components/mixins" as *;
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap");
 
-.navbar-brand {
-  color: $secondary;
-  font-size: 36px;
-  font-weight: 100;
-  font-family: "Rubik Bubbles";
+.menu {
+  @include gradient;
+
+  .navbar-brand {
+    color: #f9f3df;
+    font-size: 36px;
+    font-weight: 100;
+    font-family: "Rubik Bubbles";
+
+    .fa-brain {
+      color: #fa7070;
+    }
+
+    .fa-palette {
+      color: #fdaf7b;
+    }
+  }
+
+  li {
+    padding: 0 0.7rem;
+
+    a {
+      text-transform: capitalize;
+      color: #fff !important;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+  }
 }
