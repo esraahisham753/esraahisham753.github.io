@@ -11859,6 +11859,9 @@ body {
   font-weight: 100;
   font-family: "Rubik Bubbles";
 }
+.menu .navbar-brand a:hover {
+  color: #f9f3df;
+}
 .menu .navbar-brand .fa-brain {
   color: #fa7070;
 }
@@ -11873,6 +11876,9 @@ body {
   color: #fff !important;
   font-weight: 700;
   font-size: 1.1rem;
+}
+.menu a {
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=style.css.map */

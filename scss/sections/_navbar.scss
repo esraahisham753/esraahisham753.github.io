@@ -10,6 +10,10 @@
     font-weight: 100;
     font-family: "Rubik Bubbles";
 
+    a:hover {
+      color: #f9f3df;
+    }
+
     .fa-brain {
       color: #fa7070;
     }
@@ -28,5 +32,9 @@
       font-weight: 700;
       font-size: 1.1rem;
     }
+  }
+
+  a {
+    text-decoration: none;
   }
 }
