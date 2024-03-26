@@ -11846,6 +11846,33 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.btn-rounded {
+  position: relative;
+  padding: 0.9rem 3.5rem 0.9rem 1.2rem;
+  margin: 0;
+  font-weight: 500;
+  border: 0.1rem solid rgba(255, 255, 255, 0.6);
+  background-color: #fff;
+}
+.btn-rounded span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5px;
+  background-color: #6420aa;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+.btn-rounded:hover {
+  background: linear-gradient(to right, rgba(100, 32, 170, 0.95), rgba(251, 168, 52, 0.95) 99%);
+}
+
 body {
   font-family: "Nunito Sans", sans-serif;
 }
@@ -11858,6 +11885,7 @@ body {
   font-size: 36px;
   font-weight: 100;
   font-family: "Rubik Bubbles";
+  text-shadow: 2px 2px 4px #000;
 }
 .menu .navbar-brand a:hover {
   color: #f9f3df;
