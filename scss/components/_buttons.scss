@@ -2,12 +2,17 @@
 @use "../components/mixins" as *;
 
 .btn-rounded {
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+
   position: relative;
   padding: 0.9rem 3.5rem 0.9rem 1.2rem;
   margin: 0;
-  font-weight: 500;
+  font-weight: 700;
   border: 0.1rem solid rgba($color: #fff, $alpha: 0.6);
   background-color: #fff;
+  transition: all 0.5s ease-in-out;
 
   span {
     position: absolute;
@@ -27,6 +32,14 @@
 
   &:hover {
     @include gradient;
+    
+    a {
+      color: white !important;
+    }
+
+    span {
+      background-color: rgba($color: #000000, $alpha: 0.6);
+    }
   }
   
 }
