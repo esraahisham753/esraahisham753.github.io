@@ -23,16 +23,35 @@
     .video-box {
       position: relative;
 
-      span {
-        a {
-          @include absoluteCenter;
+      a {
+        @include absoluteCenter;
 
+        span {
           i {
             font-size: 6rem;
             color: $purple-light;
           }
         }
       }
+    }
+  }
+
+  .border-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6rem;
+    height: 6rem;
+    border: 0.3rem solid #fff;
+    border-radius: 50%;
+    animation: border-pulse 1.5s linear infinite;
+
+    &--border-1 {
+      animation-delay: 1s;
+    }
+
+    &--border-2 {
+      animation-delay: 1.5s;
     }
   }
 }

@@ -11920,6 +11920,16 @@ body {
   text-transform: none;
 }
 
+@keyframes border-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
 .intro {
   width: 100%;
   height: 100%;
@@ -11941,15 +11951,31 @@ body {
 .intro .intros .video-box {
   position: relative;
 }
-.intro .intros .video-box span a {
+.intro .intros .video-box a {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.intro .intros .video-box span a i {
+.intro .intros .video-box a span i {
   font-size: 6rem;
   color: #7f27ff;
+}
+.intro .border-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6rem;
+  height: 6rem;
+  border: 0.3rem solid #fff;
+  border-radius: 50%;
+  animation: border-pulse 1.5s linear infinite;
+}
+.intro .border-animation--border-1 {
+  animation-delay: 1s;
+}
+.intro .border-animation--border-2 {
+  animation-delay: 1.5s;
 }
 
 .menu {
