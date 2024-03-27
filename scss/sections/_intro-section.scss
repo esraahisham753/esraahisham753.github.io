@@ -11,6 +11,8 @@
     margin-top: 1rem;
     @include media-breakpoint-down(sm) {
       display: block;
+      margin: auto;
+      margin-top: 1rem;
     }
   }
 

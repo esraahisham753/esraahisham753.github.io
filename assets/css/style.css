@@ -11908,16 +11908,27 @@ body {
 .display-2 {
   margin-bottom: 1rem;
   text-transform: capitalize;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .display-2 {
+    text-align: left;
+  }
 }
 .display-2--intro {
   font-weight: 700;
   display: inline-block;
 }
 .display-2--description {
-  font-size: 1.5rem;
+  font-size: 1rem;
   display: block;
   margin-top: 1.2rem;
   text-transform: none;
+}
+@media (min-width: 768px) {
+  .display-2--description {
+    font-size: 1.5rem;
+  }
 }
 
 @keyframes border-pulse {
@@ -11942,6 +11953,8 @@ body {
 @media (max-width: 575.98px) {
   .intro button {
     display: block;
+    margin: auto;
+    margin-top: 1rem;
   }
 }
 .intro a {
