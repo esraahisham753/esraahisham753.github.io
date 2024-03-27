@@ -1,5 +1,5 @@
+@use './components/reset';
 @use 'custom';
-
 // ADD COMPONENTS
 @use 'components/buttons';
 @use 'components/mixins';
@@ -16,3 +16,4 @@
 @use 'sections/portfolio';
 @use 'sections/services';
 @use 'sections/skills';
+
