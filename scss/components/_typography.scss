@@ -32,6 +32,11 @@ body {
   }
 }
 
+h2 {
+  font-size: 2rem !important;
+  font-weight: 900 !important;
+}
+
 // HEADING LINE
 .heading-line::before {
   content: "";
@@ -49,4 +54,8 @@ body {
   display: block;
   margin: 0 auto;
   background-color: $primary;
+}
+
+.border-right {
+  border-right: 0.1rem solid $gray-200;
 }

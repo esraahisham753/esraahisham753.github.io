@@ -11931,6 +11931,11 @@ body {
   }
 }
 
+h2 {
+  font-size: 2rem !important;
+  font-weight: 900 !important;
+}
+
 .heading-line::before {
   content: "";
   width: 10rem;
@@ -11947,6 +11952,10 @@ body {
   display: block;
   margin: 0 auto;
   background-color: #6420aa;
+}
+
+.border-right {
+  border-right: 0.1rem solid #e9ecef;
 }
 
 @keyframes border-pulse {
@@ -12041,16 +12050,32 @@ body {
   text-decoration: none;
 }
 
+.services h2 i {
+  color: #fba834;
+}
+
 .skills {
-  padding: 0 0 5rem 0;
+  padding: 3rem 0;
+}
+.skills h2 i {
+  color: #fba834;
 }
 .skills__logobox {
   max-width: 100%;
   margin-bottom: 3rem;
   text-align: center;
 }
+@media (max-width: 575.98px) {
+  .skills__logobox {
+    max-width: 80%;
+    margin: 0 auto 3rem auto;
+  }
+}
 .skills__logobox img {
   height: 100%;
+}
+.skills__logobox img:hover {
+  filter: grayscale(120);
 }
 
 /*# sourceMappingURL=style.css.map */

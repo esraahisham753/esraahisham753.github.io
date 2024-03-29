@@ -1,0 +1,9 @@
+@use '../custom' as *;
+
+.services {
+    h2 {
+        i {
+            color: $secondary;
+        }
+    }
+}
