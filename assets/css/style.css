@@ -11927,8 +11927,26 @@ body {
 }
 @media (min-width: 768px) {
   .display-2--description {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
+}
+
+.heading-line::before {
+  content: "";
+  width: 10rem;
+  height: 0.2rem;
+  display: block;
+  margin: 0 auto;
+  background-color: #6420aa;
+}
+
+.heading-line::after {
+  content: "";
+  width: 2rem;
+  height: 0.4rem;
+  display: block;
+  margin: 0 auto;
+  background-color: #6420aa;
 }
 
 @keyframes border-pulse {

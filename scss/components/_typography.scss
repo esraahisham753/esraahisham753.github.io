@@ -13,7 +13,7 @@ body {
   @include media-breakpoint-up(md) {
     text-align: left;
   }
-  
+
   &--intro {
     font-weight: 700;
     display: inline-block;
@@ -23,7 +23,7 @@ body {
     font-size: 1rem;
 
     @include media-breakpoint-up(md) {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
 
     display: block;
@@ -32,4 +32,21 @@ body {
   }
 }
 
+// HEADING LINE
+.heading-line::before {
+  content: "";
+  width: 10rem;
+  height: 0.2rem;
+  display: block;
+  margin: 0 auto;
+  background-color: $primary;
+}
 
+.heading-line::after {
+  content: "";
+  width: 2rem;
+  height: 0.4rem;
+  display: block;
+  margin: 0 auto;
+  background-color: $primary;
+}
