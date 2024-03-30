@@ -1,13 +1,16 @@
-@use '../custom' as *;
+@use "../custom" as *;
 
 .services {
-    h2 {
-        i {
-            color: $secondary;
-        }
-    }
+  position: relative;
+  padding: 1rem 0;
 
-    h3 {
-        text-transform: capitalize;
+  h2 {
+    i {
+      color: $secondary;
     }
+  }
+
+  h3 {
+    text-transform: capitalize;
+  }
 }
