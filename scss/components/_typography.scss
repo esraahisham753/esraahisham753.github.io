@@ -59,3 +59,17 @@ h2 {
 .border-right {
   border-right: 0.1rem solid $gray-200;
 }
+
+.display-3 {
+  &--title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    background-image: linear-gradient(to right, $primary, $secondary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    
+  }
+}
