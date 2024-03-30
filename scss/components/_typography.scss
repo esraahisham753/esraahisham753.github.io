@@ -62,7 +62,12 @@ h2 {
 
 .display-3 {
   &--title {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
+
+    @include media-breakpoint-up(lg) {
+      font-size: 1.8rem;
+    }
+    
     font-weight: 600;
     text-transform: capitalize;
     background-image: linear-gradient(to right, $primary, $secondary);
