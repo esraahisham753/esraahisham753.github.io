@@ -30,9 +30,13 @@
     font-size: 1rem;
   }
 
+  a {
+    text-decoration: none;
+  }
+
   &:hover {
     @include gradient;
-    
+
     a {
       color: white !important;
     }
@@ -41,5 +45,4 @@
       background-color: rgba($color: #000000, $alpha: 0.6);
     }
   }
-  
 }
