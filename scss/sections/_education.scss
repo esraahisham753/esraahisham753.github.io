@@ -1,0 +1,9 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+
+.education {
+    padding: 0;
+    position: relative;
+
+    @include gradient;
+}
