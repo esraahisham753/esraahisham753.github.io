@@ -18,6 +18,22 @@
       color: rgba($primary, 0.8);
       font-size: 1.25rem;
     }
+
+    a {
+      color: $primary !important;
+      text-decoration: none !important;
+      font-weight: bold;
+
+      &:hover,
+      &:visited {
+        color: $primary !important;
+      }
+
+      &:hover {
+        text-decoration: underline !important;
+        cursor: pointer;
+      }
+    }
   }
 
   &__provider-pic {

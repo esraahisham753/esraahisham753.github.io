@@ -12008,6 +12008,18 @@ h2 {
   color: rgba(100, 32, 170, 0.8);
   font-size: 1.25rem;
 }
+.education__description a {
+  color: #6420aa !important;
+  text-decoration: none !important;
+  font-weight: bold;
+}
+.education__description a:hover, .education__description a:visited {
+  color: #6420aa !important;
+}
+.education__description a:hover {
+  text-decoration: underline !important;
+  cursor: pointer;
+}
 .education__provider-pic {
   position: absolute;
   left: 50%;
