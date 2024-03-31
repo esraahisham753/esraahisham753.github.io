@@ -35,6 +35,10 @@ body {
 h2 {
   font-size: 2rem !important;
   font-weight: 900 !important;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 1.5rem !important;
+  }
 }
 
 // HEADING LINE

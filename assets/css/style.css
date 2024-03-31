@@ -11938,6 +11938,11 @@ h2 {
   font-size: 2rem !important;
   font-weight: 900 !important;
 }
+@media (max-width: 575.98px) {
+  h2 {
+    font-size: 1.5rem !important;
+  }
+}
 
 .heading-line::before {
   content: "";
