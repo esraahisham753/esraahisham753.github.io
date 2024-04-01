@@ -1,0 +1,41 @@
+@use "../custom" as *;
+
+.blog {
+  .lead {
+    margin-bottom: 5rem;
+  }
+
+  &__post {
+    padding: 1rem;
+    border: 1px solid $primary;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+
+    p {
+      font-size: 1.1rem;
+    }
+  }
+
+  &__heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    @include media-breakpoint-up(lg) {
+      font-size: 1.7rem;
+    }
+
+    a {
+      color: $black;
+    }
+  }
+
+  #main-article {
+    img {
+      margin: 2rem 0;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}

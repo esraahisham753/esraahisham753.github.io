@@ -11992,6 +11992,37 @@ h2 {
     opacity: 0;
   }
 }
+.blog .lead {
+  margin-bottom: 5rem;
+}
+.blog__post {
+  padding: 1rem;
+  border: 1px solid #6420aa;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+.blog__post p {
+  font-size: 1.1rem;
+}
+.blog__heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+@media (min-width: 992px) {
+  .blog__heading {
+    font-size: 1.7rem;
+  }
+}
+.blog__heading a {
+  color: #000;
+}
+.blog #main-article img {
+  margin: 2rem 0;
+}
+.blog #main-article p {
+  font-size: 1.2rem;
+}
+
 .education {
   padding: 0;
   position: relative;

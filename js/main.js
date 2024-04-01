@@ -1,23 +1,23 @@
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
-var requestOptions = {
-  method: "get",
-  headers: myHeaders,
-  redirect: "follow",
-};
-
 const fetchArticles = async () => {
-  let myArticles = [];
+  try {
+    const response = await fetch(
+      "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@esraahisham753"
+    );
+    const data = await response.json();
 
-  await fetch(
-    "https://v1.nocodeapi.com/esraaabduallah/medium/VcEmbMBFVAwcoNHh",
-    requestOptions
-  )
-    .then((response) => response.text())
-    .then((result) => (myArticles = JSON.parse(result)))
-    .catch((error) => console.log("error", error));
-
-  return myArticles;
+    // Check if the response is successful
+    if (data.status === "ok") {
+      // Extract post data from the response
+      const items = data.items;
+      return items;
+    } else {
+      console.error("Error fetching Medium posts:", data.message);
+      return []; // or handle the error in another way
+    }
+  } catch (error) {
+    console.error("Error fetching Medium posts:", error);
+    return []; // or handle the error in another way
+  }
 };
 
 const extractTag = (tagName, htmlString) => {
@@ -38,7 +38,7 @@ const extractSelfClosedTags = (tagName, htmlString) => {
   var tagName = "img";
 
   // Create a regular expression to match the self-closed tag
-  var regex = new RegExp("<" + tagName + ".*?/>", "g");
+  var regex = new RegExp("<" + tagName + ".*?>", "g");
 
   // Execute the regular expression on the HTML string
   var matches = htmlString.match(regex);
@@ -66,14 +66,17 @@ const renderArticle = (articleId) => {
   articleLink.target = "_blank";
   articleLink.textContent = blog[blogIndex].title;
   blogHeading.appendChild(articleLink);
-  blogExcerpt.innerHTML = paragraphs[0] + paragraphs[1];
+  blogExcerpt.innerHTML = paragraphs[0];
 };
 
 fetchArticles().then((response) => {
+  //console.log(response);
   blog = response;
-  console.log(blog);
   // Main article
+
+  console.log(blog[0].content);
   const images = extractSelfClosedTags("img", blog[0].content);
+  console.log(images);
   const paragraphs = extractTag("p", blog[0].content);
   console.log(paragraphs);
   const blogThumbinal = mainArticle.querySelector(".blog__thumbinal");
