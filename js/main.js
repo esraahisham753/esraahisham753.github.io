@@ -1,0 +1,72 @@
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+var requestOptions = {
+  method: "get",
+  headers: myHeaders,
+  redirect: "follow",
+};
+
+const fetchArticles = async () => {
+  let myArticles = [];
+
+  await fetch(
+    "https://v1.nocodeapi.com/esraaabduallah/medium/VcEmbMBFVAwcoNHh",
+    requestOptions
+  )
+    .then((response) => response.text())
+    .then((result) => (myArticles = JSON.parse(result)))
+    .catch((error) => console.log("error", error));
+
+  return myArticles;
+};
+
+const extractTag = (tagName, htmlString) => {
+  // Create a regular expression to match the opening and closing tags
+  var regex = new RegExp("<" + tagName + ">(.*?)</" + tagName + ">", "g");
+
+  // Execute the regular expression on the HTML string
+  var matches = htmlString.match(regex);
+
+  // If matches are found, you can use them as needed
+  if (matches) {
+    return matches; // This will print an array of matches
+  }
+};
+
+const extractSelfClosedTags = (tagName, htmlString) => {
+  // Define the self-closed tag you want to extract (e.g., 'img')
+  var tagName = "img";
+
+  // Create a regular expression to match the self-closed tag
+  var regex = new RegExp("<" + tagName + ".*?/>", "g");
+
+  // Execute the regular expression on the HTML string
+  var matches = htmlString.match(regex);
+
+  // If matches are found, you can use them as needed
+  if (matches) {
+    return matches; // This will print an array of matches
+  }
+};
+
+let blog = [];
+const mainArticle = document.getElementById("main-article");
+
+fetchArticles().then((response) => {
+  blog = response;
+  console.log(blog);
+  // Main article
+  const images = extractSelfClosedTags("img", blog[0].content);
+  const paragraphs = extractTag("p", blog[0].content);
+  console.log(paragraphs);
+  const blogThumbinal = mainArticle.querySelector(".blog__thumbinal");
+  const blogHeading = mainArticle.querySelector(".blog__heading");
+  const blogExcerpt = mainArticle.querySelector(".blog__excerpt");
+  blogThumbinal.innerHTML = images[0];
+  let articleLink = document.createElement("a");
+  articleLink.href = blog[0].link;
+  articleLink.target = "_blank";
+  articleLink.textContent = blog[0].title;
+  blogHeading.appendChild(articleLink);
+  blogExcerpt.innerHTML = paragraphs[0] + paragraphs[1] + paragraphs[2];
+});
