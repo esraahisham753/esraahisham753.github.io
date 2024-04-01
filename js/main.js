@@ -52,6 +52,23 @@ const extractSelfClosedTags = (tagName, htmlString) => {
 let blog = [];
 const mainArticle = document.getElementById("main-article");
 
+const renderArticle = (articleId) => {
+  const article = document.getElementById(articleId);
+  const blogIndex = parseInt(articleId[articleId.length - 1]);
+  const images = extractSelfClosedTags("img", blog[blogIndex].content);
+  const paragraphs = extractTag("p", blog[blogIndex].content);
+  const blogThumbinal = article.querySelector(".blog__thumbinal");
+  const blogHeading = article.querySelector(".blog__heading");
+  const blogExcerpt = article.querySelector(".blog__excerpt");
+  blogThumbinal.innerHTML = images[0];
+  let articleLink = document.createElement("a");
+  articleLink.href = blog[blogIndex].link;
+  articleLink.target = "_blank";
+  articleLink.textContent = blog[blogIndex].title;
+  blogHeading.appendChild(articleLink);
+  blogExcerpt.innerHTML = paragraphs[0] + paragraphs[1];
+};
+
 fetchArticles().then((response) => {
   blog = response;
   console.log(blog);
@@ -69,4 +86,8 @@ fetchArticles().then((response) => {
   articleLink.textContent = blog[0].title;
   blogHeading.appendChild(articleLink);
   blogExcerpt.innerHTML = paragraphs[0] + paragraphs[1] + paragraphs[2];
+  // Side articles
+  renderArticle("article1");
+  renderArticle("article2");
+  renderArticle("article3");
 });
