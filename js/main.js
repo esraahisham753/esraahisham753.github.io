@@ -69,6 +69,15 @@ const renderArticle = (articleId) => {
   blogExcerpt.innerHTML = paragraphs[0];
 };
 
+const limitExcerpt = () => {
+  const blogPosts = document.querySelectorAll(".blog__post");
+  blogPosts.forEach((blogPost) => {
+    const paragraph = blogPost.querySelector(".blog__excerpt p");
+    console.log(paragraph.textContent.slice(0, 50) + "...");
+    paragraph.textContent = paragraph.textContent.slice(0, 100) + "...";
+  });
+};
+
 fetchArticles().then((response) => {
   //console.log(response);
   blog = response;
@@ -93,4 +102,8 @@ fetchArticles().then((response) => {
   renderArticle("article1");
   renderArticle("article2");
   renderArticle("article3");
+  renderArticle("article4");
+  renderArticle("article5");
+  renderArticle("article6");
+  limitExcerpt();
 });
