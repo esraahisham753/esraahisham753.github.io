@@ -1,7 +1,24 @@
-@use '../custom' as *;
-@use '../components/mixins' as *;
+@use "../custom" as *;
+@use "../components/mixins" as *;
 
 .contact {
-    padding: 2rem;
-    background-color: $gray-200;
+  padding: 2rem;
+  background-color: $gray-200;
+
+  &__start {
+    padding: 3rem;
+    margin: 3rem 0;
+  }
+
+  &__list {
+    padding-top: 1.5rem;
+    padding-left: 2rem;
+    position: relative;
+    display: block;
+    list-style-type: none;
+
+    li {
+      font-weight: 600;
+    }
+  }
 }

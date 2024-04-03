@@ -11982,6 +11982,10 @@ h2 {
   }
 }
 
+.display-4--brief {
+  font-size: 2rem;
+}
+
 .gradient {
   background: linear-gradient(to right, rgba(100, 32, 170, 0.95), rgba(251, 168, 52, 0.95) 99%);
 }
@@ -12058,6 +12062,20 @@ h2 {
 .contact {
   padding: 2rem;
   background-color: #e9ecef;
+}
+.contact__start {
+  padding: 3rem;
+  margin: 3rem 0;
+}
+.contact__list {
+  padding-top: 1.5rem;
+  padding-left: 2rem;
+  position: relative;
+  display: block;
+  list-style-type: none;
+}
+.contact__list li {
+  font-weight: 600;
 }
 
 .education {

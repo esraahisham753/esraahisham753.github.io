@@ -71,7 +71,7 @@ h2 {
     @include media-breakpoint-up(lg) {
       font-size: 1.8rem;
     }
-    
+
     font-weight: 600;
     text-transform: capitalize;
     background-image: linear-gradient(to right, $primary, $secondary);
@@ -79,7 +79,12 @@ h2 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
-    
+  }
+}
+
+.display-4 {
+  &--brief {
+    font-size: 2rem;
   }
 }
 
