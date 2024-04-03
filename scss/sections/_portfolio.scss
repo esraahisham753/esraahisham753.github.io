@@ -9,9 +9,13 @@
   }
 
   &__item {
+    border-top: 10px solid;
+    border-image: linear-gradient(to right, $primary, $secondary);
+    border-image-slice: 1;
+    border-radius: 10px;
     position: relative;
     width: 100%;
-    height: 18.5rem;
+    height: 20rem;
     overflow: hidden;
     margin-bottom: 2rem;
 
@@ -19,16 +23,25 @@
       width: 100%;
       height: 100%;
     }
+
+    &:hover {
+      .portfolio__info {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
   }
 
   &__info {
     width: 100%;
     height: 100%;
-    background-color: rgba($primary, 0.7);
+    background-color: rgba($purple-light, 0.9);
     color: $white;
     text-align: center;
     position: absolute;
     top: 0;
+    opacity: 0;
+    visibility: hidden;
   }
 
   &__caption {
@@ -36,6 +49,16 @@
 
     a {
       color: $white;
+    }
+
+    h3 {
+      font-size: 1.7rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
     }
   }
 }
