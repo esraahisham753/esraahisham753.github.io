@@ -11982,6 +11982,10 @@ h2 {
   }
 }
 
+.gradient {
+  background: linear-gradient(to right, rgba(100, 32, 170, 0.95), rgba(251, 168, 52, 0.95) 99%);
+}
+
 @keyframes border-pulse {
   0% {
     transform: scale(1);
