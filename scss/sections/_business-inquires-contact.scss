@@ -1,0 +1,7 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+
+.contact {
+    padding: 2rem;
+    background-color: $gray-200;
+}

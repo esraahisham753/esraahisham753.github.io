@@ -15,3 +15,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin transitionProperty {
+  transition: all 500ms ease-in-out;
+}

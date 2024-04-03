@@ -25,9 +25,14 @@
     }
 
     &:hover {
+      img {
+        transform: scale(1.2);
+        @include transitionProperty;
+      }
       .portfolio__info {
         opacity: 1;
         visibility: visible;
+        @include transitionProperty;
       }
     }
   }
@@ -40,6 +45,7 @@
     text-align: center;
     position: absolute;
     top: 0;
+    left: 0;
     opacity: 0;
     visibility: hidden;
   }

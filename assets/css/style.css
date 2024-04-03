@@ -11994,7 +11994,7 @@ h2 {
 }
 .blog {
   padding: 3rem 0;
-  background-color: #f8f9fa;
+  background-color: #e9ecef;
   border-radius: 0.325rem;
 }
 .blog .lead {
@@ -12049,6 +12049,11 @@ h2 {
   width: 50%;
   margin: auto;
   display: block;
+}
+
+.contact {
+  padding: 2rem;
+  background-color: #e9ecef;
 }
 
 .education {
@@ -12206,9 +12211,14 @@ h2 {
   width: 100%;
   height: 100%;
 }
+.portfolio__item:hover img {
+  transform: scale(1.2);
+  transition: all 500ms ease-in-out;
+}
 .portfolio__item:hover .portfolio__info {
   opacity: 1;
   visibility: visible;
+  transition: all 500ms ease-in-out;
 }
 .portfolio__info {
   width: 100%;
@@ -12218,6 +12228,7 @@ h2 {
   text-align: center;
   position: absolute;
   top: 0;
+  left: 0;
   opacity: 0;
   visibility: hidden;
 }
