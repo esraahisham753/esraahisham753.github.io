@@ -12060,24 +12060,28 @@ h2 {
 }
 
 .contact {
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: #e9ecef;
 }
 .contact__start {
   padding: 3rem;
-  margin: 3rem 0;
+  margin: 4rem 0;
 }
 .contact__list {
-  padding-top: 1.5rem;
+  padding-top: 0.5rem;
   padding-left: 2rem;
   position: relative;
   display: block;
   list-style-type: none;
 }
 .contact__list li {
-  font-weight: 600;
+  font-weight: 500;
+  padding-bottom: 0.5rem;
 }
-
+.contact__list li i {
+  font-weight: 900;
+  font-size: 1.2rem;
+}
 .education {
   padding: 0;
   position: relative;

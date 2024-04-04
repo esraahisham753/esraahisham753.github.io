@@ -2,23 +2,33 @@
 @use "../components/mixins" as *;
 
 .contact {
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: $gray-200;
 
   &__start {
     padding: 3rem;
-    margin: 3rem 0;
+    margin: 4rem 0;
   }
 
   &__list {
-    padding-top: 1.5rem;
+    padding-top: 0.5rem;
     padding-left: 2rem;
     position: relative;
     display: block;
     list-style-type: none;
 
     li {
-      font-weight: 600;
+      font-weight: 500;
+      padding-bottom: 0.5rem;
+
+      i {
+        font-weight: 900;
+        font-size: 1.2rem;
+      }
     }
+  }
+
+  &__form {
+    
   }
 }
