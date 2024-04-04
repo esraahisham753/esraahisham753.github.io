@@ -1,7 +1,7 @@
 const fetchArticles = async () => {
   try {
     const response = await fetch(
-      "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@esraahisham753"
+      "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@esraahisham753",
     );
     const data = await response.json();
 
@@ -112,32 +112,31 @@ fetchArticles().then((response) => {
 // Assuming you have a form with id "emailForm"
 const form = document.getElementById("contact-form");
 
-form.addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
+form.addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent default form submission
 
-    // Gather form data
-    const formData = new FormData(form);
-    const email = formData.get("email");
-    const message = formData.get("message");
+  // Gather form data
+  const formData = new FormData(form);
+  const email = formData.get("email");
+  const message = formData.get("message");
 
-    // Send data to backend
-    fetch("https://solid-eureka-q7wgrgrj5xr24vvv-3000.app.github.dev" + "/send-email", {
-        method: "POST",
-        body: JSON.stringify({ email, message }),
-        headers: {
-            "Content-Type": "application/json"
-        }
+  // Send data to backend
+  fetch("https://{sandbox-id}.sse.codesandbox.io/" + "send-email", {
+    method: "POST",
+    body: JSON.stringify({ email, message }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        alert("Email sent successfully!");
+      } else {
+        alert("Failed to send email. Please try again later.");
+      }
     })
-    .then(response => {
-        if (response.ok) {
-            alert("Email sent successfully!");
-        } else {
-            alert("Failed to send email. Please try again later.");
-        }
-    })
-    .catch(error => {
-        console.error("Error:", error);
-        alert("An error occurred. Please try again later.");
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("An error occurred. Please try again later.");
     });
 });
-
