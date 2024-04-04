@@ -107,3 +107,37 @@ fetchArticles().then((response) => {
   renderArticle("article6");
   limitExcerpt();
 });
+
+// Handle form data
+// Assuming you have a form with id "emailForm"
+const form = document.getElementById("emailForm");
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Gather form data
+    const formData = new FormData(form);
+    const email = formData.get("email");
+    const message = formData.get("message");
+
+    // Send data to backend
+    fetch("/send-email", {
+        method: "POST",
+        body: JSON.stringify({ email, message }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("Email sent successfully!");
+        } else {
+            alert("Failed to send email. Please try again later.");
+        }
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again later.");
+    });
+});
+

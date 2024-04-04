@@ -12064,24 +12064,57 @@ h2 {
   background-color: #e9ecef;
 }
 .contact__start {
-  padding: 3rem;
-  margin: 4rem 0;
+  padding: 1rem;
+}
+@media (min-width: 576px) {
+  .contact__start {
+    padding: 3rem;
+  }
+}
+.contact__start h3 {
+  margin-top: 0;
+  padding-top: 0;
+}
+.contact__start p {
+  font-weight: bold;
 }
 .contact__list {
   padding-top: 0.5rem;
-  padding-left: 2rem;
+  padding-left: 1rem;
   position: relative;
   display: block;
   list-style-type: none;
 }
+@media (min-width: 576px) {
+  .contact__list {
+    padding-left: 2rem;
+  }
+}
 .contact__list li {
-  font-weight: 500;
+  font-weight: bold;
   padding-bottom: 0.5rem;
 }
 .contact__list li i {
   font-weight: 900;
   font-size: 1.2rem;
 }
+.contact__form {
+  padding: 1rem;
+}
+@media (min-width: 576px) {
+  .contact__form {
+    padding: 3rem;
+  }
+}
+.contact__form button {
+  border: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.contact__form button i {
+  margin-right: 0.5rem;
+}
+
 .education {
   padding: 0;
   position: relative;
