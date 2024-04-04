@@ -4,7 +4,8 @@
   "description": "The second version of my portfolio",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "sass --watch scss:assets/css"
+    "compile:sass": "sass --watch scss:assets/css",
+    "start:server": "node server.js"
   },
   "keywords": [
     "Portfolio",
@@ -23,6 +24,7 @@
     "autoprefixer": "^10.4.19",
     "body-parser": "^1.20.2",
     "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "nodemailer": "^6.9.13",
     "postcss-cli": "^11.0.0"

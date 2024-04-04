@@ -948,7 +948,7 @@
           <div class="col-12 col-lg-6 bg-white">
             <div class="contact__form w-100">
               <h3 class="display-3--title mb-5">Start Your project now!</h3>
-              <form class="row g-3">
+              <form id="contact-form" class="row g-3">
                 <div class="col-md-6 mb-3">
                   <label for="firstname" class="form-label visually-hidden"
                     >First Name</label
@@ -958,7 +958,8 @@
                     class="form-control form-control-lg shadow"
                     placeholder="First Name"
                     id="firstname"
-                    name="firstname" />
+                    name="firstname"
+                    required />
                 </div>
                 <div class="col-md-6">
                   <label for="lastname" class="form-label visually-hidden"
@@ -969,7 +970,9 @@
                     class="form-control form-control-lg shadow"
                     placeholder="last Name"
                     id="lastname"
-                    name="lastname" />
+                    name="lastname"
+                    required
+                     />
                 </div>
                 <div class="col-12 mb-3">
                   <label for="email" class="form-label visually-hidden"
@@ -979,7 +982,9 @@
                     type="email"
                     class="form-control form-control-lg shadow"
                     id="email"
-                    placeholder="Email" />
+                    placeholder="Email"
+                    name="email"
+                    required />
                 </div>
                 <div class="col-12 mb-3">
                   <label for="message" class="form-label visually-hidden"
@@ -990,6 +995,7 @@
                     id="message"
                     rows="8"
                     class="form-control form-control-lg shadow"
+                    required
                     placeholder="message"></textarea>
                 </div>
                 <div class="col-12">

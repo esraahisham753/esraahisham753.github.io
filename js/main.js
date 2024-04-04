@@ -110,7 +110,7 @@ fetchArticles().then((response) => {
 
 // Handle form data
 // Assuming you have a form with id "emailForm"
-const form = document.getElementById("emailForm");
+const form = document.getElementById("contact-form");
 
 form.addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent default form submission
@@ -121,7 +121,7 @@ form.addEventListener("submit", function(event) {
     const message = formData.get("message");
 
     // Send data to backend
-    fetch("/send-email", {
+    fetch("https://solid-eureka-q7wgrgrj5xr24vvv-3000.app.github.dev" + "/send-email", {
         method: "POST",
         body: JSON.stringify({ email, message }),
         headers: {
