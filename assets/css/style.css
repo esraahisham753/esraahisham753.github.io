@@ -13,8 +13,17 @@ img {
   height: auto;
 }
 
-input, button {
+input,
+button {
   font: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin: 6rem;
 }
 
 /*!
@@ -12165,6 +12174,26 @@ h2 {
 }
 .education__provider-name p {
   font-size: 1.1rem;
+}
+
+.footer {
+  background: linear-gradient(to right, rgba(100, 32, 170, 0.95), rgba(251, 168, 52, 0.95) 99%);
+  color: #fff;
+  padding: 2rem 0 0 0;
+}
+.footer h2 {
+  margin-bottom: 1.5rem;
+}
+.footer__social-link {
+  margin-bottom: 1rem;
+}
+.footer__social-link a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+.footer__social-link a i {
+  font-size: 1.2rem;
 }
 
 .intro {

@@ -1,0 +1,24 @@
+@use "../custom" as *;
+@use "../components/mixins" as *;
+
+.footer {
+  @include gradient;
+  color: $white;
+  padding: 2rem 0 0 0;
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  &__social-link {
+    margin-bottom: 1rem;
+    a {
+      color: $white;
+      font-weight: bold;
+      text-decoration: none;
+      i {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
