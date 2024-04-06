@@ -110,6 +110,7 @@ fetchArticles().then((response) => {
 
 // Handle form data
 // Assuming you have a form with id "emailForm"
+
 const form = document.getElementById("contact-form");
 
 form.addEventListener("submit", function (event) {
@@ -119,24 +120,6 @@ form.addEventListener("submit", function (event) {
   const formData = new FormData(form);
   const email = formData.get("email");
   const message = formData.get("message");
-
-  // Send data to backend
-  fetch("https://{sandbox-id}.sse.codesandbox.io/" + "send-email", {
-    method: "POST",
-    body: JSON.stringify({ email, message }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => {
-      if (response.ok) {
-        alert("Email sent successfully!");
-      } else {
-        alert("Failed to send email. Please try again later.");
-      }
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      alert("An error occurred. Please try again later.");
-    });
+  const firstName = formData.get("firstName");
+  const lastName = formData.get("lastName");
 });
