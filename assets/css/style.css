@@ -12298,6 +12298,7 @@ h2 {
 .portfolio__item img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 .portfolio__item:hover img {
   transform: scale(1.2);
@@ -12396,6 +12397,8 @@ h2 {
 }
 .skills__logobox img {
   height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 .skills__logobox img:hover {
   filter: grayscale(120);
