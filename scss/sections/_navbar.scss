@@ -2,25 +2,53 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap");
 
 .menu {
-  @include gradient;
+  background: linear-gradient(to right, #2b5876, #4e4376);
+  padding: 1rem;
+  transition: all 0.3s ease;
 
   .navbar-brand {
-    color: #f9f3df;
-    font-size: 36px;
-    font-weight: 100;
-    font-family: "Rubik Bubbles";
-    text-shadow: 2px 2px 4px #000;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    
+    i {
+      color: #40E0D0;
+      margin: 0 0.5rem;
+      animation: pulse 2s infinite;
+    }
+  }
 
-    a:hover {
-      color: #f9f3df;
+  .nav-link {
+    color: rgba(255,255,255,0.9) !important;
+    text-transform: uppercase;
+    font-weight: 500;
+    position: relative;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #40E0D0;
+      transition: width 0.3s ease;
     }
 
-    .fa-brain {
-      color: #fa7070;
+    &:hover:after {
+      width: 100%;
     }
+  }
 
-    .fa-palette {
-      color: #fdaf7b;
+  .btn-rounded {
+    background: #40E0D0;
+    color: #2b5876;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(64,224,208,0.3);
     }
   }
 

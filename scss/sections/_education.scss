@@ -2,65 +2,159 @@
 @use "../components/mixins" as *;
 
 .education {
-  padding: 0;
-  position: relative;
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+  color: white;
 
-  @include gradient;
+  .heading-line {
+    width: 100px;
+    height: 3px;
+    background: #40E0D0;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+  }
 
-  &__description {
-    background-color: rgba($white, 0.8);
-    padding: 2rem 1.25rem;
-    height: auto;
-    border-radius: 0.625rem;
-    text-align: center;
+  .lead {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 4rem;
+  }
 
-    i {
-      color: rgba($primary, 0.8);
-      font-size: 1.25rem;
-    }
+  &__timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
 
-    a {
-      color: $primary !important;
-      text-decoration: none !important;
-      font-weight: bold;
-
-      &:hover,
-      &:visited {
-        color: $primary !important;
-      }
-
-      &:hover {
-        text-decoration: underline !important;
-        cursor: pointer;
-      }
+    &::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      top: 0;
     }
   }
 
-  &__provider-pic {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 6rem;
-    height: 6rem;
+  &__item {
+    margin-bottom: 3rem;
+    position: relative;
 
+    &:nth-child(odd) {
+      padding-right: 50%;
+      .education__content {
+        margin-right: 4rem;
+      }
+    }
+
+    &:nth-child(even) {
+      padding-left: 50%;
+      .education__content {
+        margin-left: 4rem;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #40E0D0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 20px rgba(64,224,208,0.5);
+    }
+  }
+
+  &__content {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  &__logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+    
     img {
       width: 100%;
       height: 100%;
-      border: 0.325rem solid rgba($primary, 0.8);
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #40E0D0;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(64,224,208,0.3);
+      }
     }
   }
 
-  &__provider-name {
-    color: $white;
-    text-align: center;
-    padding-top: 4rem;
-
+  &__details {
     h3 {
-      font-weight: bold;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #40E0D0;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+
+    i {
+      color: #40E0D0;
+      margin-right: 0.5rem;
     }
 
-    p {
-      font-size: 1.1rem;
+    a {
+      color: #40E0D0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  &__school {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    &__timeline::before {
+      left: 0;
+    }
+
+    &__item {
+      padding: 0 0 0 3rem !important;
+      
+      &::before {
+        left: 0;
+      }
+
+      .education__content {
+        margin: 0 !important;
+      }
     }
   }
 }

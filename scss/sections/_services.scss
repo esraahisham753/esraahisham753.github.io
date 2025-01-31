@@ -2,33 +2,50 @@
 
 .services {
   position: relative;
-  padding: 1rem 0;
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+  color: white;
+
+  .heading-line {
+    width: 100px;
+    height: 3px;
+    background: #40E0D0;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+  }
 
   h2 {
+    color: white;
     i {
-      color: $secondary;
+      color: #40E0D0;
     }
   }
 
   &__content {
-    padding: 1rem;
+    padding: 2rem;
 
     @include media-breakpoint-up(lg) {
       margin-top: 5rem;
     }
 
     .icon {
-      font-size: 1.5rem;
+      color: #40E0D0;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
 
-      @include media-breakpoint-up(lg) {
-        font-size: 2.5rem;
-      }
-
-      color: $primary;
+    .display-3--title {
+      font-size: 1.8rem;
+      text-transform: capitalize;
+      font-weight: 600;
+      background: linear-gradient(to right, #fff, #40E0D0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     p {
       font-size: 1rem;
+      color: rgba(255, 255, 255, 0.9);
 
       @include media-breakpoint-up(lg) {
         font-size: 1.1rem;
@@ -41,5 +58,10 @@
     margin-top: 4rem;
     display: grid;
     place-content: center;
+    
+    img {
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
   }
 }

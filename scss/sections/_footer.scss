@@ -2,23 +2,38 @@
 @use "../components/mixins" as *;
 
 .footer {
-  @include gradient;
-  color: $white;
-  padding: 2rem 0 0 0;
+  background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+  padding: 5rem 0 2rem;
+  color: white;
 
   h2 {
     margin-bottom: 1.5rem;
   }
 
   &__social-link {
-    margin-bottom: 1rem;
+    margin: 1rem 0;
+    transition: all 0.3s ease;
+
     a {
-      color: $white;
-      font-weight: bold;
+      color: white;
       text-decoration: none;
+      padding: 1rem;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: rgba(255,255,255,0.1);
+        color: #00ff88;
+      }
+
       i {
-        font-size: 1.2rem;
+        margin-right: 0.5rem;
       }
     }
+  }
+
+  &__copyright {
+    margin-top: 3rem;
+    color: rgba(255,255,255,0.7);
   }
 }
