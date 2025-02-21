@@ -7,6 +7,29 @@
   box-sizing: border-box;
 }
 
+.skills__logobox {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 250px; /* Set fixed height */
+  width: 250px;  /* Set fixed width */
+  display: flex;  /* Enable flexbox */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+.skills__logobox img {
+  transition: all 0.3s ease;
+  max-width: 100%;  /* Ensure image doesn't overflow */
+  max-height: 100%; /* Ensure image doesn't overflow */
+  width: auto;      /* Maintain aspect ratio */
+  height: auto;     /* Maintain aspect ratio */
+  object-fit: contain; /* Ensure entire image is visible */
+}
+
 img {
   display: block;
   width: 100%;
