@@ -1,28 +1,37 @@
+@use "../custom" as *;
 @use "../components/mixins" as *;
-@import url("https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@700&display=swap");
 
 .menu {
-  background: linear-gradient(to right, #2b5876, #4e4376);
+  background: linear-gradient(135deg, $royal-purple 0%, $royal-purple-light 100%);
   padding: 1rem;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(107, 62, 143, 0.3);
 
   .navbar-brand {
     font-size: 1.8rem;
     font-weight: 700;
     color: #fff;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
     
     i {
-      color: #40E0D0;
+      color: $rose-gold;
       margin: 0 0.5rem;
-      animation: pulse 2s infinite;
+      animation: sparkle 2s infinite;
+      text-shadow: 0 0 10px rgba(244, 169, 168, 0.6);
     }
   }
 
   .nav-link {
-    color: rgba(255,255,255,0.9) !important;
+    color: #fff !important;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 600;
     position: relative;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     
     &:after {
       content: '';
@@ -30,25 +39,31 @@
       bottom: 0;
       left: 0;
       width: 0;
-      height: 2px;
-      background: #40E0D0;
+      height: 3px;
+      background: linear-gradient(90deg, #FFD700, #FFC700);
       transition: width 0.3s ease;
+      border-radius: 2px;
     }
 
     &:hover:after {
       width: 100%;
     }
+
+    &:hover {
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
   }
 
   .btn-rounded {
-    background: #40E0D0;
-    color: #2b5876;
+    background: linear-gradient(135deg, $rose-gold, $soft-pink);
+    color: $royal-purple;
     font-weight: bold;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(244, 169, 168, 0.4);
 
     &:hover {
       transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(64,224,208,0.3);
+      box-shadow: 0 8px 25px rgba(244, 169, 168, 0.6);
     }
   }
 
@@ -59,7 +74,7 @@
       text-transform: capitalize;
       color: #fff !important;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
   }
 

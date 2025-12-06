@@ -1,54 +1,101 @@
 @use "../custom" as *;
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap");
 
 .services {
   position: relative;
   padding: 5rem 0;
-  background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+  background: linear-gradient(135deg, $royal-purple 0%, $royal-purple-light 50%, $lavender 100%);
   color: white;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23FFB6D9" fill-opacity="0.08"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
+    pointer-events: none;
+    opacity: 0.3;
+  }
 
   .heading-line {
-    width: 100px;
-    height: 3px;
-    background: #40E0D0;
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(90deg, $rose-gold, $soft-pink, $rose-gold);
     margin: 0 auto;
     margin-bottom: 3rem;
+    border-radius: 2px;
+    box-shadow: 0 0 20px rgba(244, 169, 168, 0.4);
   }
 
   h2 {
-    color: white;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    z-index: 2;
+
     i {
-      color: #40E0D0;
+      color: $rose-gold;
+      margin: 0 0.5rem;
+      animation: sparkle 2s infinite;
     }
   }
 
   &__content {
     padding: 2rem;
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
 
     @include media-breakpoint-up(lg) {
       margin-top: 5rem;
     }
 
     .icon {
-      color: #40E0D0;
-      font-size: 3rem;
+      color: $soft-pink;
+      font-size: 3.5rem;
       margin-bottom: 1rem;
+      animation: float 6s ease-in-out infinite;
+      text-shadow: 0 0 20px rgba(255, 182, 217, 0.5);
     }
 
     .display-3--title {
       font-size: 1.8rem;
       text-transform: capitalize;
-      font-weight: 600;
-      background: linear-gradient(to right, #fff, #40E0D0);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
 
     p {
       font-size: 1rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.8;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 
       @include media-breakpoint-up(lg) {
         font-size: 1.1rem;
+      }
+    }
+
+    button {
+      background: linear-gradient(135deg, $rose-gold, $soft-pink);
+      border: none;
+      color: $royal-purple;
+      font-weight: 600;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(244, 169, 168, 0.5);
+      }
+
+      a {
+        color: $royal-purple;
       }
     }
   }
@@ -58,10 +105,32 @@
     margin-top: 4rem;
     display: grid;
     place-content: center;
+    perspective: 1000px;
+    position: relative;
+    z-index: 2;
     
     img {
-      border-radius: 15px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      border-radius: 25px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4),
+                  0 0 40px rgba(244, 169, 168, 0.3);
+      transition: all 0.4s ease;
+      transform: rotateY(0deg);
+    }
+
+    &:hover img {
+      transform: rotateY(10deg) scale(1.03);
+      box-shadow: 0 35px 70px rgba(0,0,0,0.5),
+                  0 0 50px rgba(244, 169, 168, 0.5);
     }
   }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.2); }
 }

@@ -1,7 +1,15 @@
-// My theme colors
-$purple-light: #7f27ff;
-$purple-dark: #6420aa;
-$yellow: #fba834;
+// My theme colors - Royal Purple Disney Theme
+$royal-purple: #6B3E8F; // Royal Purple Primary
+$royal-purple-light: #9B6BC7; // Light Royal Purple
+$royal-purple-lighter: #D4A6E8; // Lighter for accents
+$royal-purple-dark: #4A2860; // Darker purple for text contrast
+$rose-gold: #F4A9A8; // Rose gold for romantic accents
+$soft-pink: #FFB6D9; // Soft pink for girly touches
+$dark-pink: #D8739F; // Darker pink for text contrast
+$cream: #FFF5F9; // Soft cream background
+$gold-accent: #FFD700; // Gold accents
+$lavender: #E6D5F0; // Soft lavender
+$dark-text: #3D2645; // Dark text for high contrast
 
 // scss-docs-start gray-color-variables
 $white: #fff;
@@ -17,9 +25,9 @@ $gray-900: #212529;
 $black: #000;
 
 // Main colors
-$primary: $purple-dark;
-$secondary: $yellow;
-$active: #fefded;
+$primary: $royal-purple;
+$secondary: $rose-gold;
+$active: $cream;
 
 // Accordion icon colors
 $accordion-icon-color: $primary;

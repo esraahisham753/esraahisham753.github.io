@@ -1,45 +1,86 @@
 @use "../custom" as *;
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap");
 
 .blog {
   padding: 5rem 0;
-  background: #f8f9fa;
+  background: linear-gradient(135deg, $cream 0%, $lavender 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(244, 169, 168, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    color: $royal-purple-dark;
+    position: relative;
+    z-index: 2;
+
+    i {
+      color: #E85D75;
+      margin: 0 0.5rem;
+      animation: sparkle 2s infinite;
+    }
+  }
 
   .heading-line {
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(to right, #2b5876, #4e4376);
+    width: 150px;
+    height: 4px;
+    background: linear-gradient(90deg, #E85D75, #D8739F, #E85D75);
     margin: 0 auto;
     margin-bottom: 3rem;
+    border-radius: 2px;
+    box-shadow: 0 0 20px rgba(232, 93, 117, 0.3);
   }
 
   .lead {
-    color: #666;
+    color: $royal-purple-dark;
     margin-bottom: 3rem;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    z-index: 2;
+    font-weight: 600;
   }
 
   &__post {
-    background: white;
-    border-radius: 15px;
+    background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.95) 100%);
+    border-radius: 20px;
     overflow: hidden;
     margin-bottom: 2rem;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 15px 35px rgba(107, 62, 143, 0.15);
+    border: 2px solid transparent;
+    position: relative;
+    z-index: 2;
     
     &:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(43,88,118,0.2);
+      transform: translateY(-15px) rotateX(5deg);
+      box-shadow: 0 30px 60px rgba(107, 62, 143, 0.3),
+                  0 0 30px rgba(244, 169, 168, 0.2);
+      border: 2px solid rgba(244, 169, 168, 0.3);
     }
 
     .blog__thumbinal {
       overflow: hidden;
+      background: linear-gradient(135deg, $rose-gold, $soft-pink);
       
       img {
         width: 100%;
         height: 300px;
         object-fit: cover;
-        transition: transform 0.3s ease;
+        transition: transform 0.4s ease;
 
         &:hover {
-          transform: scale(1.1);
+          transform: scale(1.12) rotateZ(2deg);
         }
       }
     }
@@ -49,23 +90,27 @@
       margin: 0;
 
       a {
-        color: #2b5876;
+        color: $royal-purple-dark;
         text-decoration: none;
         font-size: 1.5rem;
-        font-weight: 600;
-        transition: color 0.3s ease;
+        font-weight: 700;
+        font-family: 'Playfair Display', serif;
+        transition: all 0.3s ease;
         
         &:hover {
-          color: #4e4376;
+          color: #E85D75;
+          text-shadow: 0 2px 8px rgba(232, 93, 117, 0.3);
         }
       }
     }
 
     .blog__excerpt {
       padding: 0 1.5rem 1.5rem;
-      color: #666;
+      color: $royal-purple-dark;
       font-size: 1rem;
-      line-height: 1.6;
+      line-height: 1.7;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
 
       p {
         margin: 0;
@@ -96,7 +141,7 @@
       .blog__thumbinal {
         img {
           height: 200px;
-          border-radius: 10px;
+          border-radius: 10px 0 0 10px;
         }
       }
 
@@ -117,33 +162,40 @@
   // More Articles button
   .btn-rounded {
     margin-top: 2rem;
-    background: linear-gradient(to right, #2b5876, #4e4376);
+    background: linear-gradient(135deg, $rose-gold, $soft-pink);
     border: none;
+    box-shadow: 0 8px 25px rgba(244, 169, 168, 0.4);
+    transition: all 0.3s ease;
     
     a {
-      color: white;
+      color: $royal-purple;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
     }
     
     &:hover {
-      background: #00ff88;
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0,255,136,0.3);
+      background: linear-gradient(135deg, $soft-pink, $rose-gold);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(244, 169, 168, 0.6);
 
       a {
-        color: #2b5876;  // Dark color for contrast on light background
+        color: $royal-purple;
       }
 
       span {
-        background: #2b5876;
-        color: white;
+        background: $royal-purple;
+        color: $soft-pink;
       }
     }
 
     span {
-      background: #00ff88;
-      color: #2b5876;
+      background: $royal-purple;
+      color: $soft-pink;
     }
   }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.2); }
 }
