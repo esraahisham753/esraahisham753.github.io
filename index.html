@@ -182,6 +182,32 @@
         font-size: 10px;
         color: #ff00cc;
       }
+
+      /* --- 3D Flip Card Animation --- */
+      .perspective-1000 {
+        perspective: 1000px;
+      }
+
+      .preserve-3d {
+        transform-style: preserve-3d;
+      }
+
+      .backface-hidden {
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+      }
+
+      .rotate-y-180 {
+        transform: rotateY(180deg);
+      }
+
+      .group:hover .rotate-y-180 {
+        transform: rotateY(180deg);
+      }
+
+      .group .absolute.inset-0 {
+        transition: transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
     </style>
   </head>
   <body class="font-body selection:bg-royal-gold selection:text-royal-purple">
@@ -683,9 +709,9 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <!-- Project Card Template -->
             <div class="group relative h-72 perspective-1000">
-                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl transform transition-transform duration-700 group-hover:rotate-y-180 preserve-3d cursor-pointer border-2 border-royal-gold/10">
+                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl overflow-hidden cursor-pointer border-2 border-royal-gold/10">
                     <!-- Front -->
-                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl">
+                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl group-hover:opacity-0 transition-opacity duration-500 ease-in-out">
                         <img src="images/portfolio/esresumes.png" alt="Es Resume" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/600x400/2e0249/ffd700?text=Project'">
                         <div class="absolute inset-0 bg-gradient-to-t from-royal-dark/90 via-transparent to-transparent"></div>
                         <div class="absolute bottom-6 left-6">
@@ -694,7 +720,7 @@
                         </div>
                     </div>
                     <!-- Back -->
-                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl rotate-y-180 backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)]">
+                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
                         <h3 class="font-royal text-2xl text-royal-gold mb-3">Es Resume Analyzer</h3>
                         <p class="text-gray-300 text-sm mb-6 leading-relaxed font-light">Analyzes your resume and gives you detailed ATS scores for your dream job.</p>
                         <a href="https://puter.com/app/es-resume-analyzer" target="_blank" class="px-6 py-2 bg-gradient-to-r from-royal-gold to-orange-400 text-royal-dark font-bold rounded-full text-sm hover:scale-105 transition-transform shadow-lg font-royal">
@@ -705,8 +731,8 @@
             </div>
 
              <div class="group relative h-72 perspective-1000">
-                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl transform transition-transform duration-700 group-hover:rotate-y-180 preserve-3d cursor-pointer border-2 border-royal-gold/10">
-                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl">
+                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl overflow-hidden cursor-pointer border-2 border-royal-gold/10">
+                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl group-hover:opacity-0 transition-opacity duration-500 ease-in-out">
                         <img src="images/portfolio/esfood.png" alt="Es Food" class="w-full h-full object-cover opacity-90" onerror="this.src='https://placehold.co/600x400/2e0249/ffd700?text=Food+App'">
                         <div class="absolute inset-0 bg-gradient-to-t from-royal-dark/90 via-transparent to-transparent"></div>
                         <div class="absolute bottom-6 left-6">
@@ -714,7 +740,7 @@
                             <p class="text-royal-gold text-sm uppercase tracking-wider mt-1">React Native</p>
                         </div>
                     </div>
-                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl rotate-y-180 backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)]">
+                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
                         <h3 class="font-royal text-2xl text-royal-gold mb-3">Es Food App</h3>
                         <p class="text-gray-300 text-sm mb-6 leading-relaxed font-light">React Native App to Make customized Food orders.</p>
                         <a href="https://youtu.be/CVkR-jU-vyE?si=mUjPDk_sUPBcaQwE" target="_blank" class="px-6 py-2 bg-gradient-to-r from-royal-gold to-orange-400 text-royal-dark font-bold rounded-full text-sm hover:scale-105 transition-transform shadow-lg font-royal">
@@ -725,8 +751,8 @@
             </div>
 
             <div class="group relative h-72 perspective-1000">
-                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl transform transition-transform duration-700 group-hover:rotate-y-180 preserve-3d cursor-pointer border-2 border-royal-gold/10">
-                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl">
+                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl overflow-hidden cursor-pointer border-2 border-royal-gold/10">
+                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl group-hover:opacity-0 transition-opacity duration-500 ease-in-out">
                         <img src="images/portfolio/flights.jpeg" alt="Flights" class="w-full h-full object-cover opacity-90" onerror="this.src='https://placehold.co/600x400/2e0249/ffd700?text=Flights'">
                         <div class="absolute inset-0 bg-gradient-to-t from-royal-dark/90 via-transparent to-transparent"></div>
                         <div class="absolute bottom-6 left-6">
@@ -734,7 +760,7 @@
                             <p class="text-royal-gold text-sm uppercase tracking-wider mt-1">React & RapidAPI</p>
                         </div>
                     </div>
-                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl rotate-y-180 backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)]">
+                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
                         <h3 class="font-royal text-2xl text-royal-gold mb-3">Flights Search</h3>
                         <p class="text-gray-300 text-sm mb-6 leading-relaxed font-light">React, TailwindCSS, Rapidapi. Find your way to the kingdom.</p>
                         <a href="https://esgoogleflights-8npwkgg2s-esraa-abduallahs-projects.vercel.app/" target="_blank" class="px-6 py-2 bg-gradient-to-r from-royal-gold to-orange-400 text-royal-dark font-bold rounded-full text-sm hover:scale-105 transition-transform shadow-lg font-royal">
@@ -745,8 +771,8 @@
             </div>
 
              <div class="group relative h-72 perspective-1000">
-                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl transform transition-transform duration-700 group-hover:rotate-y-180 preserve-3d cursor-pointer border-2 border-royal-gold/10">
-                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl">
+                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl overflow-hidden cursor-pointer border-2 border-royal-gold/10">
+                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl group-hover:opacity-0 transition-opacity duration-500 ease-in-out">
                         <img src="images/portfolio/taskmanager.jpeg" alt="Task Manager" class="w-full h-full object-cover opacity-90" onerror="this.src='https://placehold.co/600x400/2e0249/ffd700?text=Tasks'">
                         <div class="absolute inset-0 bg-gradient-to-t from-royal-dark/90 via-transparent to-transparent"></div>
                         <div class="absolute bottom-6 left-6">
@@ -754,7 +780,7 @@
                             <p class="text-royal-gold text-sm uppercase tracking-wider mt-1">NextJS</p>
                         </div>
                     </div>
-                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl rotate-y-180 backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)]">
+                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
                         <h3 class="font-royal text-2xl text-royal-gold mb-3">Task Manager</h3>
                         <p class="text-gray-300 text-sm mb-6 leading-relaxed font-light">A seamless way to organize and manage your royal duties.</p>
                         <a href="https://youtu.be/dzhuXNL_FRM?si=pKqX_4UqFZQU-V_b" target="_blank" class="px-6 py-2 bg-gradient-to-r from-royal-gold to-orange-400 text-royal-dark font-bold rounded-full text-sm hover:scale-105 transition-transform shadow-lg font-royal">
@@ -765,8 +791,8 @@
             </div>
             
             <div class="group relative h-72 perspective-1000">
-                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl transform transition-transform duration-700 group-hover:rotate-y-180 preserve-3d cursor-pointer border-2 border-royal-gold/10">
-                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl">
+                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl overflow-hidden cursor-pointer border-2 border-royal-gold/10">
+                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl group-hover:opacity-0 transition-opacity duration-500 ease-in-out">
                         <img src="images/portfolio/astromusic.jpeg" alt="Music Blog" class="w-full h-full object-cover opacity-90" onerror="this.src='https://placehold.co/600x400/2e0249/ffd700?text=Music'">
                         <div class="absolute inset-0 bg-gradient-to-t from-royal-dark/90 via-transparent to-transparent"></div>
                         <div class="absolute bottom-6 left-6">
@@ -774,7 +800,7 @@
                             <p class="text-royal-gold text-sm uppercase tracking-wider mt-1">Astro Framework</p>
                         </div>
                     </div>
-                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl rotate-y-180 backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)]">
+                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
                         <h3 class="font-royal text-2xl text-royal-gold mb-3">Astro Music Blog</h3>
                         <p class="text-gray-300 text-sm mb-6 leading-relaxed font-light">Music blog website built using Astro framework.</p>
                         <a href="https://youtu.be/vAmREzpOqvk?si=5ko-iYhpkJFad8kN" target="_blank" class="px-6 py-2 bg-gradient-to-r from-royal-gold to-orange-400 text-royal-dark font-bold rounded-full text-sm hover:scale-105 transition-transform shadow-lg font-royal">
@@ -785,8 +811,8 @@
             </div>
 
             <div class="group relative h-72 perspective-1000">
-                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl transform transition-transform duration-700 group-hover:rotate-y-180 preserve-3d cursor-pointer border-2 border-royal-gold/10">
-                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl">
+                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl overflow-hidden cursor-pointer border-2 border-royal-gold/10">
+                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl group-hover:opacity-0 transition-opacity duration-500 ease-in-out">
                         <img src="images/portfolio/trainer.png" alt="Pitch Trainer" class="w-full h-full object-cover opacity-90" onerror="this.src='https://placehold.co/600x400/2e0249/ffd700?text=Pitch'">
                         <div class="absolute inset-0 bg-gradient-to-t from-royal-dark/90 via-transparent to-transparent"></div>
                         <div class="absolute bottom-6 left-6">
@@ -794,7 +820,7 @@
                             <p class="text-royal-gold text-sm uppercase tracking-wider mt-1">Python</p>
                         </div>
                     </div>
-                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl rotate-y-180 backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)]">
+                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
                         <h3 class="font-royal text-2xl text-royal-gold mb-3">Es Relative Pitch</h3>
                         <p class="text-gray-300 text-sm mb-6 leading-relaxed font-light">Python app for developing relative pitch skill.</p>
                         <a href="https://youtu.be/CIHrItsR0AE?si=zPgUGVNBA9I15Cs8" target="_blank" class="px-6 py-2 bg-gradient-to-r from-royal-gold to-orange-400 text-royal-dark font-bold rounded-full text-sm hover:scale-105 transition-transform shadow-lg font-royal">
@@ -805,8 +831,8 @@
             </div>
 
             <div class="group relative h-72 perspective-1000">
-                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl transform transition-transform duration-700 group-hover:rotate-y-180 preserve-3d cursor-pointer border-2 border-royal-gold/10">
-                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl">
+                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl overflow-hidden cursor-pointer border-2 border-royal-gold/10">
+                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl group-hover:opacity-0 transition-opacity duration-500 ease-in-out">
                         <img src="images/portfolio/game.jpeg" alt="2048" class="w-full h-full object-cover opacity-90" onerror="this.src='https://placehold.co/600x400/2e0249/ffd700?text=2048'">
                         <div class="absolute inset-0 bg-gradient-to-t from-royal-dark/90 via-transparent to-transparent"></div>
                         <div class="absolute bottom-6 left-6">
@@ -814,7 +840,7 @@
                             <p class="text-royal-gold text-sm uppercase tracking-wider mt-1">Game Dev</p>
                         </div>
                     </div>
-                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl rotate-y-180 backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)]">
+                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
                         <h3 class="font-royal text-2xl text-royal-gold mb-3">2048 Game</h3>
                         <p class="text-gray-300 text-sm mb-6 leading-relaxed font-light">Try to get to 2048 tile...</p>
                         <a href="https://esraahisham753.github.io/2048-Game/" target="_blank" class="px-6 py-2 bg-gradient-to-r from-royal-gold to-orange-400 text-royal-dark font-bold rounded-full text-sm hover:scale-105 transition-transform shadow-lg font-royal">
@@ -825,8 +851,8 @@
             </div>
             
              <div class="group relative h-72 perspective-1000">
-                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl transform transition-transform duration-700 group-hover:rotate-y-180 preserve-3d cursor-pointer border-2 border-royal-gold/10">
-                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl">
+                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl overflow-hidden cursor-pointer border-2 border-royal-gold/10">
+                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl group-hover:opacity-0 transition-opacity duration-500 ease-in-out">
                         <img src="images/portfolio/event.jpeg" alt="Event System" class="w-full h-full object-cover opacity-90" onerror="this.src='https://placehold.co/600x400/2e0249/ffd700?text=Events'">
                         <div class="absolute inset-0 bg-gradient-to-t from-royal-dark/90 via-transparent to-transparent"></div>
                         <div class="absolute bottom-6 left-6">
@@ -834,7 +860,7 @@
                             <p class="text-royal-gold text-sm uppercase tracking-wider mt-1">Django & NextJS</p>
                         </div>
                     </div>
-                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl rotate-y-180 backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)]">
+                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
                         <h3 class="font-royal text-2xl text-royal-gold mb-3">Event Manager</h3>
                         <p class="text-gray-300 text-sm mb-6 leading-relaxed font-light">Event Management System using NextJS, Tailwind, and Django.</p>
                         <a href="https://youtu.be/8asp3X6dJe0?si=J4FqaGquWVPLOJwd" target="_blank" class="px-6 py-2 bg-gradient-to-r from-royal-gold to-orange-400 text-royal-dark font-bold rounded-full text-sm hover:scale-105 transition-transform shadow-lg font-royal">
@@ -845,8 +871,8 @@
             </div>
 
             <div class="group relative h-72 perspective-1000">
-                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl transform transition-transform duration-700 group-hover:rotate-y-180 preserve-3d cursor-pointer border-2 border-royal-gold/10">
-                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl">
+                <div class="absolute inset-0 w-full h-full glass-card rounded-2xl overflow-hidden cursor-pointer border-2 border-royal-gold/10">
+                    <div class="absolute inset-0 w-full h-full backface-hidden overflow-hidden rounded-2xl group-hover:opacity-0 transition-opacity duration-500 ease-in-out">
                         <img src="images/portfolio/movies.jpeg" alt="Movies" class="w-full h-full object-cover opacity-90" onerror="this.src='https://placehold.co/600x400/2e0249/ffd700?text=Movies'">
                         <div class="absolute inset-0 bg-gradient-to-t from-royal-dark/90 via-transparent to-transparent"></div>
                         <div class="absolute bottom-6 left-6">
@@ -854,7 +880,7 @@
                             <p class="text-royal-gold text-sm uppercase tracking-wider mt-1">Web App</p>
                         </div>
                     </div>
-                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl rotate-y-180 backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)]">
+                    <div class="absolute inset-0 w-full h-full bg-royal-dark/95 backdrop-blur-xl rounded-2xl backface-hidden flex flex-col items-center justify-center p-8 text-center border-2 border-royal-gold shadow-[0_0_30px_rgba(255,215,0,0.2)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out">
                         <h3 class="font-royal text-2xl text-royal-gold mb-3">Movies App</h3>
                         <p class="text-gray-300 text-sm mb-6 leading-relaxed font-light">Search movies, view, add, delete reviews...</p>
                         <a href="https://youtu.be/sP8SSIGWefs?si=aVHkTpN4B_LX9nJl" target="_blank" class="px-6 py-2 bg-gradient-to-r from-royal-gold to-orange-400 text-royal-dark font-bold rounded-full text-sm hover:scale-105 transition-transform shadow-lg font-royal">
