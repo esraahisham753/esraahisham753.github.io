@@ -11,7 +11,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Quicksand:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,600&family=Space+Mono:wght@400;700&family=Satisfy&display=swap" rel="stylesheet">
     
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/ef7fafcbf6.js" crossorigin="anonymous"></script>
@@ -23,20 +23,20 @@
           extend: {
             colors: {
               gogh: {
-                dark: '#0B1026',    // Deepest sky blue/black
-                blue: '#1F3459',    // Mid-tone Starry Night blue
-                accent: '#2B4C7E',  // Lighter stroke blue
-                yellow: '#F2C94C',  // Star yellow
-                gold: '#D4AF37',    // Moon gold
-                orange: '#E08E45',  // Warm light accents
-                cypress: '#0F1510', // Dark tree green/black
-                canvas: 'rgba(31, 52, 89, 0.4)', // Glass base
+                dark: '#2a0b3a',    // Deep plum
+                blue: '#6d28d9',    // Electric purple
+                accent: '#c77dff',  // Soft violet glow
+                yellow: '#ff5da2',  // Neon pink
+                gold: '#ffd1e8',    // Blush white
+                orange: '#ff4d6d',  // Retro red-pink
+                cypress: '#3a0a3a', // Deep mulberry
+                canvas: 'rgba(255, 245, 252, 0.65)', // Bright glass base
               }
             },
             fontFamily: {
-              royal: ['"Cinzel Decorative"', 'serif'],
-              script: ['"Great Vibes"', 'cursive'],
-              body: ['"Quicksand"', 'sans-serif'],
+              royal: ['"Playfair Display"', 'serif'],
+              script: ['"Satisfy"', 'cursive'],
+              body: ['"Space Mono"', 'monospace'],
               editorial: ['"Playfair Display"', 'serif'],
             },
             animation: {
@@ -73,21 +73,21 @@
     </script>
 
     <style>
-      /* --- Van Gogh Aesthetic --- */
+      /* --- Retro-Tech + Art Aesthetic --- */
       body {
-        /* Fallback if image fails */
-        background-color: #0B1026;
-        /* Main Starry Night Background */
-        background-image: url('bg.jpg');
-        background-size: cover;
-        background-position: center;
+        background-color: #2a0b3a;
+        background-image:
+          radial-gradient(circle at 20% 20%, rgba(255, 93, 162, 0.45) 0%, transparent 55%),
+          radial-gradient(circle at 80% 10%, rgba(109, 40, 217, 0.45) 0%, transparent 60%),
+          radial-gradient(circle at 70% 80%, rgba(255, 77, 109, 0.4) 0%, transparent 55%),
+          linear-gradient(135deg, #2a0b3a 0%, #3a0a3a 50%, #4a1459 100%);
         background-attachment: fixed;
-        color: #fff;
+        color: #fff7fb;
         overflow-x: hidden;
         min-height: 100vh;
       }
 
-      /* Impressionist Overlay (Texture) */
+      /* Canvas Texture */
       body::before {
         content: "";
         position: fixed;
@@ -95,53 +95,68 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz48L3N2Zz4=');
+        background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDciLz48L3N2Zz4=");
         pointer-events: none;
         z-index: -1;
-        opacity: 0.3;
+        opacity: 0.4;
       }
 
-      /* Blue Vignette Overlay to make text readable over the painting */
+      /* Retro Tech Grid Overlay */
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 93, 162, 0.12) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(109, 40, 217, 0.12) 1px, transparent 1px);
+        background-size: 40px 40px;
+        opacity: 0.35;
+        mix-blend-mode: screen;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      /* Bright Vignette to keep focus */
       .bg-overlay {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: radial-gradient(circle at 50% 50%, rgba(31, 52, 89, 0.4) 0%, rgba(11, 16, 38, 0.85) 80%, rgba(0, 0, 0, 0.95) 100%);
+        background: radial-gradient(circle at 45% 40%, rgba(255, 255, 255, 0.18) 0%, rgba(255, 93, 162, 0.12) 35%, rgba(42, 11, 58, 0.75) 100%);
         z-index: -2;
         pointer-events: none;
       }
 
-      /* --- Swirling Orbs (The Stars) --- */
+      /* --- Neon Orbs --- */
       .swirl-orb {
         position: absolute;
         border-radius: 50%;
-        filter: blur(40px);
-        opacity: 0.4;
+        filter: blur(55px);
+        opacity: 0.55;
         z-index: -1;
         pointer-events: none;
         animation: swirl 20s infinite linear;
       }
-      .swirl-yellow { background: radial-gradient(circle, #F2C94C 0%, transparent 60%); }
-      .swirl-blue { background: radial-gradient(circle, #2B4C7E 0%, transparent 60%); }
+      .swirl-yellow { background: radial-gradient(circle, rgba(255, 93, 162, 0.9) 0%, transparent 60%); }
+      .swirl-blue { background: radial-gradient(circle, rgba(109, 40, 217, 0.8) 0%, transparent 60%); }
 
       /* --- Impressionist Glassmorphism --- */
       /* Rougher, more painterly glass */
       .glass-panel {
-        background: rgba(11, 16, 38, 0.6);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(242, 201, 76, 0.1);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        background: rgba(42, 11, 58, 0.75);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255, 93, 162, 0.3);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 10px 35px rgba(109, 40, 217, 0.25);
       }
       
       .glass-card {
-        background: linear-gradient(135deg, rgba(31, 52, 89, 0.4), rgba(11, 16, 38, 0.6));
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(242, 201, 76, 0.2); /* Subtle yellow stroke border */
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        background: linear-gradient(135deg, rgba(42, 11, 58, 0.78), rgba(74, 20, 89, 0.85));
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 93, 162, 0.4);
+        box-shadow: 0 8px 35px rgba(109, 40, 217, 0.28);
         transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
       }
 
@@ -152,41 +167,41 @@
       }
       .tilt-card:hover {
         transform: translateY(-10px) rotateX(2deg) rotateY(2deg);
-        background: linear-gradient(135deg, rgba(43, 76, 126, 0.5), rgba(15, 21, 16, 0.7));
-        border-color: #F2C94C;
-        box-shadow: 0 0 35px rgba(242, 201, 76, 0.2), 
-                    inset 0 0 20px rgba(43, 76, 126, 0.3);
+        background: linear-gradient(135deg, rgba(255, 93, 162, 0.3), rgba(109, 40, 217, 0.35));
+        border-color: #ff5da2;
+        box-shadow: 0 0 35px rgba(255, 93, 162, 0.35), 
+                    inset 0 0 20px rgba(109, 40, 217, 0.3);
       }
 
       /* --- Typography FX --- */
-      /* Impasto Gold Text */
+      /* Retro Gradient Text */
       .text-impasto-gold {
-        background: linear-gradient(to right, #F2C94C, #FFFACD, #E08E45, #F2C94C);
+        background: linear-gradient(to right, #ff5da2, #ffd1e8, #ff4d6d, #c77dff);
         background-size: 200% auto;
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         animation: shimmer 4s linear infinite;
-        filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        filter: drop-shadow(0 2px 6px rgba(109, 40, 217, 0.35));
       }
 
       /* --- Scrollbar --- */
       ::-webkit-scrollbar { width: 10px; }
-      ::-webkit-scrollbar-track { background: #0B1026; }
+      ::-webkit-scrollbar-track { background: #2a0b3a; }
       ::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg, #1F3459, #F2C94C);
+        background: linear-gradient(180deg, #c77dff, #ff5da2);
         border-radius: 5px;
-        border: 2px solid #0B1026;
+        border: 2px solid #2a0b3a;
       }
 
       /* --- Star/Firefly Particles --- */
       .star-particle {
         position: fixed;
-        width: 3px;
-        height: 3px;
-        background-color: #FFFACD;
-        border-radius: 50%;
-        box-shadow: 0 0 8px #F2C94C, 0 0 15px #F2C94C;
+        width: 4px;
+        height: 4px;
+        background-color: #ff5da2;
+        border-radius: 2px;
+        box-shadow: 0 0 8px #ff5da2, 0 0 15px #c77dff;
         animation: twinkle 5s infinite alternate;
         z-index: -1;
         opacity: 0;
@@ -203,18 +218,18 @@
       
       /* Navigation Active */
       .nav-link.active {
-        color: #F2C94C !important;
-        text-shadow: 0 0 15px rgba(242, 201, 76, 0.6);
+        color: #ff5da2 !important;
+        text-shadow: 0 0 15px rgba(255, 93, 162, 0.6);
         position: relative;
       }
       .nav-link.active::after {
-        content: '✦';
+        content: '*';
         position: absolute;
         top: -12px;
         left: 50%;
         transform: translateX(-50%);
         font-size: 12px;
-        color: #E08E45;
+        color: #ff4d6d;
       }
 
       /* --- 3D Flip Card Animation --- */
@@ -238,12 +253,48 @@
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        background: linear-gradient(90deg, transparent, rgba(255, 93, 162, 0.25), transparent);
         transition: 0.5s;
         z-index: -1;
       }
       .btn-brush:hover::before {
         left: 100%;
+      }
+
+      /* Retro accents */
+      .retro-sun {
+        position: fixed;
+        width: 480px;
+        height: 480px;
+        border-radius: 50%;
+        right: -120px;
+        top: 10%;
+        background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9) 0%, rgba(255, 93, 162, 0.7) 35%, rgba(109, 40, 217, 0.2) 70%, transparent 75%);
+        filter: blur(2px);
+        z-index: -2;
+        pointer-events: none;
+      }
+
+      .paint-streaks {
+        position: fixed;
+        left: -5%;
+        bottom: -10%;
+        width: 45%;
+        height: 45%;
+        background: conic-gradient(from 120deg, rgba(255, 93, 162, 0.35), rgba(255, 209, 232, 0.35), rgba(109, 40, 217, 0.25), rgba(255, 77, 109, 0.3), rgba(255, 93, 162, 0.35));
+        filter: blur(50px);
+        opacity: 0.6;
+        z-index: -2;
+        pointer-events: none;
+      }
+
+      .vinyl-ring {
+        position: absolute;
+        inset: -18px;
+        border-radius: 50%;
+        border: 2px dashed rgba(109, 40, 217, 0.35);
+        box-shadow: 0 0 25px rgba(255, 93, 162, 0.25), inset 0 0 18px rgba(109, 40, 217, 0.25);
+        animation: spin 18s linear infinite;
       }
     </style>
   </head>
@@ -251,6 +302,8 @@
 
     <!-- Global Background Overlay -->
     <div class="bg-overlay"></div>
+    <div class="retro-sun"></div>
+    <div class="paint-streaks"></div>
 
     <!-- Starry Night Elements -->
     <div class="star-particle"></div><div class="star-particle"></div><div class="star-particle"></div>
@@ -364,6 +417,7 @@
               
               <!-- Glow behind image -->
               <div class="absolute inset-4 bg-gradient-to-tr from-gogh-blue to-gogh-yellow rounded-full blur-[40px] opacity-50 animate-pulse"></div>
+              <div class="vinyl-ring"></div>
 
               <!-- Main Image Container -->
               <div class="absolute inset-4 rounded-full overflow-hidden border-[6px] border-white/10 shadow-2xl relative group z-10">
@@ -373,8 +427,12 @@
               </div>
               
               <!-- Floating Elements -->
-              <div class="absolute -top-4 right-10 text-4xl animate-bounce text-gogh-yellow" style="animation-duration: 3s">✦</div>
-              <div class="absolute bottom-10 -left-4 text-3xl animate-bounce text-gogh-yellow" style="animation-duration: 4s">✨</div>
+              <div class="absolute -top-6 right-12 text-3xl animate-bounce text-gogh-yellow" style="animation-duration: 3s">
+                <i class="fa-solid fa-record-vinyl"></i>
+              </div>
+              <div class="absolute bottom-8 -left-6 text-3xl animate-bounce text-gogh-yellow" style="animation-duration: 4s">
+                <i class="fa-solid fa-music"></i>
+              </div>
             </div>
           </div>
         </div>
