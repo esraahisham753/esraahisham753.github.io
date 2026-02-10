@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EsIdeas | The Digital Dreamer</title>
+    <title>EsIdeas | Cosmic Dreamer & Dev</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,7 +11,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Bubblegum+Sans&family=Chewy&family=Fredoka:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Bubblegum+Sans&family=Chewy&family=Fredoka:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
     
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/ef7fafcbf6.js" crossorigin="anonymous"></script>
@@ -22,49 +22,49 @@
         theme: {
           extend: {
             colors: {
-              // Remapped 'gogh' colors to the new Pink/Kawaii palette so existing classes work
-              gogh: {
-                dark: '#4a1433',    // Dark Berry (Text)
-                blue: '#ff69b4',    // Hot Pink (Primary)
-                accent: '#ffb6c1',  // Light Pink
-                yellow: '#fff44f',  // Sunny Yellow
-                gold: '#ffffff',    // Pure White
-                orange: '#ffa07a',  // Salmon/Peach
-                cypress: '#8b008b', // Deep Magenta
-                canvas: 'rgba(255, 255, 255, 0.85)',
-              },
-              kawaii: {
-                pink: '#ff9ecf',
+              cosmic: {
+                dark: '#1a0b2e',    // Deep Purple Night
+                bg: '#2d1b4e',      // Lighter Purple
+                accent: '#ff69b4',  // Hot Pink
+                glow: '#fff9c4',    // Moon Glow
                 lavender: '#e6e6fa',
+                cyan: '#00ffff',
                 mint: '#98ff98',
-                sky: '#87ceeb'
+                gold: '#ffd700',
               }
             },
             fontFamily: {
-              royal: ['"Chewy"', 'cursive'],       // Main Headings
-              script: ['"Bubblegum Sans"', 'cursive'], // Subheadings
-              body: ['"Baloo 2"', 'cursive'],      // Body text
-              editorial: ['"Fredoka"', 'sans-serif'], // Clean text
+              royal: ['"Chewy"', 'cursive'],       
+              script: ['"Bubblegum Sans"', 'cursive'], 
+              body: ['"Baloo 2"', 'cursive'],      
+              editorial: ['"Fredoka"', 'sans-serif'], 
+              hand: ['"Pacifico"', 'cursive'],
             },
             animation: {
               'float': 'float 6s ease-in-out infinite',
+              'float-delayed': 'float 6s ease-in-out 3s infinite',
+              'twinkle': 'twinkle 4s ease-in-out infinite',
               'bounce-slow': 'bounce 3s infinite',
               'spin-slow': 'spin 15s linear infinite',
-              'wobble': 'wobble 1s ease-in-out infinite',
-              'pop': 'pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+              'wiggle': 'wiggle 1s ease-in-out infinite',
+              'glow': 'glow 2s ease-in-out infinite alternate',
             },
             keyframes: {
               float: {
                 '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
-                '50%': { transform: 'translateY(-15px) rotate(2deg)' },
+                '50%': { transform: 'translateY(-20px) rotate(2deg)' },
               },
-              wobble: {
+              twinkle: {
+                '0%, 100%': { opacity: 0.3, transform: 'scale(0.8)' },
+                '50%': { opacity: 1, transform: 'scale(1.2)' },
+              },
+              wiggle: {
                 '0%, 100%': { transform: 'rotate(-3deg)' },
                 '50%': { transform: 'rotate(3deg)' },
               },
-              pop: {
-                '0%': { transform: 'scale(0.9)' },
-                '100%': { transform: 'scale(1)' },
+              glow: {
+                'from': { boxShadow: '0 0 10px #ff69b4, 0 0 20px #ff69b4' },
+                'to': { boxShadow: '0 0 20px #ff69b4, 0 0 30px #ff69b4' },
               }
             }
           }
@@ -73,294 +73,252 @@
     </script>
 
     <style>
-      /* --- Kawaii Aesthetic Base --- */
+      /* --- Cosmic Background --- */
       body {
-        background-color: #fff0f5; /* Lavender Blush */
-        /* Dreamy Cloud Gradient */
+        background-color: #1a0b2e;
         background-image: 
-          radial-gradient(at 0% 0%, hsla(328,99%,85%,1) 0, transparent 50%), 
-          radial-gradient(at 50% 0%, hsla(284,88%,89%,1) 0, transparent 50%), 
-          radial-gradient(at 100% 0%, hsla(339,100%,85%,1) 0, transparent 50%),
-          radial-gradient(at 80% 50%, hsla(300,100%,90%,1) 0, transparent 50%),
-          radial-gradient(at 0% 100%, hsla(320,95%,88%,1) 0, transparent 50%);
-        background-attachment: fixed;
-        color: #4a1433;
+          radial-gradient(circle at 10% 20%, rgba(255, 105, 180, 0.2) 0%, transparent 40%),
+          radial-gradient(circle at 90% 80%, rgba(0, 255, 255, 0.15) 0%, transparent 40%),
+          radial-gradient(circle at 50% 50%, rgba(75, 0, 130, 0.4) 0%, transparent 60%);
+        color: white;
         overflow-x: hidden;
         min-height: 100vh;
       }
 
-      /* Cute Pattern Overlay */
-      body::after {
-        content: "";
+      /* Stars Generator */
+      .stars {
         position: fixed;
-        inset: 0;
-        background-image:  radial-gradient(#ff69b4 1px, transparent 1px);
-        background-size: 20px 20px;
-        opacity: 0.2;
+        top: 0; left: 0; width: 100%; height: 100%;
         pointer-events: none;
         z-index: -1;
       }
+      .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.8;
+      }
 
-      /* --- Sticker Classes --- */
+      /* --- Moon Glow Effect --- */
+      .moon-glow {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(255, 249, 196, 0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 0;
+        filter: blur(40px);
+      }
+
+      /* --- Sticker Aesthetic --- */
       .sticker {
         background: white;
+        color: #2d1b4e;
         border: 4px solid white;
         box-shadow: 
-          0 4px 0 rgba(0,0,0,0.1),
-          0 0 0 1px rgba(0,0,0,0.05),
-          0 10px 15px rgba(255, 105, 180, 0.2);
-        border-radius: 20px;
-        transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+          0 0 0 2px rgba(0,0,0,0.1), /* Inner definition */
+          5px 5px 15px rgba(0,0,0,0.3); /* Drop shadow */
+        border-radius: 15px;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sticker::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 100%);
+        pointer-events: none;
       }
 
       .sticker:hover {
-        transform: scale(1.02) rotate(-1deg);
+        transform: scale(1.05) rotate(-2deg);
+        box-shadow: 
+          0 0 0 4px #ff69b4, 
+          8px 8px 20px rgba(255, 105, 180, 0.4);
         z-index: 10;
       }
 
-      .sticker-pink {
-        border-color: #ff69b4;
-        box-shadow: 6px 6px 0 #ff69b4;
-      }
-      
-      .sticker-yellow {
-        border-color: #fff44f;
-        box-shadow: 6px 6px 0 #fff44f;
+      /* --- Glassmorphism Panels --- */
+      .glass-panel {
+        background: rgba(45, 27, 78, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        border-radius: 24px;
       }
 
-      /* --- Y2K Glass/Plastic --- */
-      .plastic-card {
-        background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(8px);
-        border: 2px solid rgba(255, 255, 255, 0.9);
-        box-shadow: 
-          inset 0 0 20px rgba(255, 255, 255, 0.5),
-          0 8px 32px rgba(255, 105, 180, 0.15);
-        border-radius: 24px;
+      /* --- Text Stroke --- */
+      .text-stroke {
+        -webkit-text-stroke: 2px #2d1b4e;
+        text-shadow: 3px 3px 0px #ff69b4;
+      }
+      .text-glow {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px #ff69b4;
+      }
+
+      /* --- Retro Gameboy Screen --- */
+      .gameboy-screen {
+        background-color: #9bbc0f;
+        background-image: 
+          linear-gradient(rgba(15, 56, 15, 0.1) 50%, transparent 50%),
+          linear-gradient(90deg, rgba(15, 56, 15, 0.1) 50%, transparent 50%);
+        background-size: 4px 4px;
+        box-shadow: inset 3px 3px 5px rgba(0,0,0,0.5);
+        color: #0f380f;
+        font-family: 'Courier New', monospace;
+      }
+
+      /* --- Washi Tape --- */
+      .washi-tape {
+        position: absolute;
+        height: 35px;
+        width: 110px;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%) rotate(-2deg);
+        background-color: rgba(255, 255, 255, 0.6);
+        background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 105, 180, 0.3) 10px, rgba(255, 105, 180, 0.3) 20px);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        z-index: 20;
+        opacity: 0.9;
+        mask-image: linear-gradient(to right, transparent 2%, black 5%, black 95%, transparent 98%);
       }
 
       /* --- Custom Scrollbar --- */
       ::-webkit-scrollbar { width: 12px; }
-      ::-webkit-scrollbar-track { background: #ffe6f2; }
+      ::-webkit-scrollbar-track { background: #1a0b2e; }
       ::-webkit-scrollbar-thumb {
         background: #ff69b4;
         border-radius: 10px;
-        border: 3px solid #ffe6f2;
+        border: 3px solid #1a0b2e;
       }
-
-      /* --- Retro TV Frame --- */
-      .retro-tv-frame {
-        background: #ffb6c1;
-        padding: 20px;
-        border-radius: 30px;
-        box-shadow: 
-          inset 0 -10px rgba(0,0,0,0.1),
-          0 10px 0 #dda0dd,
-          0 20px 20px rgba(0,0,0,0.1);
-        position: relative;
-      }
-      .retro-tv-screen {
-        background: #4a1433;
-        padding: 4px;
-        border-radius: 20px 20px 60px 20px;
-        overflow: hidden;
-        border: 4px solid #fff;
-      }
-
-      /* --- Floating Icons --- */
-      .floating-icon {
-        position: absolute;
-        font-size: 2rem;
-        filter: drop-shadow(2px 2px 0px rgba(255,255,255,1));
-        animation: float 4s ease-in-out infinite;
-        z-index: 0;
-      }
-
-      /* --- Navigation --- */
-      .nav-pill {
-        background: rgba(255,255,255,0.9);
-        border-radius: 999px;
-        border: 2px solid transparent;
-        transition: all 0.3s;
-      }
-      .nav-pill:hover, .nav-pill.active {
-        background: #ff69b4;
-        color: white !important;
-        transform: scale(1.05) rotate(-2deg);
-        box-shadow: 3px 3px 0 #4a1433;
-        border: 2px solid white;
-      }
-
-      /* --- Buttons --- */
-      .btn-pop {
-        transition: all 0.2s;
-        border: 3px solid #4a1433;
-        box-shadow: 4px 4px 0 #4a1433;
-      }
-      .btn-pop:hover {
-        transform: translate(-2px, -2px);
-        box-shadow: 6px 6px 0 #4a1433;
-      }
-      .btn-pop:active {
-        transform: translate(2px, 2px);
-        box-shadow: 0px 0px 0 #4a1433;
-      }
-
-      /* --- Washi Tape Effect --- */
-      .washi-tape {
-        position: absolute;
-        height: 30px;
-        width: 100px;
-        background-color: rgba(255,255,255,0.6);
-        background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 105, 180, 0.3) 10px, rgba(255, 105, 180, 0.3) 20px);
-        box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-        z-index: 10;
-        top: -10px;
-        left: 50%;
-        transform: translateX(-50%) rotate(-2deg);
-      }
-
     </style>
   </head>
-  <body class="font-body selection:bg-gogh-blue selection:text-white">
+  <body class="font-body selection:bg-cosmic-accent selection:text-white">
 
-    <!-- Floating Background Doodles -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none z-[-1]">
-        <i class="fa-solid fa-star floating-icon text-gogh-yellow top-[10%] left-[5%] rotate-12"></i>
-        <i class="fa-solid fa-heart floating-icon text-gogh-blue top-[20%] right-[10%] -rotate-12" style="animation-delay: 1s;"></i>
-        <i class="fa-solid fa-music floating-icon text-purple-400 bottom-[15%] left-[10%] rotate-45" style="animation-delay: 2s;"></i>
-        <i class="fa-solid fa-bolt floating-icon text-gogh-yellow bottom-[25%] right-[5%] -rotate-6" style="animation-delay: 1.5s;"></i>
-        <i class="fa-solid fa-cloud floating-icon text-white top-[50%] left-[2%] scale-150 opacity-60" style="animation-delay: 3s;"></i>
-        <i class="fa-regular fa-face-smile floating-icon text-gogh-blue bottom-[5%] right-[40%] rotate-12" style="animation-delay: 0.5s;"></i>
-    </div>
+    <!-- Procedural Stars Container -->
+    <div id="star-container" class="stars"></div>
+
+    <!-- Background Elements (Planets/Glows) -->
+    <div class="fixed top-20 left-10 w-32 h-32 rounded-full bg-gradient-to-br from-purple-500 to-transparent opacity-20 blur-2xl animate-pulse"></div>
+    <div class="fixed bottom-20 right-10 w-64 h-64 rounded-full bg-gradient-to-tl from-pink-500 to-transparent opacity-10 blur-3xl"></div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300 top-4 px-4">
-      <div class="max-w-6xl mx-auto plastic-card px-4 sm:px-6">
-        <div class="flex items-center justify-between h-20">
+    <nav class="fixed w-full z-50 top-4 px-4">
+      <div class="max-w-5xl mx-auto glass-panel px-4 py-3 border border-white/20">
+        <div class="flex items-center justify-between">
           
           <!-- Logo -->
-          <div class="flex-shrink-0 flex items-center gap-2 transform hover:scale-110 transition-transform cursor-pointer">
-            <div class="w-10 h-10 bg-gogh-blue rounded-full border-2 border-white shadow-[2px_2px_0_#4a1433] flex items-center justify-center text-white">
-                 <i class="fa-solid fa-paintbrush"></i>
+          <div class="flex items-center gap-2 cursor-pointer group">
+            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-cosmic-dark text-xl animate-bounce-slow shadow-[0_0_15px_rgba(255,255,255,0.5)]">
+                 <i class="fa-solid fa-moon"></i>
             </div>
-            <span class="font-royal text-3xl text-gogh-dark tracking-wide">
-              Es<span class="text-gogh-blue">Ideas</span>
+            <span class="font-royal text-2xl text-white tracking-wide group-hover:text-cosmic-accent transition-colors">
+              Ess<span class="text-cosmic-accent">Ideas</span>
             </span>
           </div>
           
           <!-- Desktop Menu -->
-          <div class="hidden md:block">
-            <div class="flex items-baseline space-x-2">
-              <a href="#home" class="nav-pill px-4 py-2 text-gogh-dark font-royal text-lg">Home</a>
-              <a href="#skills" class="nav-pill px-4 py-2 text-gogh-dark font-royal text-lg">Skills</a>
-              <a href="#portfolio" class="nav-pill px-4 py-2 text-gogh-dark font-royal text-lg">Projects</a>
-              <a href="#blog" class="nav-pill px-4 py-2 text-gogh-dark font-royal text-lg">Blog</a>
-            </div>
-          </div>
-
-          <!-- CTA Button -->
-          <div class="hidden md:block">
-            <a href="mailto:esraahisham753@gmail.com" class="btn-pop bg-gogh-yellow text-gogh-dark px-6 py-2 rounded-full font-royal text-lg flex items-center gap-2">
-              Say Hi! <i class="fa-solid fa-comment-dots"></i>
+          <div class="hidden md:flex items-center space-x-6">
+            <a href="#home" class="font-royal text-lg text-white/80 hover:text-white hover:scale-110 transition-transform">Home</a>
+            <a href="#skills" class="font-royal text-lg text-white/80 hover:text-white hover:scale-110 transition-transform">Skills</a>
+            <a href="#portfolio" class="font-royal text-lg text-white/80 hover:text-white hover:scale-110 transition-transform">Projects</a>
+            <a href="#blog" class="font-royal text-lg text-white/80 hover:text-white hover:scale-110 transition-transform">Blog</a>
+            
+            <a href="mailto:esraahisham753@gmail.com" class="bg-cosmic-accent text-white px-5 py-2 rounded-full font-royal hover:bg-white hover:text-cosmic-accent transition-all transform hover:rotate-3 shadow-[0_4px_0_#b300b3] active:shadow-none active:translate-y-1">
+              Say Hi! <i class="fa-solid fa-paper-plane ml-1"></i>
             </a>
           </div>
 
           <!-- Mobile menu button -->
-          <div class="md:hidden">
-            <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-gogh-dark text-2xl hover:text-gogh-blue">
-              <i class="fa-solid fa-bars"></i>
-            </button>
-          </div>
+          <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-white text-2xl">
+            <i class="fa-solid fa-bars"></i>
+          </button>
         </div>
       </div>
 
       <!-- Mobile Menu -->
-      <div class="hidden md:hidden mt-2 plastic-card p-4 mx-auto max-w-[90%]" id="mobile-menu">
-        <div class="flex flex-col space-y-2 text-center">
-          <a href="#home" class="block px-3 py-2 rounded-lg bg-white/50 text-gogh-dark font-royal text-xl">Home</a>
-          <a href="#skills" class="block px-3 py-2 rounded-lg bg-white/50 text-gogh-dark font-royal text-xl">Skills</a>
-          <a href="#portfolio" class="block px-3 py-2 rounded-lg bg-white/50 text-gogh-dark font-royal text-xl">Projects</a>
-          <a href="#blog" class="block px-3 py-2 rounded-lg bg-white/50 text-gogh-dark font-royal text-xl">Blog</a>
+      <div class="hidden md:hidden mt-2 glass-panel p-4 mx-auto max-w-[95%]" id="mobile-menu">
+        <div class="flex flex-col space-y-3 text-center">
+          <a href="#home" class="block py-2 text-white font-royal text-xl hover:bg-white/10 rounded-lg">Home</a>
+          <a href="#skills" class="block py-2 text-white font-royal text-xl hover:bg-white/10 rounded-lg">Skills</a>
+          <a href="#portfolio" class="block py-2 text-white font-royal text-xl hover:bg-white/10 rounded-lg">Projects</a>
         </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center pt-28 pb-10 relative overflow-hidden">
+      <!-- Big Moon Glow behind everything -->
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 moon-glow"></div>
+
       <div class="container mx-auto px-6 relative z-10">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-12">
           
           <!-- Text Content -->
-          <div class="w-full md:w-1/2 text-center md:text-left relative z-20">
-            <!-- Sticker Badge -->
-            <div class="inline-block bg-white px-4 py-2 rounded-lg border-2 border-gogh-dark shadow-[4px_4px_0_#4a1433] mb-6 transform -rotate-3 hover:rotate-0 transition-transform">
-               <span class="font-royal text-gogh-blue text-xl">✨ Digital Creator & Engineer</span>
+          <div class="w-full md:w-1/2 text-center md:text-left">
+            <!-- Floating Badge -->
+            <div class="inline-block bg-cosmic-mint text-cosmic-dark px-4 py-2 rounded-full border-2 border-white shadow-[0_0_15px_#98ff98] mb-6 transform -rotate-2 animate-float">
+               <span class="font-royal text-lg">✨ Software Engineer & Designer</span>
             </div>
 
-            <h1 class="text-6xl md:text-8xl font-royal mb-4 leading-tight text-gogh-dark drop-shadow-sm">
+            <h1 class="text-6xl md:text-8xl font-royal mb-6 leading-tight drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]">
               Hi, I'm <br/>
-              <span class="text-gogh-blue inline-block transform hover:scale-110 transition-transform cursor-default" style="text-shadow: 4px 4px 0px #fff;">Esraa!</span>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-cosmic-accent to-purple-400 text-glow">Esraa!</span>
             </h1>
 
-            <div class="relative bg-white p-6 rounded-3xl border-4 border-dashed border-gogh-blue mb-8 max-w-lg mx-auto md:mx-0 shadow-lg transform rotate-1">
-                <i class="fa-solid fa-thumbtack absolute -top-4 -right-4 text-3xl text-gogh-yellow drop-shadow-md"></i>
-                <p class="text-xl md:text-2xl text-gogh-dark font-script leading-relaxed">
-                  "No Bad Vibes, Just Good Code! 💖 I weave logic into dreamy experiences using React, Python, and a sprinkle of magic."
+            <div class="relative bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 mb-8 max-w-lg mx-auto md:mx-0 shadow-xl transform rotate-1 hover:rotate-0 transition-all">
+                <i class="fa-solid fa-quote-left absolute -top-4 -left-4 text-4xl text-cosmic-glow"></i>
+                <p class="text-xl md:text-2xl text-white font-script leading-relaxed">
+                  "Computer Science, born from love and art, is where I belong 🖌️💖."
                 </p>
+                
             </div>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <a href="#portfolio" class="btn-pop bg-gogh-blue text-white px-8 py-4 rounded-xl font-royal text-xl text-center">
-                See My Art 🎨
+            <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+              <a href="#portfolio" class="sticker bg-cosmic-cyan text-cosmic-dark px-8 py-3 font-royal text-xl flex items-center gap-2 hover:bg-cyan-200">
+                <i class="fa-solid fa-gamepad"></i> My Work
               </a>
-              <a href="https://www.linkedin.com/in/esraa-abduallah-632117121/" target="_blank" class="btn-pop bg-white text-gogh-dark px-8 py-4 rounded-xl font-royal text-xl text-center">
-                Let's Chat 💬
+              <a href="https://github.com/esraahisham753" target="_blank" class="sticker bg-cosmic-lavender text-cosmic-dark px-8 py-3 font-royal text-xl flex items-center gap-2 hover:bg-purple-200">
+                <i class="fa-brands fa-github"></i> Code
               </a>
             </div>
           </div>
 
-          <!-- Hero Image (TV/Sticker style) -->
+          <!-- Hero Image: The "Girl on the Moon" Vibe -->
           <div class="w-full md:w-1/2 flex justify-center relative">
             
-            <!-- Decorative blobs behind -->
-            <div class="absolute w-[500px] h-[500px] bg-white opacity-40 rounded-full blur-3xl -z-10 animate-pulse"></div>
-
-            <div class="retro-tv-frame w-[350px] md:w-[450px] transform hover:rotate-2 transition-transform duration-500">
-                <!-- Antenna -->
-                <div class="absolute -top-12 left-10 w-2 h-16 bg-gray-400 rotate-[-15deg] -z-10"></div>
-                <div class="absolute -top-12 right-20 w-2 h-16 bg-gray-400 rotate-[15deg] -z-10"></div>
-
-                <div class="retro-tv-screen bg-white h-[350px] md:h-[400px] relative group cursor-pointer">
-                    <img src="images/me.png" alt="Esraa" class="w-full h-full object-cover rounded-[16px_16px_56px_16px]" onerror="this.src='https://placehold.co/400x400/ff9ecf/4a1433?text=Esraa+Portrait'">
-                    <!-- Glitch Overlay effect -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-gogh-blue/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                    
-                    <!-- Sticker on TV -->
-                    <div class="absolute bottom-4 right-4 bg-gogh-yellow text-gogh-dark font-bold px-3 py-1 rounded border-2 border-black text-sm font-royal transform -rotate-6">
-                        LIVE 🔴
-                    </div>
+            <!-- The Moon Container -->
+            <div class="relative w-[350px] h-[350px] md:w-[450px] md:h-[450px]">
+                <!-- Glowing Moon Circle -->
+                <div class="absolute inset-0 rounded-full bg-[#fff9c4] shadow-[0_0_60px_#fff9c4] animate-pulse"></div>
+                
+                <!-- Profile Image mask -->
+                <div class="absolute inset-2 rounded-full overflow-hidden border-4 border-white z-10 bg-cosmic-dark">
+                   <img src="images/me.png" alt="Esraa" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/400x400/2d1b4e/ff69b4?text=Esraa+Portrait'">
                 </div>
 
-                <!-- TV Controls -->
-                <div class="mt-4 flex justify-between items-center px-4">
-                    <div class="flex gap-2">
-                         <div class="w-4 h-4 rounded-full bg-red-400 border border-red-600 shadow-inner"></div>
-                         <div class="w-4 h-4 rounded-full bg-green-400 border border-green-600 shadow-inner"></div>
-                    </div>
-                    <div class="flex gap-1">
-                        <div class="w-12 h-2 bg-gray-300 rounded-full"></div>
-                        <div class="w-2 h-2 bg-gray-300 rounded-full"></div>
-                    </div>
+                <!-- Floating Decor around the moon -->
+                <div class="absolute -right-10 top-10 sticker px-3 py-2 rotate-12 animate-float-delayed z-20">
+                    <span class="font-royal text-lg text-pink-600">No Bad Vibes 💖</span>
                 </div>
-            </div>
 
-            <!-- Floating decorations around TV -->
-            <div class="absolute -right-8 top-10 bg-white p-2 rounded-lg border-2 border-gogh-dark shadow-[4px_4px_0_#4a1433] rotate-12 animate-float">
-                <i class="fa-solid fa-gamepad text-4xl text-purple-500"></i>
-            </div>
-            <div class="absolute -left-4 bottom-20 bg-white p-2 rounded-full border-2 border-gogh-dark shadow-[4px_4px_0_#4a1433] -rotate-12 animate-float" style="animation-delay: 2s">
-                <i class="fa-solid fa-compact-disc text-4xl text-pink-500 animate-spin-slow"></i>
+                <div class="absolute -left-5 bottom-10 sticker p-3 -rotate-12 animate-float z-20 bg-yellow-300 border-yellow-100">
+                    <i class="fa-solid fa-star text-2xl text-orange-500"></i>
+                </div>
+
+                <!-- Cassette Tape decoration -->
+                <div class="absolute bottom-[-20px] right-10 bg-pink-400 w-32 h-20 rounded-lg border-2 border-white shadow-lg transform rotate-6 z-20 flex items-center justify-center">
+                    <div class="w-24 h-12 bg-white/90 rounded border border-pink-600 flex items-center justify-center">
+                        <span class="font-hand text-xs text-black">Music Addict 🎵</span>
+                    </div>
+                    <div class="absolute -top-2 left-2 w-2 h-2 bg-white rounded-full"></div>
+                    <div class="absolute -top-2 right-2 w-2 h-2 bg-white rounded-full"></div>
+                </div>
             </div>
 
           </div>
@@ -368,246 +326,361 @@
       </div>
     </section>
 
-    <!-- Skills Section (Sticker Collection) -->
+    <!-- Skills Section: Sticker Bomb Wall -->
     <section id="skills" class="py-20 relative">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-5xl md:text-6xl font-royal text-gogh-dark mb-4 text-stroke-white drop-shadow-md">
-            My Toolbox 🧰
-          </h2>
-          <p class="font-script text-2xl text-gogh-blue">Collected along the way!</p>
+        <!-- Arabic Decor -->
+        <div class="absolute top-10 right-10 opacity-20 transform rotate-12 pointer-events-none">
+            <span class="font-hand text-9xl text-pink-500">جميلة</span>
         </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            <!-- Skill Items -->
-            <div class="sticker sticker-pink p-6 flex flex-col items-center justify-center gap-3 group cursor-pointer bg-white">
-                <img src="images/skills/javascript.png" class="h-16 w-16 object-contain group-hover:scale-110 transition-transform filter drop-shadow-lg" alt="JS">
-                <span class="font-royal text-xl text-gogh-dark">JavaScript</span>
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-5xl md:text-6xl font-royal text-white mb-4 text-glow">
+            My Toolbox 🧳
+          </h2>
+          <p class="font-script text-2xl text-cosmic-lavender">Tools gathered on my journey</p>
+        </div>
+
+        <!-- The messy grid -->
+        <div class="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm relative">
+            
+            <!-- Pin -->
+            <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-4 h-12 bg-gradient-to-b from-gray-400 to-gray-600 rounded-full shadow-lg z-10 border-2 border-white"></div>
+
+            <!-- Skill Stickers -->
+            <div class="sticker p-4 transform rotate-2 hover:rotate-0 hover:scale-110 w-32 h-32 flex flex-col items-center justify-center gap-2">
+                <i class="fa-brands fa-js text-4xl text-yellow-400"></i>
+                <span class="font-royal text-lg">JS</span>
             </div>
 
-            <div class="sticker sticker-yellow p-6 flex flex-col items-center justify-center gap-3 group cursor-pointer bg-white">
-                <img src="images/skills/react.png" class="h-16 w-16 object-contain group-hover:animate-spin-slow transition-transform filter drop-shadow-lg" alt="React">
-                <span class="font-royal text-xl text-gogh-dark">React</span>
+            <div class="sticker bg-blue-50 p-4 transform -rotate-3 hover:rotate-0 hover:scale-110 w-36 h-36 flex flex-col items-center justify-center gap-2 border-blue-200">
+                <i class="fa-brands fa-react text-5xl text-blue-400 animate-spin-slow"></i>
+                <span class="font-royal text-lg">React</span>
             </div>
 
-            <div class="sticker sticker-pink p-6 flex flex-col items-center justify-center gap-3 group cursor-pointer bg-white">
-                <img src="images/skills/python.png" class="h-16 w-16 object-contain group-hover:scale-110 transition-transform filter drop-shadow-lg" alt="Python">
-                <span class="font-royal text-xl text-gogh-dark">Python</span>
+            <div class="sticker bg-yellow-50 p-4 transform rotate-6 hover:rotate-0 hover:scale-110 w-32 h-32 flex flex-col items-center justify-center gap-2 border-yellow-200">
+                <i class="fa-brands fa-python text-4xl text-blue-600"></i>
+                <span class="font-royal text-lg">Python</span>
             </div>
 
-            <div class="sticker sticker-yellow p-6 flex flex-col items-center justify-center gap-3 group cursor-pointer bg-white">
-                <img src="images/skills/next.jpg" class="h-16 w-16 object-contain rounded-full group-hover:scale-110 transition-transform border-2 border-gray-200" alt="Next">
-                <span class="font-royal text-xl text-gogh-dark">Next.js</span>
+            <div class="sticker bg-gray-900 text-white p-4 transform -rotate-2 hover:rotate-0 hover:scale-110 w-32 h-32 flex flex-col items-center justify-center gap-2 border-gray-600">
+                <span class="font-bold text-3xl">NEXT</span>
+                <span class="font-royal text-xs">.js</span>
             </div>
 
-             <div class="sticker sticker-yellow p-6 flex flex-col items-center justify-center gap-3 group cursor-pointer bg-white">
-                <img src="images/skills/typescript.png" class="h-16 w-16 object-contain group-hover:scale-110 transition-transform filter drop-shadow-lg" alt="TS">
-                <span class="font-royal text-xl text-gogh-dark">TypeScript</span>
+            <div class="sticker bg-pink-100 p-4 transform rotate-12 hover:rotate-0 hover:scale-110 w-40 h-40 flex flex-col items-center justify-center gap-2 border-pink-300 z-10">
+                <i class="fa-solid fa-heart text-4xl text-pink-500 animate-bounce"></i>
+                <span class="font-royal text-lg">Passion</span>
+                <span class="text-xs font-editorial text-center text-gray-500">Self Love Juice</span>
             </div>
 
-            <div class="sticker sticker-pink p-6 flex flex-col items-center justify-center gap-3 group cursor-pointer bg-white">
-                <img src="images/skills/tailwind.png" class="h-16 w-16 object-contain group-hover:scale-110 transition-transform filter drop-shadow-lg" alt="Tailwind">
-                <span class="font-royal text-xl text-gogh-dark">Tailwind</span>
+            <div class="sticker bg-green-50 p-4 transform -rotate-6 hover:rotate-0 hover:scale-110 w-32 h-32 flex flex-col items-center justify-center gap-2 border-green-200">
+                <i class="fa-solid fa-database text-4xl text-green-500"></i>
+                <span class="font-royal text-lg">Django</span>
             </div>
 
-            <div class="sticker sticker-yellow p-6 flex flex-col items-center justify-center gap-3 group cursor-pointer bg-white">
-                <img src="images/skills/graphql.png" class="h-16 w-16 object-contain group-hover:scale-110 transition-transform filter drop-shadow-lg" alt="GQL">
-                <span class="font-royal text-xl text-gogh-dark">GraphQL</span>
+            <div class="sticker bg-purple-100 p-4 transform rotate-3 hover:rotate-0 hover:scale-110 w-32 h-32 flex flex-col items-center justify-center gap-2 border-purple-300">
+                <i class="fa-solid fa-wind text-4xl text-blue-400"></i>
+                <span class="font-royal text-lg">Tailwind</span>
             </div>
 
-            <div class="sticker sticker-pink p-6 flex flex-col items-center justify-center gap-3 group cursor-pointer bg-white">
-                <img src="images/skills/django.png" class="h-16 w-16 object-contain group-hover:scale-110 transition-transform filter drop-shadow-lg" alt="Django">
-                <span class="font-royal text-xl text-gogh-dark">Django</span>
+            <!-- Funny/Personal Stickers mixed in -->
+            <div class="sticker bg-yellow-300 p-2 transform -rotate-12 hover:rotate-0 w-auto h-auto self-center shadow-xl z-20">
+                <div class="border-2 border-black p-2 bg-yellow-300 font-royal text-black text-center leading-tight">
+                    Problem Solving
+                </div>
             </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Services (Game Cartridge Style) -->
-    <section id="services" class="py-20 relative">
+    <!-- Services: Retro Tech Shelf -->
+    <section id="services" class="py-20">
       <div class="container mx-auto px-6">
-         <div class="text-center mb-16 relative">
-             <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-24 bg-gogh-yellow -rotate-2 rounded-full blur-xl -z-10 opacity-50"></div>
-          <h2 class="text-5xl md:text-6xl font-royal text-gogh-dark mb-4 drop-shadow-sm">
-            What I Can Do 🎮
+         <div class="text-center mb-16">
+          <h2 class="text-5xl font-royal text-white mb-4 text-glow">
+            Tech Goodies 📼
           </h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Service 1 -->
-            <div class="bg-white rounded-3xl border-[6px] border-gogh-dark overflow-hidden shadow-[8px_8px_0_#999] hover:-translate-y-2 transition-transform">
-                <div class="bg-gogh-dark text-white p-2 text-center font-bold tracking-widest font-royal text-sm border-b-4 border-gogh-dark">
-                    INSERT COIN TO START
+            
+            <!-- UX Design: Pink Gameboy -->
+            <div class="relative bg-pink-400 rounded-t-2xl rounded-b-[40px] p-6 shadow-[0_10px_0_#9d174d] border-4 border-pink-300 transform hover:-translate-y-2 transition-transform">
+                <div class="absolute top-4 left-4 text-pink-800 font-bold font-royal">GAME GIRL COLOR</div>
+                <!-- Screen -->
+                <div class="gameboy-screen h-40 w-full mt-8 rounded-lg border-4 border-gray-600 p-4 flex flex-col items-center justify-center text-center">
+                    <i class="fa-solid fa-paintbrush text-3xl mb-2 opacity-80"></i>
+                    <h3 class="font-bold text-lg">UX Design</h3>
+                    <p class="text-xs">Pixel Perfect &<br>Super Cute</p>
                 </div>
-                <div class="p-6 bg-pink-50 h-full flex flex-col items-center text-center">
-                    <div class="w-20 h-20 bg-white rounded-full border-4 border-gogh-blue flex items-center justify-center text-3xl text-gogh-blue mb-4 shadow-md">
-                        <i class="fa-solid fa-layer-group"></i>
+                <!-- Buttons -->
+                <div class="mt-6 flex justify-between items-end px-4">
+                    <div class="w-20 h-20 relative">
+                        <div class="absolute top-0 left-1/3 w-1/3 h-full bg-gray-700 rounded"></div>
+                        <div class="absolute top-1/3 left-0 w-full h-1/3 bg-gray-700 rounded"></div>
                     </div>
-                    <h3 class="text-3xl font-royal text-gogh-dark mb-2">UX Design</h3>
-                    <p class="font-editorial text-gray-600 leading-relaxed mb-4">
-                        Designing user interfaces that feel like a favorite game. Intuitive, fun, and pixel-perfect.
-                    </p>
+                    <div class="flex gap-2 transform -rotate-12 mb-2">
+                        <div class="w-8 h-8 rounded-full bg-red-600 shadow-inner"></div>
+                        <div class="w-8 h-8 rounded-full bg-red-600 shadow-inner"></div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Service 2 -->
-            <div class="bg-white rounded-3xl border-[6px] border-gogh-dark overflow-hidden shadow-[8px_8px_0_#999] hover:-translate-y-2 transition-transform">
-                <div class="bg-gogh-blue text-white p-2 text-center font-bold tracking-widest font-royal text-sm border-b-4 border-gogh-dark">
-                    PLAYER 1 READY
-                </div>
-                <div class="p-6 bg-yellow-50 h-full flex flex-col items-center text-center">
-                    <div class="w-20 h-20 bg-white rounded-full border-4 border-gogh-yellow flex items-center justify-center text-3xl text-gogh-yellow mb-4 shadow-md">
-                        <i class="fa-solid fa-code"></i>
+            <!-- Web Dev: Retro TV -->
+            <div class="relative bg-purple-500 rounded-3xl p-6 shadow-[0_10px_0_#4c1d95] border-4 border-purple-400 transform hover:-translate-y-2 transition-transform">
+                <!-- Antenna -->
+                <div class="absolute -top-8 left-1/2 w-1 h-8 bg-gray-400 rotate-[-30deg]"></div>
+                <div class="absolute -top-8 left-1/2 w-1 h-8 bg-gray-400 rotate-[30deg]"></div>
+                
+                <div class="bg-cosmic-dark rounded-[50%_50%_10%_10%_/_10%_10%_5%_5%] border-4 border-gray-200 p-1 h-48 overflow-hidden relative">
+                    <!-- Static Glitch Background -->
+                    <div class="w-full h-full bg-black flex flex-col items-center justify-center text-center p-4 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-[url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif')] opacity-10 pointer-events-none bg-cover"></div>
+                        <i class="fa-solid fa-code text-4xl text-green-400 mb-2 z-10"></i>
+                        <h3 class="font-royal text-white text-xl z-10">Web Dev</h3>
+                        <p class="font-editorial text-gray-300 text-sm z-10">React & Django Magic</p>
                     </div>
-                    <h3 class="text-3xl font-royal text-gogh-dark mb-2">Web Dev</h3>
-                    <p class="font-editorial text-gray-600 leading-relaxed mb-4">
-                        Full-stack magic with React & Django. I build websites that load fast and look cute on any device.
-                    </p>
+                </div>
+                <div class="mt-4 flex gap-4">
+                    <div class="w-12 h-12 rounded-full border-4 border-gray-300 relative bg-gray-800">
+                        <div class="w-1 h-4 bg-white absolute top-1 left-1/2 transform -translate-x-1/2"></div>
+                    </div>
+                    <div class="flex-1 flex flex-col justify-center gap-1">
+                        <div class="w-full h-1 bg-black/20 rounded"></div>
+                        <div class="w-full h-1 bg-black/20 rounded"></div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Service 3 -->
-            <div class="bg-white rounded-3xl border-[6px] border-gogh-dark overflow-hidden shadow-[8px_8px_0_#999] hover:-translate-y-2 transition-transform">
-                <div class="bg-purple-500 text-white p-2 text-center font-bold tracking-widest font-royal text-sm border-b-4 border-gogh-dark">
-                    BONUS STAGE
-                </div>
-                <div class="p-6 bg-purple-50 h-full flex flex-col items-center text-center">
-                    <div class="w-20 h-20 bg-white rounded-full border-4 border-purple-500 flex items-center justify-center text-3xl text-purple-500 mb-4 shadow-md">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
-                    <h3 class="text-3xl font-royal text-gogh-dark mb-2">AI Integration</h3>
-                    <p class="font-editorial text-gray-600 leading-relaxed mb-4">
-                        Adding brains to beauty. I integrate AI models to make your apps smarter and more interactive.
-                    </p>
+            <!-- AI: Floppy Disk/Cassette Mix -->
+            <div class="relative bg-cosmic-cyan rounded-lg p-4 shadow-[0_10px_0_#0e7490] border-4 border-cyan-200 transform hover:-translate-y-2 transition-transform">
+                <div class="bg-white/90 h-full rounded border-2 border-gray-400 p-4 relative">
+                     <div class="w-full h-12 bg-gray-800 rounded mb-4"></div> <!-- Shutter -->
+                     <div class="border-2 border-gray-300 p-4 text-center h-40 flex flex-col items-center justify-center bg-gray-50">
+                        <i class="fa-solid fa-robot text-4xl text-purple-500 mb-2"></i>
+                        <h3 class="font-royal text-purple-900 text-xl">AI Models</h3>
+                        <p class="font-hand text-gray-500 mt-2">"Smart & Sassy"</p>
+                     </div>
+                     <div class="absolute bottom-2 right-4 text-gray-400 text-xs font-mono">1.44MB</div>
                 </div>
             </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Education (Timeline) -->
-    <section id="education" class="py-20 bg-white/40 border-y-4 border-dashed border-white">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-5xl font-royal text-gogh-dark mb-2">
-            Level Up History 🎓
-          </h2>
-          <p class="font-script text-2xl text-pink-500">My academic adventure log</p>
+    <!-- Education Timeline -->
+    <section id="education" class="py-20 relative overflow-hidden">
+        <!-- Background stripe -->
+        <div class="absolute top-0 left-0 w-full h-full bg-white/5 skew-y-3 transform origin-top-left -z-10"></div>
+        
+        <div class="container mx-auto px-6">
+            <h2 class="text-center text-4xl font-royal text-white mb-12 text-glow">Level Up Log 🍄</h2>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- Item 1 -->
+                <div class="bg-white text-cosmic-dark p-6 rounded-2xl border-l-8 border-cosmic-accent shadow-lg transform hover:scale-[1.02] transition-transform">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-royal text-2xl">Computer Science Degree</h3>
+                            <p class="font-script text-gray-500 text-lg">Ainshams University</p>
+                            <div class="mt-2 inline-block bg-yellow-300 text-yellow-900 px-2 py-1 rounded text-xs font-bold border border-yellow-500">
+                                🏆 Ranked 1st - High Score!
+                            </div>
+                        </div>
+                        <span class="font-editorial text-sm text-gray-400 bg-gray-100 px-3 py-1 rounded-full">2019</span>
+                    </div>
+                </div>
+                
+                 <!-- Item 2 -->
+                 <div class="bg-white text-cosmic-dark p-6 rounded-2xl border-l-8 border-yellow-400 shadow-lg transform hover:scale-[1.02] transition-transform">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-royal text-2xl">CS50 Web Programming</h3>
+                            <p class="font-script text-gray-500 text-lg">Harvard University (Online)</p>
+                            <a href="https://www.linkedin.com/in/esraa-abduallah-632117121/details/certifications/" class="text-pink-500 text-sm font-bold hover:underline mt-1 block">View Certificate</a>
+                        </div>
+                        <span class="font-editorial text-sm text-gray-400 bg-gray-100 px-3 py-1 rounded-full">2025</span>
+                    </div>
+                </div>
+                 <!-- Item 3 -->
+                 <div class="bg-white text-cosmic-dark p-6 rounded-2xl border-l-8 border-yellow-400 shadow-lg transform hover:scale-[1.02] transition-transform">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-royal text-2xl">CS50x</h3>
+                            <p class="font-script text-gray-500 text-lg">Harvard University (Online)</p>
+                            <a href="https://www.linkedin.com/in/esraa-abduallah-632117121/details/certifications/" class="text-pink-500 text-sm font-bold hover:underline mt-1 block">View Certificate</a>
+                        </div>
+                        <span class="font-editorial text-sm text-gray-400 bg-gray-100 px-3 py-1 rounded-full">2024</span>
+                    </div>
+                </div>
+                 <!-- Item 4 -->
+                 <div class="bg-white text-cosmic-dark p-6 rounded-2xl border-l-8 border-yellow-400 shadow-lg transform hover:scale-[1.02] transition-transform">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-royal text-2xl">Django for Everybody Specialization</h3>
+                            <p class="font-script text-gray-500 text-lg">Coursera</p>
+                            <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/BAJR3LVDYE6C" class="text-pink-500 text-sm font-bold hover:underline mt-1 block">View Certificate</a>
+                        </div>
+                        <span class="font-editorial text-sm text-gray-400 bg-gray-100 px-3 py-1 rounded-full">2020</span>
+                    </div>
+                </div>
+                 <!-- Item 5 -->
+                 <div class="bg-white text-cosmic-dark p-6 rounded-2xl border-l-8 border-yellow-400 shadow-lg transform hover:scale-[1.02] transition-transform">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-royal text-2xl">Advanced Web Development Nanodegree</h3>
+                            <p class="font-script text-gray-500 text-lg">Udacity</p>
+                            <a href="confirm.udacity.com/MDKVNYHF" class="text-pink-500 text-sm font-bold hover:underline mt-1 block">View Certificate</a>
+                        </div>
+                        <span class="font-editorial text-sm text-gray-400 bg-gray-100 px-3 py-1 rounded-full">2020</span>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="max-w-3xl mx-auto space-y-8">
-            <!-- Item 1 -->
-            <div class="bg-white p-6 rounded-2xl border-l-8 border-gogh-blue shadow-lg hover:shadow-xl transition-shadow relative">
-                <div class="absolute -left-3 top-6 w-6 h-6 bg-gogh-blue rounded-full border-4 border-white"></div>
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
-                    <h3 class="text-2xl font-royal text-gogh-dark">Bachelor in Computer Science</h3>
-                    <span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Jun 2019</span>
-                </div>
-                <p class="font-script text-xl text-gray-500 mb-2">Ainshams University • Excellent with Honors</p>
-                <div class="inline-block bg-yellow-100 px-2 py-1 rounded text-xs font-bold text-yellow-700">Ranked 1st 🏆</div>
-            </div>
-
-            <!-- Item 2 -->
-            <div class="bg-white p-6 rounded-2xl border-l-8 border-gogh-yellow shadow-lg hover:shadow-xl transition-shadow relative">
-                <div class="absolute -left-3 top-6 w-6 h-6 bg-gogh-yellow rounded-full border-4 border-white"></div>
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
-                    <h3 class="text-2xl font-royal text-gogh-dark">CS50 Web Programming</h3>
-                    <span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Feb 2025</span>
-                </div>
-                <p class="font-script text-xl text-gray-500">Harvard University (Online)</p>
-                <a href="#" class="text-sm text-pink-500 font-bold hover:underline mt-2 inline-block"><i class="fa-solid fa-certificate"></i> View Cert</a>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="bg-white p-6 rounded-2xl border-l-8 border-purple-400 shadow-lg hover:shadow-xl transition-shadow relative">
-                <div class="absolute -left-3 top-6 w-6 h-6 bg-purple-400 rounded-full border-4 border-white"></div>
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
-                    <h3 class="text-2xl font-royal text-gogh-dark">CS50x Intro to CS</h3>
-                    <span class="bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">Dec 2024</span>
-                </div>
-                <p class="font-script text-xl text-gray-500">Harvard University (Online)</p>
-            </div>
-        </div>
-      </div>
     </section>
 
-    <!-- Projects (Polaroid Style) -->
-    <section id="portfolio" class="py-20 relative">
+    <!-- Projects: Polaroid Gallery -->
+    <section id="portfolio" class="py-20 bg-black/20 backdrop-blur-sm">
       <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <span class="inline-block px-3 py-1 bg-black text-white font-bold text-xs uppercase rotate-2 mb-2">Selected Work</span>
-          <h2 class="text-5xl font-royal text-gogh-dark">My Masterpieces 🖌️</h2>
+        <div class="text-center mb-16 relative">
+            <span class="absolute top-0 right-[20%] text-6xl animate-wiggle">🎨</span>
+          <h2 class="text-5xl font-royal text-white text-glow">Portfolio 📸</h2>
+          <p class="font-script text-xl text-pink-300 mt-2">Projects captured in time</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-4">
             
             <!-- Project 1 -->
-            <div class="bg-white p-4 pb-8 shadow-[0_10px_20px_rgba(0,0,0,0.1)] transform rotate-1 hover:rotate-0 hover:scale-105 transition-all duration-300 relative group">
+            <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform rotate-2 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
                 <!-- Washi Tape -->
-                <div class="washi-tape"></div>
+                <div class="washi-tape" style="background-color: rgba(255,105,180,0.5)"></div>
                 
-                <div class="w-full aspect-video bg-gray-200 overflow-hidden mb-4 border border-gray-100">
-                     <img src="images/portfolio/esresumes.png" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all" alt="Resume App" onerror="this.src='https://placehold.co/600x400/ffb6c1/4a1433?text=Resume+Analyzer'">
+                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
+                     <img src="images/portfolio/esresumes.png" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="Resume App" onerror="this.src='https://placehold.co/600x600/ffb6c1/4a1433?text=Resume+App'">
                 </div>
-                <h3 class="font-royal text-2xl text-gogh-dark text-center">Resume Analyzer</h3>
-                <p class="text-center text-gray-500 font-script text-lg">AI Powered ATS Checker</p>
-                <div class="text-center mt-4">
-                    <a href="https://puter.com/app/es-resume-analyzer" target="_blank" class="text-xs font-bold uppercase tracking-wider text-white bg-gogh-blue px-3 py-1 rounded-full hover:bg-gogh-dark transition-colors">Launch App</a>
+                <div class="font-hand text-2xl text-gray-800 text-center transform -rotate-2">
+                    Resume Analyzer 🤖
+                </div>
+                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <a href="https://puter.com/app/es-resume-analyzer" target="_blank" class="bg-cosmic-accent text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Open</a>
                 </div>
             </div>
 
             <!-- Project 2 -->
-             <div class="bg-white p-4 pb-8 shadow-[0_10px_20px_rgba(0,0,0,0.1)] transform -rotate-2 hover:rotate-0 hover:scale-105 transition-all duration-300 relative group z-10">
-                <div class="washi-tape" style="background-color: rgba(255,255,0,0.3); transform: translateX(-50%) rotate(3deg);"></div>
+             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform -rotate-3 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
+                <div class="washi-tape" style="background-color: rgba(152,255,152,0.5); transform: translateX(-50%) rotate(3deg);"></div>
                 
-                <div class="w-full aspect-video bg-gray-200 overflow-hidden mb-4 border border-gray-100">
-                     <img src="images/portfolio/esfood.png" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all" alt="Food App" onerror="this.src='https://placehold.co/600x400/98ff98/4a1433?text=Yummy+Food'">
+                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
+                     <img src="images/portfolio/esfood.png" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="Food App" onerror="this.src='https://placehold.co/600x600/98ff98/4a1433?text=Yummy+Food'">
                 </div>
-                <h3 class="font-royal text-2xl text-gogh-dark text-center">Es Food App</h3>
-                <p class="text-center text-gray-500 font-script text-lg">React Native Delights</p>
-                <div class="text-center mt-4">
-                    <a href="https://youtu.be/CVkR-jU-vyE" target="_blank" class="text-xs font-bold uppercase tracking-wider text-white bg-green-400 px-3 py-1 rounded-full hover:bg-green-600 transition-colors">Watch Demo</a>
+                <div class="font-hand text-2xl text-gray-800 text-center transform rotate-1">
+                    Food Delivery 🍔
+                </div>
+                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <a href="#" target="_blank" class="bg-green-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Watch</a>
                 </div>
             </div>
 
             <!-- Project 3 -->
-             <div class="bg-white p-4 pb-8 shadow-[0_10px_20px_rgba(0,0,0,0.1)] transform rotate-2 hover:rotate-0 hover:scale-105 transition-all duration-300 relative group">
-                <div class="washi-tape" style="background-color: rgba(0,255,255,0.3); transform: translateX(-50%) rotate(-1deg);"></div>
+             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform rotate-1 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
+                <div class="washi-tape" style="background-color: rgba(0,255,255,0.5); transform: translateX(-50%) rotate(-1deg);"></div>
                 
-                <div class="w-full aspect-video bg-gray-200 overflow-hidden mb-4 border border-gray-100">
-                     <img src="images/portfolio/flights.jpeg" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all" alt="Flights" onerror="this.src='https://placehold.co/600x400/87ceeb/4a1433?text=Sky+Flights'">
+                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
+                     <img src="images/portfolio/flights.jpeg" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="Flights" onerror="this.src='https://placehold.co/600x600/87ceeb/4a1433?text=Sky+Flights'">
                 </div>
-                <h3 class="font-royal text-2xl text-gogh-dark text-center">Flights Search</h3>
-                <p class="text-center text-gray-500 font-script text-lg">Travel the World</p>
-                <div class="text-center mt-4">
-                    <a href="https://esgoogleflights-8npwkgg2s-esraa-abduallahs-projects.vercel.app/" target="_blank" class="text-xs font-bold uppercase tracking-wider text-white bg-sky-400 px-3 py-1 rounded-full hover:bg-sky-600 transition-colors">Visit Site</a>
+                <div class="font-hand text-2xl text-gray-800 text-center transform -rotate-1">
+                    Travel Plans ✈️
+                </div>
+                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <a href="https://esgoogleflights-8npwkgg2s-esraa-abduallahs-projects.vercel.app/" target="_blank" class="bg-blue-400 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Fly</a>
                 </div>
             </div>
 
-            <!-- Project 4 -->
-             <div class="bg-white p-4 pb-8 shadow-[0_10px_20px_rgba(0,0,0,0.1)] transform -rotate-1 hover:rotate-0 hover:scale-105 transition-all duration-300 relative group">
-                <div class="washi-tape" style="background-color: rgba(200,100,255,0.3); transform: translateX(-50%) rotate(2deg);"></div>
+             <!-- Project 4 -->
+             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform -rotate-2 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
+                <div class="washi-tape" style="background-color: rgba(220,176,255,0.5); transform: translateX(-50%) rotate(2deg);"></div>
                 
-                <div class="w-full aspect-video bg-gray-200 overflow-hidden mb-4 border border-gray-100">
-                     <img src="images/portfolio/game.jpeg" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all" alt="2048" onerror="this.src='https://placehold.co/600x400/dcb0ff/4a1433?text=2048+Game'">
+                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
+                     <img src="images/portfolio/game.jpeg" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="2048" onerror="this.src='https://placehold.co/600x600/dcb0ff/4a1433?text=2048+Game'">
                 </div>
-                <h3 class="font-royal text-2xl text-gogh-dark text-center">2048 Game</h3>
-                <p class="text-center text-gray-500 font-script text-lg">Addictive Puzzle</p>
-                <div class="text-center mt-4">
-                    <a href="https://esraahisham753.github.io/2048-Game/" target="_blank" class="text-xs font-bold uppercase tracking-wider text-white bg-purple-400 px-3 py-1 rounded-full hover:bg-purple-600 transition-colors">Play Now</a>
+                <div class="font-hand text-2xl text-gray-800 text-center transform rotate-2">
+                    Logic Puzzle 🧩
+                </div>
+                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <a href="https://esraahisham753.github.io/2048-Game/" target="_blank" class="bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Play</a>
                 </div>
             </div>
              <!-- Project 5 -->
-             <div class="bg-white p-4 pb-8 shadow-[0_10px_20px_rgba(0,0,0,0.1)] transform rotate-1 hover:rotate-0 hover:scale-105 transition-all duration-300 relative group">
-                <div class="washi-tape" style="background-color: rgba(255,160,0,0.3); transform: translateX(-50%) rotate(-3deg);"></div>
+             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform -rotate-2 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
+                <div class="washi-tape" style="background-color: rgba(220,176,255,0.5); transform: translateX(-50%) rotate(2deg);"></div>
                 
-                <div class="w-full aspect-video bg-gray-200 overflow-hidden mb-4 border border-gray-100">
-                     <img src="images/portfolio/taskmanager.jpeg" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all" alt="Tasks" onerror="this.src='https://placehold.co/600x400/ffcc00/4a1433?text=Task+Manager'">
+                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
+                     <img src="images/portfolio/game.jpeg" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="2048" onerror="this.src='https://placehold.co/600x600/dcb0ff/4a1433?text=2048+Game'">
                 </div>
-                <h3 class="font-royal text-2xl text-gogh-dark text-center">Task Manager</h3>
-                <p class="text-center text-gray-500 font-script text-lg">NextJS Productivity</p>
-                <div class="text-center mt-4">
-                    <a href="https://youtu.be/dzhuXNL_FRM" target="_blank" class="text-xs font-bold uppercase tracking-wider text-white bg-orange-400 px-3 py-1 rounded-full hover:bg-orange-600 transition-colors">Watch Demo</a>
+                <div class="font-hand text-2xl text-gray-800 text-center transform rotate-2">
+                    Logic Puzzle 🧩
+                </div>
+                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <a href="https://esraahisham753.github.io/2048-Game/" target="_blank" class="bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Play</a>
+                </div>
+            </div>
+             <!-- Project 4 -->
+             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform -rotate-2 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
+                <div class="washi-tape" style="background-color: rgba(220,176,255,0.5); transform: translateX(-50%) rotate(2deg);"></div>
+                
+                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
+                     <img src="images/portfolio/game.jpeg" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="2048" onerror="this.src='https://placehold.co/600x600/dcb0ff/4a1433?text=2048+Game'">
+                </div>
+                <div class="font-hand text-2xl text-gray-800 text-center transform rotate-2">
+                    Logic Puzzle 🧩
+                </div>
+                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <a href="https://esraahisham753.github.io/2048-Game/" target="_blank" class="bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Play</a>
+                </div>
+            </div>
+             <!-- Project 4 -->
+             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform -rotate-2 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
+                <div class="washi-tape" style="background-color: rgba(220,176,255,0.5); transform: translateX(-50%) rotate(2deg);"></div>
+                
+                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
+                     <img src="images/portfolio/game.jpeg" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="2048" onerror="this.src='https://placehold.co/600x600/dcb0ff/4a1433?text=2048+Game'">
+                </div>
+                <div class="font-hand text-2xl text-gray-800 text-center transform rotate-2">
+                    Logic Puzzle 🧩
+                </div>
+                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <a href="https://esraahisham753.github.io/2048-Game/" target="_blank" class="bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Play</a>
+                </div>
+            </div>
+             <!-- Project 4 -->
+             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform -rotate-2 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
+                <div class="washi-tape" style="background-color: rgba(220,176,255,0.5); transform: translateX(-50%) rotate(2deg);"></div>
+                
+                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
+                     <img src="images/portfolio/game.jpeg" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="2048" onerror="this.src='https://placehold.co/600x600/dcb0ff/4a1433?text=2048+Game'">
+                </div>
+                <div class="font-hand text-2xl text-gray-800 text-center transform rotate-2">
+                    Logic Puzzle 🧩
+                </div>
+                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <a href="https://esraahisham753.github.io/2048-Game/" target="_blank" class="bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Play</a>
+                </div>
+            </div>
+             <!-- Project 4 -->
+             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform -rotate-2 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
+                <div class="washi-tape" style="background-color: rgba(220,176,255,0.5); transform: translateX(-50%) rotate(2deg);"></div>
+                
+                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
+                     <img src="images/portfolio/game.jpeg" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="2048" onerror="this.src='https://placehold.co/600x600/dcb0ff/4a1433?text=2048+Game'">
+                </div>
+                <div class="font-hand text-2xl text-gray-800 text-center transform rotate-2">
+                    Logic Puzzle 🧩
+                </div>
+                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <a href="https://esraahisham753.github.io/2048-Game/" target="_blank" class="bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Play</a>
                 </div>
             </div>
 
@@ -618,60 +691,37 @@
     <!-- Blog Section -->
     <section id="blog" class="py-20 relative">
         <div class="container mx-auto px-6">
-            <div class="bg-white rounded-[3rem] p-8 md:p-12 border-4 border-gogh-blue shadow-[0_0_0_10px_rgba(255,255,255,0.5)] relative overflow-hidden">
-                <!-- Background pattern -->
-                <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#4a1433 2px, transparent 2px); background-size: 20px 20px;"></div>
-                
+            <!-- Glass Container -->
+            <div class="glass-panel p-8 md:p-12 relative overflow-hidden">
                 <div class="relative z-10 flex flex-col md:flex-row items-center gap-10">
-                    <div class="md:w-5/12">
-                        <span class="font-royal text-pink-500 text-xl mb-2 block">📝 Starry Chronicles</span>
-                        <h2 class="text-4xl md:text-5xl font-royal text-gogh-dark mb-6">Read My Thoughts on Tech & Life</h2>
-                        <p class="font-editorial text-lg text-gray-600 mb-8">
-                            I write about AI, coding philosophy, and my journey as a developer on Medium. Grab a cup of tea and let's read!
+                    <div class="md:w-5/12 text-center md:text-left">
+                        <span class="font-royal text-cosmic-accent text-xl mb-2 block">📝 Midnight Thoughts</span>
+                        <h2 class="text-4xl md:text-5xl font-royal text-white mb-6">Reading List</h2>
+                        <p class="font-editorial text-lg text-gray-300 mb-8">
+                            Grab some popcorn 🍿 and read about my adventures in tech, AI, and digital nostalgia.
                         </p>
-                        <a href="https://medium.com/@esraahisham753" target="_blank" class="btn-pop inline-block bg-gogh-dark text-white px-8 py-3 rounded-xl font-royal text-lg">
+                        <a href="https://medium.com/@esraahisham753" target="_blank" class="inline-block bg-white text-cosmic-dark px-8 py-3 rounded-xl font-royal text-lg hover:scale-105 transition-transform border-4 border-cosmic-accent">
                             Go to Blog <i class="fa-solid fa-arrow-right ml-2"></i>
                         </a>
                     </div>
-                    <!-- Article Cards Stack -->
+                    
+                    <!-- Blog Stickers -->
                     <div class="md:w-7/12 flex flex-col gap-4">
-                        
-                        <!-- Article 1 -->
-                        <a href="https://medium.com/@esraahisham753" target="_blank" class="sticker sticker-pink p-3 flex items-center gap-4 group cursor-pointer hover:bg-pink-50 transition-colors transform hover:-translate-x-2">
-                            <div class="w-24 h-24 flex-shrink-0 overflow-hidden rounded-xl border-2 border-pink-300">
-                                <img src="images/blog/python-music.jpg" alt="Python Music" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform" onerror="this.src='https://placehold.co/200x200/ff9ecf/ffffff?text=Python+Music'">
-                            </div>
+                        <a href="https://medium.com/@esraahisham753" class="bg-white/90 p-4 rounded-xl flex items-center gap-4 hover:bg-white transition-colors transform hover:-translate-x-2 border-2 border-transparent hover:border-cosmic-accent cursor-pointer">
+                            <div class="w-16 h-16 bg-pink-200 rounded-lg flex items-center justify-center text-2xl">🎵</div>
                             <div>
-                                <h4 class="font-bold font-royal text-gogh-dark text-lg group-hover:text-pink-500">How to Learn to Play Melodies using Python</h4>
-                                <p class="text-xs font-editorial text-gray-500 mt-1">Building a tool for ear training with code. A melody of logic.</p>
-                                <span class="text-xs text-pink-400 font-bold mt-2 inline-block">Read More &rarr;</span>
+                                <h4 class="font-bold font-royal text-cosmic-dark text-lg">Coding Melodies with Python</h4>
+                                <span class="text-xs text-pink-500 font-bold uppercase">Tech & Art</span>
                             </div>
                         </a>
-    
-                        <!-- Article 2 -->
-                        <a href="https://medium.com/@esraahisham753" target="_blank" class="sticker sticker-yellow p-3 flex items-center gap-4 group cursor-pointer hover:bg-yellow-50 transition-colors transform hover:translate-x-2">
-                            <div class="w-24 h-24 flex-shrink-0 overflow-hidden rounded-xl border-2 border-yellow-300">
-                                <img src="images/blog/ai.jpg" alt="AI Journey" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform" onerror="this.src='https://placehold.co/200x200/fff44f/ffffff?text=AI+Journey'">
-                            </div>
+
+                        <a href="https://medium.com/@esraahisham753" class="bg-white/90 p-4 rounded-xl flex items-center gap-4 hover:bg-white transition-colors transform hover:translate-x-2 border-2 border-transparent hover:border-yellow-400 cursor-pointer">
+                            <div class="w-16 h-16 bg-yellow-200 rounded-lg flex items-center justify-center text-2xl">🤖</div>
                             <div>
-                                <h4 class="font-bold font-royal text-gogh-dark text-lg group-hover:text-yellow-600">Traditional vs Modern AI</h4>
-                                <p class="text-xs font-editorial text-gray-500 mt-1">Integrating AI into my workflow from scratch. The future is here.</p>
-                                <span class="text-xs text-yellow-600 font-bold mt-2 inline-block">Read More &rarr;</span>
+                                <h4 class="font-bold font-royal text-cosmic-dark text-lg">Modern vs Traditional AI</h4>
+                                <span class="text-xs text-yellow-600 font-bold uppercase">Future Tech</span>
                             </div>
                         </a>
-    
-                         <!-- Article 3 -->
-                        <a href="https://medium.com/@esraahisham753" target="_blank" class="sticker sticker-pink p-3 flex items-center gap-4 group cursor-pointer hover:bg-purple-50 transition-colors transform hover:-translate-x-2">
-                            <div class="w-24 h-24 flex-shrink-0 overflow-hidden rounded-xl border-2 border-purple-300">
-                                <img src="images/blog/90s.jpg" alt="90s Tech" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform" onerror="this.src='https://placehold.co/200x200/e6e6fa/4a1433?text=90s+Tech'">
-                            </div>
-                            <div>
-                                <h4 class="font-bold font-royal text-gogh-dark text-lg group-hover:text-purple-500">90's Tech Rewind</h4>
-                                <p class="text-xs font-editorial text-gray-500 mt-1">Christmas Tech Nostalgia for the 90s generation. Memories!</p>
-                                <span class="text-xs text-purple-500 font-bold mt-2 inline-block">Read More &rarr;</span>
-                            </div>
-                        </a>
-    
                     </div>
                 </div>
             </div>
@@ -679,32 +729,63 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white pt-16 pb-8 border-t-8 border-gogh-blue mt-20">
-      <div class="container mx-auto px-6 text-center">
+    <footer class="pt-20 pb-10 relative">
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+          <div class="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-cosmic-dark to-transparent"></div>
+      </div>
+      
+      <div class="container mx-auto px-6 text-center relative z-10">
         
-        <div class="flex justify-center items-center gap-4 mb-8">
-             <i class="fa-solid fa-heart text-4xl text-pink-500 animate-bounce-slow"></i>
-             <h2 class="text-4xl font-royal text-gogh-dark">Creative Technology</h2>
-             <i class="fa-solid fa-star text-4xl text-yellow-400 animate-spin-slow"></i>
+        <div class="mb-10">
+             <span class="inline-block bg-white text-cosmic-dark font-royal text-2xl px-6 py-2 rounded-full transform -rotate-2 border-4 border-pink-500 shadow-[5px_5px_0_#ec4899]">
+                 Catchin' Energy! ⚡
+             </span>
         </div>
 
         <div class="flex flex-wrap justify-center gap-6 mb-10">
-             <a href="https://www.linkedin.com/in/esraa-abduallah-632117121/" class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform shadow-lg border-2 border-black">
+             <a href="https://www.linkedin.com/in/esraa-abduallah-632117121/" class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl hover:scale-110 transition-transform shadow-[0_0_15px_blue] border-2 border-white">
                  <i class="fa-brands fa-linkedin-in"></i>
              </a>
-             <a href="https://github.com/esraahisham753" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform shadow-lg border-2 border-black">
+             <a href="https://github.com/esraahisham753" class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center text-white text-2xl hover:scale-110 transition-transform shadow-[0_0_15px_white] border-2 border-white">
                  <i class="fa-brands fa-github"></i>
              </a>
-             <a href="mailto:esraahisham753@gmail.com" class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition-transform shadow-lg border-2 border-black">
+             <a href="mailto:esraahisham753@gmail.com" class="w-14 h-14 bg-red-500 rounded-full flex items-center justify-center text-white text-2xl hover:scale-110 transition-transform shadow-[0_0_15px_red] border-2 border-white">
                  <i class="fa-solid fa-envelope"></i>
              </a>
         </div>
 
-        <p class="font-royal text-gray-400 text-lg">
-            &copy; 2026 Esraa Abduallah. Made with <span class="text-pink-500">💕</span> & <span class="text-purple-500">☕</span>
+        <p class="font-script text-pink-300 text-xl">
+            &copy; 2026 Esraa. Built with Stardust & Code. 
         </p>
       </div>
     </footer>
 
+    <!-- Star Generation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const starContainer = document.getElementById('star-container');
+            const starCount = 150;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random positioning
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const size = Math.random() * 3;
+                const duration = Math.random() * 3 + 2; // 2-5s
+                const delay = Math.random() * 5;
+
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.animation = `twinkle ${duration}s ease-in-out ${delay}s infinite`;
+
+                starContainer.appendChild(star);
+            }
+        });
+    </script>
   </body>
 </html>
