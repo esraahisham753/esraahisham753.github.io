@@ -1,820 +1,671 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EssIdeas | Software Engineer & Designer</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Bubblegum+Sans&family=Chewy&family=Fredoka:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome -->
-    <script src="https://kit.fontawesome.com/ef7fafcbf6.js" crossorigin="anonymous"></script>
+    <title>EssIdeas | Esraa Abduallah | Software Engineer and Designer</title>
+    <meta
+      name="description"
+      content="Portfolio of Esraa Abduallah, a software engineer and designer building modern web experiences, AI experiments, and thoughtful digital products."
+    />
+    <meta name="theme-color" content="#18222f" />
 
-    <!-- Tailwind Config -->
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              cosmic: {
-                dark: '#1a0b2e',    // Deep Purple Night
-                bg: '#2d1b4e',      // Lighter Purple
-                accent: '#ff69b4',  // Hot Pink
-                glow: '#fff9c4',    // Moon Glow
-                lavender: '#e6e6fa',
-                cyan: '#00ffff',
-                mint: '#98ff98',
-                gold: '#ffd700',
-              }
-            },
-            fontFamily: {
-              royal: ['"Chewy"', 'cursive'],       
-              script: ['"Bubblegum Sans"', 'cursive'], 
-              body: ['"Baloo 2"', 'cursive'],      
-              editorial: ['"Fredoka"', 'sans-serif'], 
-              hand: ['"Pacifico"', 'cursive'],
-            },
-            animation: {
-              'float': 'float 6s ease-in-out infinite',
-              'float-delayed': 'float 6s ease-in-out 3s infinite',
-              'twinkle': 'twinkle 4s ease-in-out infinite',
-              'bounce-slow': 'bounce 3s infinite',
-              'spin-slow': 'spin 15s linear infinite',
-              'wiggle': 'wiggle 1s ease-in-out infinite',
-              'glow': 'glow 2s ease-in-out infinite alternate',
-            },
-            keyframes: {
-              float: {
-                '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
-                '50%': { transform: 'translateY(-20px) rotate(2deg)' },
-              },
-              twinkle: {
-                '0%, 100%': { opacity: 0.3, transform: 'scale(0.8)' },
-                '50%': { opacity: 1, transform: 'scale(1.2)' },
-              },
-              wiggle: {
-                '0%, 100%': { transform: 'rotate(-3deg)' },
-                '50%': { transform: 'rotate(3deg)' },
-              },
-              glow: {
-                'from': { boxShadow: '0 0 10px #ff69b4, 0 0 20px #ff69b4' },
-                'to': { boxShadow: '0 0 20px #ff69b4, 0 0 30px #ff69b4' },
-              }
-            }
-          }
-        }
-      }
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
 
-    <style>
-      /* --- Cosmic Background --- */
-      body {
-        background-color: #1a0b2e;
-        background-image: 
-          radial-gradient(circle at 10% 20%, rgba(255, 105, 180, 0.2) 0%, transparent 40%),
-          radial-gradient(circle at 90% 80%, rgba(0, 255, 255, 0.15) 0%, transparent 40%),
-          radial-gradient(circle at 50% 50%, rgba(75, 0, 130, 0.4) 0%, transparent 60%);
-        color: white;
-        overflow-x: hidden;
-        min-height: 100vh;
-      }
-
-      /* Stars Generator */
-      .stars {
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        pointer-events: none;
-        z-index: -1;
-      }
-      .star {
-        position: absolute;
-        background: white;
-        border-radius: 50%;
-        opacity: 0.8;
-      }
-
-      /* --- Moon Glow Effect --- */
-      .moon-glow {
-        position: absolute;
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(circle, rgba(255, 249, 196, 0.15) 0%, transparent 70%);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 0;
-        filter: blur(40px);
-      }
-
-      /* --- Sticker Aesthetic --- */
-      .sticker {
-        background: white;
-        color: #2d1b4e;
-        border: 4px solid white;
-        box-shadow: 
-          0 0 0 2px rgba(0,0,0,0.1), /* Inner definition */
-          5px 5px 15px rgba(0,0,0,0.3); /* Drop shadow */
-        border-radius: 15px;
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .sticker::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 100%);
-        pointer-events: none;
-      }
-
-      .sticker:hover {
-        transform: scale(1.05) rotate(-2deg);
-        box-shadow: 
-          0 0 0 4px #ff69b4, 
-          8px 8px 20px rgba(255, 105, 180, 0.4);
-        z-index: 10;
-      }
-
-      /* --- Glassmorphism Panels --- */
-      .glass-panel {
-        background: rgba(45, 27, 78, 0.4);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        border-radius: 24px;
-      }
-
-      /* --- Text Stroke --- */
-      .text-stroke {
-        -webkit-text-stroke: 2px #2d1b4e;
-        text-shadow: 3px 3px 0px #ff69b4;
-      }
-      .text-glow {
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px #ff69b4;
-      }
-
-      /* --- Retro Gameboy Screen --- */
-      .gameboy-screen {
-        background-color: #9bbc0f;
-        background-image: 
-          linear-gradient(rgba(15, 56, 15, 0.1) 50%, transparent 50%),
-          linear-gradient(90deg, rgba(15, 56, 15, 0.1) 50%, transparent 50%);
-        background-size: 4px 4px;
-        box-shadow: inset 3px 3px 5px rgba(0,0,0,0.5);
-        color: #0f380f;
-        font-family: 'Courier New', monospace;
-      }
-
-      /* --- Washi Tape --- */
-      .washi-tape {
-        position: absolute;
-        height: 35px;
-        width: 110px;
-        top: -15px;
-        left: 50%;
-        transform: translateX(-50%) rotate(-2deg);
-        background-color: rgba(255, 255, 255, 0.6);
-        background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 105, 180, 0.3) 10px, rgba(255, 105, 180, 0.3) 20px);
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        z-index: 20;
-        opacity: 0.9;
-        mask-image: linear-gradient(to right, transparent 2%, black 5%, black 95%, transparent 98%);
-      }
-
-      /* --- Custom Scrollbar --- */
-      ::-webkit-scrollbar { width: 12px; }
-      ::-webkit-scrollbar-track { background: #1a0b2e; }
-      ::-webkit-scrollbar-thumb {
-        background: #ff69b4;
-        border-radius: 10px;
-        border: 3px solid #1a0b2e;
-      }
-    </style>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body class="font-body selection:bg-cosmic-accent selection:text-white">
+  <body>
+    <div class="page-orb orb-one" aria-hidden="true"></div>
+    <div class="page-orb orb-two" aria-hidden="true"></div>
+    <div class="page-orb orb-three" aria-hidden="true"></div>
 
-    <!-- Procedural Stars Container -->
-    <div id="star-container" class="stars"></div>
-
-    <!-- Background Elements (Planets/Glows) -->
-    <div class="fixed top-20 left-10 w-32 h-32 rounded-full bg-gradient-to-br from-purple-500 to-transparent opacity-20 blur-2xl animate-pulse"></div>
-    <div class="fixed bottom-20 right-10 w-64 h-64 rounded-full bg-gradient-to-tl from-pink-500 to-transparent opacity-10 blur-3xl"></div>
-
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 top-4 px-4">
-      <div class="max-w-5xl mx-auto glass-panel px-4 py-3 border border-white/20">
-        <div class="flex items-center justify-between">
-          
-          <!-- Logo -->
-          <div class="flex items-center gap-2 cursor-pointer group">
-            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-cosmic-dark text-xl animate-bounce-slow shadow-[0_0_15px_rgba(255,255,255,0.5)]">
-                 <i class="fa-solid fa-moon"></i>
-            </div>
-            <span class="font-royal text-2xl text-white tracking-wide group-hover:text-cosmic-accent transition-colors">
-              Ess<span class="text-cosmic-accent">Ideas</span>
+    <header class="site-header">
+      <div class="container">
+        <div class="nav-shell">
+          <a class="brand" href="#home" aria-label="EssIdeas home">
+            <span class="brand-mark">EI</span>
+            <span class="brand-text">
+              <span class="brand-name">EssIdeas</span>
+              <span class="brand-role">Esraa Abduallah</span>
             </span>
+          </a>
+
+          <button
+            class="menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-controls="site-menu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+
+          <nav class="nav-links" id="site-menu" aria-label="Primary">
+            <a href="#home" class="is-active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#services">Services</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#writing">Writing</a>
+            <a href="#contact" class="nav-cta">Say hello</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section" id="home">
+        <div class="container hero-layout">
+          <div class="hero-copy reveal">
+            <span class="eyebrow">Software Engineer and Designer</span>
+            <h1>Modern products, polished interfaces, and thoughtful digital experiences.</h1>
+            <p class="lead">
+              I am Esraa Abduallah, a computer science graduate and product-minded engineer who enjoys
+              building with React, Next.js, Python, Django, and AI while keeping the experience clear,
+              elegant, and human.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button button-primary" href="#projects">Explore selected work</a>
+              <a class="button button-secondary" href="https://github.com/esraahisham753" target="_blank" rel="noreferrer">
+                Visit GitHub
+              </a>
+            </div>
+
+            <div class="hero-chips">
+              <span class="chip">React and Next.js</span>
+              <span class="chip">Python and Django</span>
+              <span class="chip">UX design</span>
+              <span class="chip">AI product experiments</span>
+              <span class="chip">Writing and blogging</span>
+              <span class="chip">Code, coffee, and music</span>
+            </div>
+
+            <div class="hero-stats">
+              <article class="stat-card">
+                <strong>09</strong>
+                <span>featured projects</span>
+              </article>
+              <article class="stat-card">
+                <strong>05</strong>
+                <span>featured articles</span>
+              </article>
+              <article class="stat-card">
+                <strong>05</strong>
+                <span>education milestones</span>
+              </article>
+            </div>
           </div>
-          
-          <!-- Desktop Menu -->
-          <div class="hidden md:flex items-center space-x-6">
-            <a href="#home" class="font-royal text-lg text-white/80 hover:text-white hover:scale-110 transition-transform">Home</a>
-            <a href="#skills" class="font-royal text-lg text-white/80 hover:text-white hover:scale-110 transition-transform">Skills</a>
-            <a href="#portfolio" class="font-royal text-lg text-white/80 hover:text-white hover:scale-110 transition-transform">Projects</a>
-            <a href="#blog" class="font-royal text-lg text-white/80 hover:text-white hover:scale-110 transition-transform">Blog</a>
-            
-            <a href="mailto:esraahisham753@gmail.com" class="bg-cosmic-accent text-white px-5 py-2 rounded-full font-royal hover:bg-white hover:text-cosmic-accent transition-all transform hover:rotate-3 shadow-[0_4px_0_#b300b3] active:shadow-none active:translate-y-1">
-              Say Hi! <i class="fa-solid fa-paper-plane ml-1"></i>
+
+          <div class="hero-visual reveal delay-1" data-tilt>
+            <article class="portrait-card">
+              <div class="portrait-topline">Available for product-focused collaborations</div>
+              <div class="portrait-frame">
+                <img src="images/me%20edge.jpg" alt="Portrait of Esraa Abduallah" />
+              </div>
+              <div class="portrait-note">
+                <span>Current focus</span>
+                <strong>Web development, AI tools, and user experience design.</strong>
+              </div>
+              <div class="portrait-panel">
+                <span>Personal side</span>
+                <strong>Tech girl, music enthusiast, and writer who enjoys thoughtful ideas.</strong>
+              </div>
+              <div class="portrait-footer">
+                <div>
+                  <small>EssIdeas</small>
+                  <strong>Software engineer, designer, and curious builder.</strong>
+                </div>
+                <a class="inline-link" href="mailto:esraahisham753@gmail.com">Start a conversation</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container panel-grid">
+          <article class="glass-card body-copy reveal">
+            <span class="eyebrow">About</span>
+            <h2>Engineering with clarity, personality, and care.</h2>
+            <p>
+              My work sits between implementation and design. I enjoy taking an idea from concept to
+              interface, shaping both the experience and the logic behind it so the final product feels
+              intentional from the first scroll to the final interaction.
+            </p>
+            <p>
+              The portfolio already reflected a lot of who I am: software engineering, design, AI, computer
+              science, writing, and a love for playful creativity. This new version keeps all of that content
+              while presenting it through a cleaner, more professional editorial direction.
+            </p>
+            <div class="signature-row">
+              <span class="mini-pill">Problem solving</span>
+              <span class="mini-pill">Curiosity</span>
+              <span class="mini-pill">Technical writing</span>
+              <span class="mini-pill">Product thinking</span>
+            </div>
+          </article>
+
+          <aside class="quote-card reveal delay-1">
+            <blockquote>
+              "Software engineer. Tech girl. Computer science, code, coffee, and blogs."
+            </blockquote>
+            <p>
+              That line from the previous site still says it well. I build, I learn fast, and I like pairing
+              technical depth with visual polish and clear storytelling.
+            </p>
+            <div class="quote-meta">
+              <span>Ranked 1st in my computer science degree milestone.</span>
+              <span>No bad vibes. Just strong products.</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Skills</span>
+            <h2>Tools gathered across engineering, product thinking, and experimentation.</h2>
+            <p>
+              The previous site called this my toolbox. That is still the right idea. These are the tools and
+              strengths I keep coming back to when building products that need both craft and momentum.
+            </p>
+          </div>
+
+          <div class="skills-layout">
+            <article class="stack-card reveal">
+              <h3>Frontend and interface systems</h3>
+              <p>Responsive, polished UI work with strong hierarchy, rhythm, and interaction quality.</p>
+              <div class="stack-list">
+                <span>JavaScript</span>
+                <span>React</span>
+                <span>Next.js</span>
+                <span>Tailwind CSS</span>
+              </div>
+            </article>
+
+            <article class="stack-card reveal delay-1">
+              <h3>Backend and application logic</h3>
+              <p>Practical full-stack work that supports real workflows and product ideas.</p>
+              <div class="stack-list">
+                <span>Python</span>
+                <span>Django</span>
+                <span>GraphQL curiosity</span>
+                <span>Testing mindset</span>
+              </div>
+            </article>
+
+            <article class="stack-card reveal delay-2">
+              <h3>Working style and strengths</h3>
+              <p>The old site highlighted passion and problem solving. Both still belong here.</p>
+              <div class="stack-list">
+                <span>Problem solving</span>
+                <span>Passion</span>
+                <span>AI exploration</span>
+                <span>Writing and blogging</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Services</span>
+            <h2>From concept to interface to implementation.</h2>
+            <p>
+              The original website highlighted three areas: UX design, web development, and AI models. They
+              remain the strongest themes in the work shown here.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card reveal">
+              <div class="service-media">
+                <span class="service-tag">UX design</span>
+                <img src="images/services/uxdesign.jpg" alt="UX design service visual" />
+              </div>
+              <div class="service-copy">
+                <h3>Interfaces that feel intentional and easy to trust.</h3>
+                <p>I care about hierarchy, spacing, clarity, visual rhythm, and interaction details.</p>
+                <div class="service-list">
+                  <span>UI direction and visual refinement</span>
+                  <span>Responsive layouts across desktop and mobile</span>
+                  <span>Thoughtful interaction and content flow</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="service-card reveal delay-1">
+              <div class="service-media">
+                <span class="service-tag">Web development</span>
+                <img src="images/services/web.jpg" alt="Web development service visual" />
+              </div>
+              <div class="service-copy">
+                <h3>Modern web products built with practicality and polish.</h3>
+                <p>I build frontends that look sharp and backends that support real workflows.</p>
+                <div class="service-list">
+                  <span>React and Next.js product interfaces</span>
+                  <span>Python and Django implementation</span>
+                  <span>Clean, scalable single-page experiences</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="service-card reveal delay-2">
+              <div class="service-media">
+                <span class="service-tag">AI models</span>
+                <img src="images/services/ai.jpg" alt="AI service visual" />
+              </div>
+              <div class="service-copy">
+                <h3>AI-assisted ideas shaped into useful experiences.</h3>
+                <p>I enjoy exploring AI through practical products, experiments, and assistant-style tools.</p>
+                <div class="service-list">
+                  <span>AI product concepts and prototypes</span>
+                  <span>Experimentation grounded in user value</span>
+                  <span>Clear UX for complex technical ideas</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="education">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Education</span>
+            <h2>A learning path built through study and focused self-development.</h2>
+            <p>
+              This section keeps the same milestones from the previous site, including certifications and the
+              standout academic achievement that helped shape the foundation of my work.
+            </p>
+          </div>
+
+          <div class="education-grid">
+            <article class="education-card reveal">
+              <div class="edu-logo">
+                <img src="images/education/ainshams.jpg" alt="Ainshams University logo" />
+              </div>
+              <div class="education-copy">
+                <h3>Computer Science Degree</h3>
+                <p>Ainshams University</p>
+                <div class="education-note">Ranked 1st</div>
+              </div>
+              <div class="education-year">2019</div>
+            </article>
+
+            <article class="education-card reveal delay-1">
+              <div class="edu-logo">
+                <img src="images/education/cs50.jpg" alt="CS50 logo" />
+              </div>
+              <div class="education-copy">
+                <h3>CS50 Web Programming</h3>
+                <p>Harvard University (Online)</p>
+                <a href="https://www.linkedin.com/in/esraa-abduallah-632117121/details/certifications/" target="_blank" rel="noreferrer">
+                  View certificate
+                </a>
+              </div>
+              <div class="education-year">2025</div>
+            </article>
+
+            <article class="education-card reveal delay-2">
+              <div class="edu-logo">
+                <img src="images/education/cs50.jpg" alt="CS50 logo" />
+              </div>
+              <div class="education-copy">
+                <h3>CS50x</h3>
+                <p>Harvard University (Online)</p>
+                <a href="https://www.linkedin.com/in/esraa-abduallah-632117121/details/certifications/" target="_blank" rel="noreferrer">
+                  View certificate
+                </a>
+              </div>
+              <div class="education-year">2024</div>
+            </article>
+
+            <article class="education-card reveal">
+              <div class="edu-logo">
+                <img src="images/education/coursera.png" alt="Coursera logo" />
+              </div>
+              <div class="education-copy">
+                <h3>Django for Everybody Specialization</h3>
+                <p>Coursera</p>
+                <a
+                  href="https://www.coursera.org/account/accomplishments/specialization/certificate/BAJR3LVDYE6C"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View certificate
+                </a>
+              </div>
+              <div class="education-year">2020</div>
+            </article>
+
+            <article class="education-card reveal delay-1">
+              <div class="edu-logo">
+                <img src="images/education/udacity.png" alt="Udacity logo" />
+              </div>
+              <div class="education-copy">
+                <h3>Advanced Web Development Nanodegree</h3>
+                <p>Udacity</p>
+                <a href="https://confirm.udacity.com/MDKVNYHF" target="_blank" rel="noreferrer">View certificate</a>
+              </div>
+              <div class="education-year">2020</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Selected Work</span>
+            <h2>Projects across AI, productivity, travel, music, events, and playful product ideas.</h2>
+            <p>
+              Every project below comes from the previous site. The content is preserved, but the presentation
+              is now cleaner, sharper, and easier to scan.
+            </p>
+          </div>
+
+          <div class="projects-grid">
+            <article class="project-card is-featured reveal">
+              <div class="project-media">
+                <span class="project-index">01</span>
+                <span class="project-type">Live app</span>
+                <img src="images/portfolio/esresumes.png" alt="Resume Analyzer project screenshot" />
+              </div>
+              <div class="project-copy">
+                <h3>Resume Analyzer</h3>
+                <p>An AI-focused resume analysis experience that turns profile review into a clearer workflow.</p>
+                <div class="project-tags"><span>AI</span><span>Web product</span><span>Career tooling</span></div>
+                <div class="project-actions">
+                  <a class="project-link" href="https://puter.com/app/es-resume-analyzer" target="_blank" rel="noreferrer">
+                    Open project
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal delay-1">
+              <div class="project-media">
+                <span class="project-index">02</span>
+                <span class="project-type">Concept</span>
+                <img src="images/portfolio/esfood.png" alt="Food Delivery project screenshot" />
+              </div>
+              <div class="project-copy">
+                <h3>Food Delivery</h3>
+                <p>A delivery experience focused on browsing, choice, and smooth ordering interactions.</p>
+                <div class="project-tags"><span>UI concept</span><span>Commerce</span></div>
+                <div class="project-actions"><span class="project-status">Public link unavailable</span></div>
+              </div>
+            </article>
+
+            <article class="project-card reveal delay-2">
+              <div class="project-media">
+                <span class="project-index">03</span>
+                <span class="project-type">Live app</span>
+                <img src="images/portfolio/flights.png" alt="Travel Plans project screenshot" />
+              </div>
+              <div class="project-copy">
+                <h3>Travel Plans</h3>
+                <p>A flight discovery and planning interface designed around quick comparison and clarity.</p>
+                <div class="project-tags"><span>Travel</span><span>Search experience</span></div>
+                <div class="project-actions">
+                  <a
+                    class="project-link"
+                    href="https://esgoogleflights-8npwkgg2s-esraa-abduallahs-projects.vercel.app/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Visit project
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-media">
+                <span class="project-index">04</span>
+                <span class="project-type">Video demo</span>
+                <img src="images/portfolio/pitch.png" alt="Es Relative Pitch Trainer screenshot" />
+              </div>
+              <div class="project-copy">
+                <h3>Es Relative Pitch Trainer</h3>
+                <p>A music and coding crossover project created to support ear training in an interactive way.</p>
+                <div class="project-tags"><span>Music</span><span>Learning tool</span></div>
+                <div class="project-actions">
+                  <a class="project-link" href="https://youtu.be/CIHrItsR0AE?si=ET4al2owy5L-IKIp" target="_blank" rel="noreferrer">
+                    Watch demo
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal delay-1">
+              <div class="project-media">
+                <span class="project-index">05</span>
+                <span class="project-type">Video demo</span>
+                <img src="images/portfolio/task.png" alt="Task Manager project screenshot" />
+              </div>
+              <div class="project-copy">
+                <h3>Task Manager</h3>
+                <p>A productivity-focused experience built around tasks, organization, and workflow.</p>
+                <div class="project-tags"><span>Productivity</span><span>Dashboard</span></div>
+                <div class="project-actions">
+                  <a class="project-link" href="https://youtu.be/dzhuXNL_FRM?si=Yqml7mOtJnhc-QkT" target="_blank" rel="noreferrer">
+                    Watch demo
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal delay-2">
+              <div class="project-media">
+                <span class="project-index">06</span>
+                <span class="project-type">Video demo</span>
+                <img src="images/portfolio/coevent.png" alt="CoEventPlanner project screenshot" />
+              </div>
+              <div class="project-copy">
+                <h3>CoEventPlanner</h3>
+                <p>A collaborative event planning product centered on coordination and shared visibility.</p>
+                <div class="project-tags"><span>Events</span><span>Collaboration</span></div>
+                <div class="project-actions">
+                  <a class="project-link" href="https://youtu.be/8asp3X6dJe0?si=uQwN98UYPq_TYFqt" target="_blank" rel="noreferrer">
+                    Watch demo
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-media">
+                <span class="project-index">07</span>
+                <span class="project-type">Video demo</span>
+                <img src="images/portfolio/cra.png" alt="CRA Customer Robot Assistant screenshot" />
+              </div>
+              <div class="project-copy">
+                <h3>CRA (Customer Robot Assistant)</h3>
+                <p>An assistant-oriented concept exploring customer support through a guided interface.</p>
+                <div class="project-tags"><span>AI assistant</span><span>Support workflow</span></div>
+                <div class="project-actions">
+                  <a class="project-link" href="https://youtu.be/Vv95gidrO6E?si=yGVtuigfCGCGa4z0" target="_blank" rel="noreferrer">
+                    Watch demo
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal delay-1">
+              <div class="project-media">
+                <span class="project-index">08</span>
+                <span class="project-type">Video demo</span>
+                <img src="images/portfolio/music.png" alt="Astro Music Blog screenshot" />
+              </div>
+              <div class="project-copy">
+                <h3>Astro Music Blog</h3>
+                <p>A music-led editorial experience that blends content, presentation, and personality.</p>
+                <div class="project-tags"><span>Astro</span><span>Content</span></div>
+                <div class="project-actions">
+                  <a class="project-link" href="https://youtu.be/vAmREzpOqvk?si=gULmzuucyUrwGhsG" target="_blank" rel="noreferrer">
+                    Watch demo
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal delay-2">
+              <div class="project-media">
+                <span class="project-index">09</span>
+                <span class="project-type">Playable</span>
+                <img src="images/portfolio/game.jpeg" alt="Logic Puzzle project screenshot" />
+              </div>
+              <div class="project-copy">
+                <h3>Logic Puzzle</h3>
+                <p>A playable puzzle project that turns logical progression into a clean interactive game loop.</p>
+                <div class="project-tags"><span>Game</span><span>Interaction</span></div>
+                <div class="project-actions">
+                  <a class="project-link" href="https://esraahisham753.github.io/2048-Game/" target="_blank" rel="noreferrer">
+                    Play project
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="writing">
+        <div class="container writing-layout">
+          <div class="writing-intro reveal">
+            <span class="eyebrow">Writing</span>
+            <h2>Articles on AI, music, code, and digital culture.</h2>
+            <p class="lead">
+              The old website already made it clear that writing matters to me. These featured pieces keep
+              that voice visible and connect product work with reflection, learning, and curiosity.
+            </p>
+            <div class="contact-actions">
+              <a class="button button-primary" href="https://medium.com/@esraahisham753" target="_blank" rel="noreferrer">
+                Visit Medium
+              </a>
+            </div>
+          </div>
+
+          <div class="article-list">
+            <a class="article-card reveal delay-1" href="https://medium.com/age-of-awareness/how-to-learn-to-play-melodies-using-python-4c8c2d197f95" target="_blank" rel="noreferrer">
+              <span class="article-number">01</span>
+              <div>
+                <h3>Coding Melodies with Python</h3>
+                <p>A practical piece about building a small tool for ear training with Python.</p>
+              </div>
+              <span class="article-arrow">-></span>
+            </a>
+
+            <a class="article-card reveal delay-2" href="https://generativeai.pub/working-with-traditional-and-modern-ai-through-my-coding-journey-528d02815a8b" target="_blank" rel="noreferrer">
+              <span class="article-number">02</span>
+              <div>
+                <h3>Modern vs Traditional AI</h3>
+                <p>A reflection on integrating AI into the workflow and exploring core ideas from scratch.</p>
+              </div>
+              <span class="article-arrow">-></span>
+            </a>
+
+            <a class="article-card reveal" href="https://medium.com/generative-ai/can-ai-learn-from-artwork-in-the-same-way-humans-do-17316393a191" target="_blank" rel="noreferrer">
+              <span class="article-number">03</span>
+              <div>
+                <h3>Can AI Learn from Artwork in the Same Way Humans Do?</h3>
+                <p>A question about artistic learning, copyright, and creative processes.</p>
+              </div>
+              <span class="article-arrow">-></span>
+            </a>
+
+            <a class="article-card reveal delay-1" href="https://medium.com/age-of-awareness/exploring-music-from-different-perspectives-c26a7fdc0eab" target="_blank" rel="noreferrer">
+              <span class="article-number">04</span>
+              <div>
+                <h3>Exploring Music from Different Perspectives</h3>
+                <p>Looking at melody through sheet music, MIDI files, and code.</p>
+              </div>
+              <span class="article-arrow">-></span>
+            </a>
+
+            <a class="article-card reveal delay-2" href="https://medium.com/age-of-awareness/90s-tech-rewind-5c1706ab90df" target="_blank" rel="noreferrer">
+              <span class="article-number">05</span>
+              <div>
+                <h3>90's Tech Rewind</h3>
+                <p>A nostalgic look at tech memories and digital culture from that era.</p>
+              </div>
+              <span class="article-arrow">-></span>
             </a>
           </div>
-
-          <!-- Mobile menu button -->
-          <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-white text-2xl">
-            <i class="fa-solid fa-bars"></i>
-          </button>
         </div>
-      </div>
+      </section>
 
-      <!-- Mobile Menu -->
-      <div class="hidden md:hidden mt-2 glass-panel p-4 mx-auto max-w-[95%]" id="mobile-menu">
-        <div class="flex flex-col space-y-3 text-center">
-          <a href="#home" class="block py-2 text-white font-royal text-xl hover:bg-white/10 rounded-lg">Home</a>
-          <a href="#skills" class="block py-2 text-white font-royal text-xl hover:bg-white/10 rounded-lg">Skills</a>
-          <a href="#portfolio" class="block py-2 text-white font-royal text-xl hover:bg-white/10 rounded-lg">Projects</a>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center pt-28 pb-10 relative overflow-hidden">
-      <!-- Big Moon Glow behind everything -->
-      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 moon-glow"></div>
-
-      <div class="container mx-auto px-6 relative z-10">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-          
-          <!-- Text Content -->
-          <div class="w-full md:w-1/2 text-center md:text-left">
-            <!-- Floating Badge -->
-            <div class="inline-block bg-cosmic-mint text-cosmic-dark px-4 py-2 rounded-full border-2 border-white shadow-[0_0_15px_#98ff98] mb-6 transform -rotate-2 animate-float">
-               <span class="font-royal text-lg">✨ Software Engineer & Designer</span>
-            </div>
-
-            <h1 class="text-6xl md:text-8xl font-royal mb-6 leading-tight drop-shadow-[0_5px_5px_rgba(0,0,0,0.5)]">
-              Hi, I'm <br/>
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-cosmic-accent to-purple-400 text-glow">Esraa!</span>
-            </h1>
-
-            <div class="relative bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 mb-8 max-w-lg mx-auto md:mx-0 shadow-xl transform rotate-1 hover:rotate-0 transition-all">
-                <i class="fa-solid fa-quote-left absolute -top-4 -left-4 text-4xl text-cosmic-glow"></i>
-                <p class="text-xl md:text-2xl text-white font-script leading-relaxed">
-                  Software Engineer ❤️🤖<br />
-                  Tech girl 👩‍💻 <br />
-                  Computer Science, code, coffee, and blogs ☕
-                </p>
-                
-            </div>
-
-            <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-              <a href="#portfolio" class="sticker bg-cosmic-cyan text-cosmic-dark px-8 py-3 font-royal text-xl flex items-center gap-2 hover:bg-cyan-200">
-                <i class="fa-solid fa-gamepad"></i> My Work
-              </a>
-              <a href="https://github.com/esraahisham753" target="_blank" class="sticker bg-cosmic-lavender text-cosmic-dark px-8 py-3 font-royal text-xl flex items-center gap-2 hover:bg-purple-200">
-                <i class="fa-brands fa-github"></i> Code
+      <section class="section" id="contact">
+        <div class="container contact-layout">
+          <article class="contact-card contact-copy reveal">
+            <span class="eyebrow">Contact</span>
+            <h2>Interested in building something thoughtful together?</h2>
+            <p>
+              If you are looking for someone who cares about both how a product works and how it feels, I
+              would be happy to connect. The quickest path is email, and the social links below stay from the
+              previous site.
+            </p>
+            <div class="contact-actions">
+              <a class="button button-primary" href="mailto:esraahisham753@gmail.com">esraahisham753@gmail.com</a>
+              <a class="button button-secondary" href="https://github.com/esraahisham753" target="_blank" rel="noreferrer">
+                GitHub profile
               </a>
             </div>
-          </div>
+          </article>
 
-          <!-- Hero Image: The "Girl on the Moon" Vibe -->
-          <div class="w-full md:w-1/2 flex justify-center relative">
-            
-            <!-- The Moon Container -->
-            <div class="relative w-[350px] h-[350px] md:w-[450px] md:h-[450px]">
-                <!-- Glowing Moon Circle -->
-                <div class="absolute inset-0 rounded-full bg-[#fff9c4] shadow-[0_0_60px_#fff9c4] animate-pulse"></div>
-                
-                <!-- Profile Image mask -->
-                <div class="absolute inset-2 rounded-full overflow-hidden border-4 border-white z-10 bg-cosmic-dark">
-                   <img src="images/me edge.jpg" alt="Esraa" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity" onerror="this.src='https://placehold.co/400x400/2d1b4e/ff69b4?text=Esraa+Portrait'">
-                </div>
-
-                <!-- Floating Decor around the moon -->
-                <div class="absolute -right-10 top-10 sticker px-3 py-2 rotate-12 animate-float-delayed z-20">
-                    <span class="font-royal text-lg text-pink-600">No Bad Vibes 💖</span>
-                </div>
-
-                <div class="absolute -left-5 bottom-10 sticker p-3 -rotate-12 animate-float z-20 bg-yellow-300 border-yellow-100">
-                    <i class="fa-solid fa-star text-2xl text-orange-500"></i>
-                </div>
-
-                <!-- Cassette Tape decoration -->
-                <div class="absolute bottom-[-20px] right-10 bg-pink-400 w-32 h-20 rounded-lg border-2 border-white shadow-lg transform rotate-6 z-20 flex items-center justify-center">
-                    <div class="w-24 h-12 bg-white/90 rounded border border-pink-600 flex items-center justify-center">
-                        <span class="font-hand text-xs text-black">Music Addict 🎵</span>
-                    </div>
-                    <div class="absolute -top-2 left-2 w-2 h-2 bg-white rounded-full"></div>
-                    <div class="absolute -top-2 right-2 w-2 h-2 bg-white rounded-full"></div>
-                </div>
+          <aside class="contact-card reveal delay-1">
+            <h3>Find me online</h3>
+            <p>
+              LinkedIn for professional milestones, GitHub for code, Instagram for personal presence, and
+              Medium for writing.
+            </p>
+            <div class="social-list">
+              <a class="social-link" href="https://www.linkedin.com/in/esraa-abduallah-632117121/" target="_blank" rel="noreferrer">
+                LinkedIn
+              </a>
+              <a class="social-link" href="https://github.com/esraahisham753" target="_blank" rel="noreferrer">
+                GitHub
+              </a>
+              <a class="social-link" href="https://www.instagram.com/esraa.abduallah/" target="_blank" rel="noreferrer">
+                Instagram
+              </a>
+              <a class="social-link" href="https://medium.com/@esraahisham753" target="_blank" rel="noreferrer">
+                Medium
+              </a>
             </div>
-
-          </div>
+          </aside>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- Skills Section: Sticker Bomb Wall -->
-    <section id="skills" class="py-20 relative">
-        <!-- Arabic Decor -->
-        <div class="absolute top-10 right-10 opacity-20 transform rotate-12 pointer-events-none">
-            <span class="font-hand text-9xl text-pink-500">جميلة</span>
+    <footer>
+      <div class="container">
+        <div class="footer-shell">
+          <p class="footer-note">EssIdeas by Esraa Abduallah</p>
+          <p>&copy; <span id="year">2026</span> Built with code, design, curiosity, and care.</p>
         </div>
-
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-          <h2 class="text-5xl md:text-6xl font-royal text-white mb-4 text-glow">
-            My Toolbox 🧳
-          </h2>
-          <p class="font-script text-2xl text-cosmic-lavender">Tools gathered on my journey</p>
-        </div>
-
-        <!-- The messy grid -->
-        <div class="flex flex-wrap justify-center gap-6 max-w-5xl mx-auto p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm relative">
-            
-            <!-- Pin -->
-            <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 w-4 h-12 bg-gradient-to-b from-gray-400 to-gray-600 rounded-full shadow-lg z-10 border-2 border-white"></div>
-
-            <!-- Skill Stickers -->
-            <div class="sticker p-4 transform rotate-2 hover:rotate-0 hover:scale-110 w-32 h-32 flex flex-col items-center justify-center gap-2">
-                <i class="fa-brands fa-js text-4xl text-yellow-400"></i>
-                <span class="font-royal text-lg">JS</span>
-            </div>
-
-            <div class="sticker bg-blue-50 p-4 transform -rotate-3 hover:rotate-0 hover:scale-110 w-36 h-36 flex flex-col items-center justify-center gap-2 border-blue-200">
-                <i class="fa-brands fa-react text-5xl text-blue-400 animate-spin-slow"></i>
-                <span class="font-royal text-lg">React</span>
-            </div>
-
-            <div class="sticker bg-yellow-50 p-4 transform rotate-6 hover:rotate-0 hover:scale-110 w-32 h-32 flex flex-col items-center justify-center gap-2 border-yellow-200">
-                <i class="fa-brands fa-python text-4xl text-blue-600"></i>
-                <span class="font-royal text-lg">Python</span>
-            </div>
-
-            <div class="sticker bg-gray-900 text-white p-4 transform -rotate-2 hover:rotate-0 hover:scale-110 w-32 h-32 flex flex-col items-center justify-center gap-2 border-gray-600">
-                <span class="font-bold text-3xl">NEXT</span>
-                <span class="font-royal text-xs">.js</span>
-            </div>
-
-            <div class="sticker bg-pink-100 p-4 transform rotate-12 hover:rotate-0 hover:scale-110 w-40 h-40 flex flex-col items-center justify-center gap-2 border-pink-300 z-10">
-                <i class="fa-solid fa-heart text-4xl text-pink-500 animate-bounce"></i>
-                <span class="font-royal text-lg">Passion</span>
-                <span class="text-xs font-editorial text-center text-gray-500">Self Love Juice</span>
-            </div>
-
-            <div class="sticker bg-green-50 p-4 transform -rotate-6 hover:rotate-0 hover:scale-110 w-32 h-32 flex flex-col items-center justify-center gap-2 border-green-200">
-                <i class="fa-solid fa-database text-4xl text-green-500"></i>
-                <span class="font-royal text-lg">Django</span>
-            </div>
-
-            <div class="sticker bg-purple-100 p-4 transform rotate-3 hover:rotate-0 hover:scale-110 w-32 h-32 flex flex-col items-center justify-center gap-2 border-purple-300">
-                <i class="fa-solid fa-wind text-4xl text-blue-400"></i>
-                <span class="font-royal text-lg">Tailwind</span>
-            </div>
-
-            <!-- Funny/Personal Stickers mixed in -->
-            <div class="sticker bg-yellow-300 p-2 transform -rotate-12 hover:rotate-0 w-auto h-auto self-center shadow-xl z-20">
-                <div class="border-2 border-black p-2 bg-yellow-300 font-royal text-black text-center leading-tight">
-                    Problem Solving
-                </div>
-            </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Services: Retro Tech Shelf -->
-    <section id="services" class="py-20">
-      <div class="container mx-auto px-6">
-         <div class="text-center mb-16">
-          <h2 class="text-5xl font-royal text-white mb-4 text-glow">
-            Tech Goodies 📼
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- UX Design: Pink Gameboy -->
-            <div class="relative bg-pink-400 rounded-t-2xl rounded-b-[40px] p-6 shadow-[0_10px_0_#9d174d] border-4 border-pink-300 transform hover:-translate-y-2 transition-transform">
-                <div class="absolute top-4 left-4 text-pink-800 font-bold font-royal">GAME GIRL COLOR</div>
-                <!-- Screen -->
-                <div class="gameboy-screen h-40 w-full mt-8 rounded-lg border-4 border-gray-600 p-4 flex flex-col items-center justify-center text-center">
-                    <i class="fa-solid fa-paintbrush text-3xl mb-2 opacity-80"></i>
-                    <h3 class="font-bold text-lg">UX Design</h3>
-                    <p class="text-xs">Pixel Perfect &<br>Super Cute</p>
-                </div>
-                <!-- Buttons -->
-                <div class="mt-6 flex justify-between items-end px-4">
-                    <div class="w-20 h-20 relative">
-                        <div class="absolute top-0 left-1/3 w-1/3 h-full bg-gray-700 rounded"></div>
-                        <div class="absolute top-1/3 left-0 w-full h-1/3 bg-gray-700 rounded"></div>
-                    </div>
-                    <div class="flex gap-2 transform -rotate-12 mb-2">
-                        <div class="w-8 h-8 rounded-full bg-red-600 shadow-inner"></div>
-                        <div class="w-8 h-8 rounded-full bg-red-600 shadow-inner"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Web Dev: Retro TV -->
-            <div class="relative bg-purple-500 rounded-3xl p-6 shadow-[0_10px_0_#4c1d95] border-4 border-purple-400 transform hover:-translate-y-2 transition-transform">
-                <!-- Antenna -->
-                <div class="absolute -top-8 left-1/2 w-1 h-8 bg-gray-400 rotate-[-30deg]"></div>
-                <div class="absolute -top-8 left-1/2 w-1 h-8 bg-gray-400 rotate-[30deg]"></div>
-                
-                <div class="bg-cosmic-dark rounded-[50%_50%_10%_10%_/_10%_10%_5%_5%] border-4 border-gray-200 p-1 h-48 overflow-hidden relative">
-                    <!-- Static Glitch Background -->
-                    <div class="w-full h-full bg-black flex flex-col items-center justify-center text-center p-4 relative overflow-hidden group">
-                        <div class="absolute inset-0 bg-[url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif')] opacity-10 pointer-events-none bg-cover"></div>
-                        <i class="fa-solid fa-code text-4xl text-green-400 mb-2 z-10"></i>
-                        <h3 class="font-royal text-white text-xl z-10">Web Dev</h3>
-                        <p class="font-editorial text-gray-300 text-sm z-10">React & Django Magic</p>
-                    </div>
-                </div>
-                <div class="mt-4 flex gap-4">
-                    <div class="w-12 h-12 rounded-full border-4 border-gray-300 relative bg-gray-800">
-                        <div class="w-1 h-4 bg-white absolute top-1 left-1/2 transform -translate-x-1/2"></div>
-                    </div>
-                    <div class="flex-1 flex flex-col justify-center gap-1">
-                        <div class="w-full h-1 bg-black/20 rounded"></div>
-                        <div class="w-full h-1 bg-black/20 rounded"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- AI: Floppy Disk/Cassette Mix -->
-            <div class="relative bg-cosmic-cyan rounded-lg p-4 shadow-[0_10px_0_#0e7490] border-4 border-cyan-200 transform hover:-translate-y-2 transition-transform">
-                <div class="bg-white/90 h-full rounded border-2 border-gray-400 p-4 relative">
-                     <div class="w-full h-12 bg-gray-800 rounded mb-4"></div> <!-- Shutter -->
-                     <div class="border-2 border-gray-300 p-4 text-center h-40 flex flex-col items-center justify-center bg-gray-50">
-                        <i class="fa-solid fa-robot text-4xl text-purple-500 mb-2"></i>
-                        <h3 class="font-royal text-purple-900 text-xl">AI Models</h3>
-                        <p class="font-hand text-gray-500 mt-2">"Smart & Sassy"</p>
-                     </div>
-                     <div class="absolute bottom-2 right-4 text-gray-400 text-xs font-mono">1.44MB</div>
-                </div>
-            </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Education Timeline -->
-    <section id="education" class="py-20 relative overflow-hidden">
-        <!-- Background stripe -->
-        <div class="absolute top-0 left-0 w-full h-full bg-white/5 skew-y-3 transform origin-top-left -z-10"></div>
-        
-        <div class="container mx-auto px-6">
-            <h2 class="text-center text-4xl font-royal text-white mb-12 text-glow">Level Up Log 🍄</h2>
-            
-            <div class="max-w-3xl mx-auto space-y-6">
-                <!-- Item 1 -->
-                <div class="bg-white text-cosmic-dark p-6 rounded-2xl border-l-8 border-cosmic-accent shadow-lg transform hover:scale-[1.02] transition-transform">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-royal text-2xl">Computer Science Degree</h3>
-                            <p class="font-script text-gray-500 text-lg">Ainshams University</p>
-                            <div class="mt-2 inline-block bg-yellow-300 text-yellow-900 px-2 py-1 rounded text-xs font-bold border border-yellow-500">
-                                🏆 Ranked 1st - High Score!
-                            </div>
-                        </div>
-                        <span class="font-editorial text-sm text-gray-400 bg-gray-100 px-3 py-1 rounded-full">2019</span>
-                    </div>
-                </div>
-                
-                 <!-- Item 2 -->
-                 <div class="bg-white text-cosmic-dark p-6 rounded-2xl border-l-8 border-yellow-400 shadow-lg transform hover:scale-[1.02] transition-transform">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-royal text-2xl">CS50 Web Programming</h3>
-                            <p class="font-script text-gray-500 text-lg">Harvard University (Online)</p>
-                            <a href="https://www.linkedin.com/in/esraa-abduallah-632117121/details/certifications/" class="text-pink-500 text-sm font-bold hover:underline mt-1 block">View Certificate</a>
-                        </div>
-                        <span class="font-editorial text-sm text-gray-400 bg-gray-100 px-3 py-1 rounded-full">2025</span>
-                    </div>
-                </div>
-                 <!-- Item 3 -->
-                 <div class="bg-white text-cosmic-dark p-6 rounded-2xl border-l-8 border-yellow-400 shadow-lg transform hover:scale-[1.02] transition-transform">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-royal text-2xl">CS50x</h3>
-                            <p class="font-script text-gray-500 text-lg">Harvard University (Online)</p>
-                            <a href="https://www.linkedin.com/in/esraa-abduallah-632117121/details/certifications/" class="text-pink-500 text-sm font-bold hover:underline mt-1 block">View Certificate</a>
-                        </div>
-                        <span class="font-editorial text-sm text-gray-400 bg-gray-100 px-3 py-1 rounded-full">2024</span>
-                    </div>
-                </div>
-                 <!-- Item 4 -->
-                 <div class="bg-white text-cosmic-dark p-6 rounded-2xl border-l-8 border-yellow-400 shadow-lg transform hover:scale-[1.02] transition-transform">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-royal text-2xl">Django for Everybody Specialization</h3>
-                            <p class="font-script text-gray-500 text-lg">Coursera</p>
-                            <a href="https://www.coursera.org/account/accomplishments/specialization/certificate/BAJR3LVDYE6C" class="text-pink-500 text-sm font-bold hover:underline mt-1 block">View Certificate</a>
-                        </div>
-                        <span class="font-editorial text-sm text-gray-400 bg-gray-100 px-3 py-1 rounded-full">2020</span>
-                    </div>
-                </div>
-                 <!-- Item 5 -->
-                 <div class="bg-white text-cosmic-dark p-6 rounded-2xl border-l-8 border-yellow-400 shadow-lg transform hover:scale-[1.02] transition-transform">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 class="font-royal text-2xl">Advanced Web Development Nanodegree</h3>
-                            <p class="font-script text-gray-500 text-lg">Udacity</p>
-                            <a href="confirm.udacity.com/MDKVNYHF" class="text-pink-500 text-sm font-bold hover:underline mt-1 block">View Certificate</a>
-                        </div>
-                        <span class="font-editorial text-sm text-gray-400 bg-gray-100 px-3 py-1 rounded-full">2020</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects: Polaroid Gallery -->
-    <section id="portfolio" class="py-20 bg-black/20 backdrop-blur-sm">
-      <div class="container mx-auto px-6">
-        <div class="text-center mb-16 relative">
-            <span class="absolute top-0 right-[20%] text-6xl animate-wiggle">🎨</span>
-          <h2 class="text-5xl font-royal text-white text-glow">Portfolio 📸</h2>
-          <p class="font-script text-xl text-pink-300 mt-2">Projects captured in time</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-4">
-            
-            <!-- Project 1 -->
-            <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform rotate-2 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
-                <!-- Washi Tape -->
-                <div class="washi-tape" style="background-color: rgba(255,105,180,0.5)"></div>
-                
-                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
-                     <img src="images/portfolio/esresumes.png" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="Resume App" onerror="this.src='https://placehold.co/600x600/ffb6c1/4a1433?text=Resume+App'">
-                </div>
-                <div class="font-hand text-2xl text-gray-800 text-center transform -rotate-2">
-                    Resume Analyzer 🤖
-                </div>
-                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a href="https://puter.com/app/es-resume-analyzer" target="_blank" class="bg-cosmic-accent text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Open</a>
-                </div>
-            </div>
-
-            <!-- Project 2 -->
-             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform -rotate-3 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
-                <div class="washi-tape" style="background-color: rgba(152,255,152,0.5); transform: translateX(-50%) rotate(3deg);"></div>
-                
-                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
-                     <img src="images/portfolio/esfood.png" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="Food App" onerror="this.src='https://placehold.co/600x600/98ff98/4a1433?text=Yummy+Food'">
-                </div>
-                <div class="font-hand text-2xl text-gray-800 text-center transform rotate-1">
-                    Food Delivery 🍔
-                </div>
-                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a href="#" target="_blank" class="bg-green-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Watch</a>
-                </div>
-            </div>
-
-            <!-- Project 3 -->
-             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform rotate-1 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
-                <div class="washi-tape" style="background-color: rgba(0,255,255,0.5); transform: translateX(-50%) rotate(-1deg);"></div>
-                
-                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
-                     <img src="images/portfolio/flights.png" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="Flights" onerror="this.src='https://placehold.co/600x600/87ceeb/4a1433?text=Sky+Flights'">
-                </div>
-                <div class="font-hand text-2xl text-gray-800 text-center transform -rotate-1">
-                    Travel Plans ✈️
-                </div>
-                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a href="https://esgoogleflights-8npwkgg2s-esraa-abduallahs-projects.vercel.app/" target="_blank" class="bg-blue-400 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Fly</a>
-                </div>
-            </div>
-
-             <!-- Project 4 -->
-             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform -rotate-2 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
-                <div class="washi-tape" style="background-color: rgba(220,176,255,0.5); transform: translateX(-50%) rotate(2deg);"></div>
-                
-                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
-                     <img src="images/portfolio/pitch.png" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="2048" onerror="this.src='https://placehold.co/600x600/dcb0ff/4a1433?text=2048+Game'">
-                </div>
-                <div class="font-hand text-2xl text-gray-800 text-center transform rotate-2">
-                    Es Relative Pitch Trainer
-                </div>
-                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a href="https://youtu.be/CIHrItsR0AE?si=ET4al2owy5L-IKIp" target="_blank" class="bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Watch Demo</a>
-                </div>
-            </div>
-             <!-- Project 5 -->
-             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform -rotate-2 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
-                <div class="washi-tape" style="background-color: rgba(220,176,255,0.5); transform: translateX(-50%) rotate(2deg);"></div>
-                
-                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
-                     <img src="images/portfolio/task.png" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="2048" onerror="this.src='https://placehold.co/600x600/dcb0ff/4a1433?text=2048+Game'">
-                </div>
-                <div class="font-hand text-2xl text-gray-800 text-center transform rotate-2">
-                    Task Manager
-                </div>
-                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a href="https://youtu.be/dzhuXNL_FRM?si=Yqml7mOtJnhc-QkT" target="_blank" class="bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Watch Demo</a>
-                </div>
-            </div>
-             <!-- Project 6 -->
-             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform -rotate-2 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
-                <div class="washi-tape" style="background-color: rgba(220,176,255,0.5); transform: translateX(-50%) rotate(2deg);"></div>
-                
-                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
-                     <img src="images/portfolio/coevent.png" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="2048" onerror="this.src='https://placehold.co/600x600/dcb0ff/4a1433?text=2048+Game'">
-                </div>
-                <div class="font-hand text-2xl text-gray-800 text-center transform rotate-2">
-                    CoEventPlanner
-                </div>
-                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a href="https://youtu.be/8asp3X6dJe0?si=uQwN98UYPq_TYFqt" target="_blank" class="bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Watch Demo</a>
-                </div>
-            </div>
-             <!-- Project 7 -->
-             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform -rotate-2 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
-                <div class="washi-tape" style="background-color: rgba(220,176,255,0.5); transform: translateX(-50%) rotate(2deg);"></div>
-                
-                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
-                     <img src="images/portfolio/cra.png" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="2048" onerror="this.src='https://placehold.co/600x600/dcb0ff/4a1433?text=2048+Game'">
-                </div>
-                <div class="font-hand text-2xl text-gray-800 text-center transform rotate-2">
-                    CRA(Customer Robot assistant)
-                </div>
-                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a href="https://youtu.be/Vv95gidrO6E?si=yGVtuigfCGCGa4z0" target="_blank" class="bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Watch a Demo</a>
-                </div>
-            </div>
-             <!-- Project 8 -->
-             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform -rotate-2 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
-                <div class="washi-tape" style="background-color: rgba(220,176,255,0.5); transform: translateX(-50%) rotate(2deg);"></div>
-                
-                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
-                     <img src="images/portfolio/music.png" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="2048" onerror="this.src='https://placehold.co/600x600/dcb0ff/4a1433?text=2048+Game'">
-                </div>
-                <div class="font-hand text-2xl text-gray-800 text-center transform rotate-2">
-                    Astro Music Blog
-                </div>
-                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a href="https://youtu.be/vAmREzpOqvk?si=gULmzuucyUrwGhsG" target="_blank" class="bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Watch Demo</a>
-                </div>
-            </div>
-             <!-- Project 9 -->
-             <div class="bg-white p-4 pb-12 shadow-[0_0_20px_rgba(0,0,0,0.5)] transform -rotate-2 hover:rotate-0 hover:z-50 transition-all duration-300 relative group w-full max-w-sm mx-auto">
-                <div class="washi-tape" style="background-color: rgba(220,176,255,0.5); transform: translateX(-50%) rotate(2deg);"></div>
-                
-                <div class="w-full aspect-square bg-gray-100 overflow-hidden mb-4 border border-gray-200 p-2">
-                     <img src="images/portfolio/game.jpeg" class="w-full h-full object-cover filter brightness-110 contrast-90 group-hover:brightness-100 transition-all" alt="2048" onerror="this.src='https://placehold.co/600x600/dcb0ff/4a1433?text=2048+Game'">
-                </div>
-                <div class="font-hand text-2xl text-gray-800 text-center transform rotate-2">
-                    Logic Puzzle 🧩
-                </div>
-                <div class="absolute bottom-4 left-0 w-full text-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <a href="https://esraahisham753.github.io/2048-Game/" target="_blank" class="bg-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-md">Play</a>
-                </div>
-            </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="py-20 relative">
-        <div class="container mx-auto px-6">
-            <!-- Glass Container -->
-            <div class="glass-panel p-8 md:p-12 relative overflow-hidden">
-                <div class="relative z-10 flex flex-col md:flex-row items-center gap-10">
-                    <div class="md:w-5/12 text-center md:text-left">
-                        <span class="font-royal text-cosmic-accent text-xl mb-2 block">📝 My Blog</span>
-                        <h2 class="text-4xl md:text-5xl font-royal text-white mb-6">Reading List</h2>
-                        <p class="font-editorial text-lg text-gray-300 mb-8">
-                            Grab some Coffee and read about my adventures in tech, AI, and digital nostalgia.
-                        </p>
-                        <a href="https://medium.com/@esraahisham753" target="_blank" class="inline-block bg-white text-cosmic-dark px-8 py-3 rounded-xl font-royal text-lg hover:scale-105 transition-transform border-4 border-cosmic-accent">
-                            Go to Blog <i class="fa-solid fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                    
-                    <!-- Blog Stickers -->
-                    <div class="md:w-7/12 flex flex-col gap-4">
-                        <a href="https://medium.com/age-of-awareness/how-to-learn-to-play-melodies-using-python-4c8c2d197f95" class="bg-white/90 p-4 rounded-xl flex items-center gap-4 hover:bg-white transition-colors transform hover:-translate-x-2 border-2 border-transparent hover:border-cosmic-accent cursor-pointer">
-                            <div class="w-16 h-16 bg-pink-200 rounded-lg flex items-center justify-center text-2xl">🎵</div>
-                            <div>
-                                <h4 class="font-bold font-royal text-cosmic-dark text-lg">Coding Melodies with Python</h4>
-                                <span class="text-xs text-pink-500 font-bold uppercase">I recently built a small tool to help me practice ear training with Python — and I’d love to share it with you!</span>
-                            </div>
-                        </a>
-
-                        <a href="https://generativeai.pub/working-with-traditional-and-modern-ai-through-my-coding-journey-528d02815a8b" class="bg-white/90 p-4 rounded-xl flex items-center gap-4 hover:bg-white transition-colors transform hover:translate-x-2 border-2 border-transparent hover:border-yellow-400 cursor-pointer">
-                            <div class="w-16 h-16 bg-yellow-200 rounded-lg flex items-center justify-center text-2xl">🤖</div>
-                            <div>
-                                <h4 class="font-bold font-royal text-cosmic-dark text-lg">Modern vs Traditional AI</h4>
-                                <span class="text-xs text-yellow-600 font-bold uppercase">How I integrated AI into my workflow and explored it deeply by implementing it from scratch.</span>
-                            </div>
-                        </a>
-
-                        <a href="https://medium.com/generative-ai/can-ai-learn-from-artwork-in-the-same-way-humans-do-17316393a191" class="bg-white/90 p-4 rounded-xl flex items-center gap-4 hover:bg-white transition-colors transform hover:translate-x-2 border-2 border-transparent hover:border-yellow-400 cursor-pointer">
-                            <div class="w-16 h-16 bg-yellow-200 rounded-lg flex items-center justify-center text-2xl">🎨</div>
-                            <div>
-                                <h4 class="font-bold font-royal text-cosmic-dark text-lg">Can AI Learn from Artwork in the Same Way Humans Do?</h4>
-                                <span class="text-xs text-yellow-600 font-bold uppercase">Is it fair for AI models to learn from copyrighted artwork without permission, assuming they learn in the same way artists learn from each other?</span>
-                            </div>
-                        </a>
-
-                        <a href="https://medium.com/age-of-awareness/exploring-music-from-different-perspectives-c26a7fdc0eab" class="bg-white/90 p-4 rounded-xl flex items-center gap-4 hover:bg-white transition-colors transform hover:translate-x-2 border-2 border-transparent hover:border-yellow-400 cursor-pointer">
-                            <div class="w-16 h-16 bg-yellow-200 rounded-lg flex items-center justify-center text-2xl">🎼</div>
-                            <div>
-                                <h4 class="font-bold font-royal text-cosmic-dark text-lg">Exploring Music from Different Perspectives</h4>
-                                <span class="text-xs text-yellow-600 font-bold uppercase">Analyzing a Melody Using Music Sheets, MIDI Files, and Code</span>
-                            </div>
-                        </a>
-
-                        <a href="https://medium.com/age-of-awareness/90s-tech-rewind-5c1706ab90df" class="bg-white/90 p-4 rounded-xl flex items-center gap-4 hover:bg-white transition-colors transform hover:translate-x-2 border-2 border-transparent hover:border-yellow-400 cursor-pointer">
-                            <div class="w-16 h-16 bg-yellow-200 rounded-lg flex items-center justify-center text-2xl">🎄</div>
-                            <div>
-                                <h4 class="font-bold font-royal text-cosmic-dark text-lg">90’s Tech Rewind</h4>
-                                <span class="text-xs text-yellow-600 font-bold uppercase">Christmas Tech Nostalgia as a Teenager from the 90’s Generation</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="pt-20 pb-10 relative">
-      <div class="absolute inset-0 overflow-hidden pointer-events-none">
-          <div class="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-cosmic-dark to-transparent"></div>
-      </div>
-      
-      <div class="container mx-auto px-6 text-center relative z-10">
-        
-        <div class="mb-10">
-             <span class="inline-block bg-white text-cosmic-dark font-royal text-2xl px-6 py-2 rounded-full transform -rotate-2 border-4 border-pink-500 shadow-[5px_5px_0_#ec4899]">
-                 Catchin' Energy! ⚡
-             </span>
-        </div>
-
-        <div class="flex flex-wrap justify-center gap-6 mb-10">
-             <a href="https://www.linkedin.com/in/esraa-abduallah-632117121/" class="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl hover:scale-110 transition-transform shadow-[0_0_15px_blue] border-2 border-white">
-                 <i class="fa-brands fa-linkedin-in"></i>
-             </a>
-             <a href="https://github.com/esraahisham753" class="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center text-white text-2xl hover:scale-110 transition-transform shadow-[0_0_15px_white] border-2 border-white">
-                 <i class="fa-brands fa-github"></i>
-             </a>
-             <a href="https://www.instagram.com/esraa.abduallah/" class="w-14 h-14 bg-pink-600 rounded-full flex items-center justify-center text-white text-2xl hover:scale-110 transition-transform shadow-[0_0_15px_white] border-2 border-white">
-                 <i class="fa-brands fa-instagram"></i>
-             </a>
-             <a href="mailto:esraahisham753@gmail.com" class="w-14 h-14 bg-red-500 rounded-full flex items-center justify-center text-white text-2xl hover:scale-110 transition-transform shadow-[0_0_15px_red] border-2 border-white">
-                 <i class="fa-solid fa-envelope"></i>
-             </a>
-        </div>
-
-        <p class="font-script text-pink-300 text-xl">
-            &copy; 2026 Esraa Abduallah. Built with 🤖, ❤️ and 🎨. 
-        </p>
       </div>
     </footer>
 
-    <!-- Star Generation Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const starContainer = document.getElementById('star-container');
-            const starCount = 150;
-
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                
-                // Random positioning
-                const x = Math.random() * 100;
-                const y = Math.random() * 100;
-                const size = Math.random() * 3;
-                const duration = Math.random() * 3 + 2; // 2-5s
-                const delay = Math.random() * 5;
-
-                star.style.left = `${x}%`;
-                star.style.top = `${y}%`;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.animation = `twinkle ${duration}s ease-in-out ${delay}s infinite`;
-
-                starContainer.appendChild(star);
-            }
-        });
-    </script>
+    <script src="js/main.js"></script>
   </body>
 </html>

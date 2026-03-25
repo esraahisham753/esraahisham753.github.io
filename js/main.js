@@ -1,125 +1,85 @@
-const fetchArticles = async () => {
-  try {
-    const response = await fetch(
-      "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@esraahisham753",
-    );
-    const data = await response.json();
+const menuToggle = document.getElementById("menu-toggle");
+const siteMenu = document.getElementById("site-menu");
 
-    // Check if the response is successful
-    if (data.status === "ok") {
-      // Extract post data from the response
-      const items = data.items;
-      return items;
-    } else {
-      console.error("Error fetching Medium posts:", data.message);
-      return []; // or handle the error in another way
-    }
-  } catch (error) {
-    console.error("Error fetching Medium posts:", error);
-    return []; // or handle the error in another way
-  }
-};
+if (menuToggle && siteMenu) {
+  const menuLinks = siteMenu.querySelectorAll("a");
 
-const extractTag = (tagName, htmlString) => {
-  // Create a regular expression to match the opening and closing tags
-  var regex = new RegExp("<" + tagName + ">(.*?)</" + tagName + ">", "g");
-
-  // Execute the regular expression on the HTML string
-  var matches = htmlString.match(regex);
-
-  // If matches are found, you can use them as needed
-  if (matches) {
-    return matches; // This will print an array of matches
-  }
-};
-
-const extractSelfClosedTags = (tagName, htmlString) => {
-  // Define the self-closed tag you want to extract (e.g., 'img')
-  var tagName = "img";
-
-  // Create a regular expression to match the self-closed tag
-  var regex = new RegExp("<" + tagName + ".*?>", "g");
-
-  // Execute the regular expression on the HTML string
-  var matches = htmlString.match(regex);
-
-  // If matches are found, you can use them as needed
-  if (matches) {
-    return matches; // This will print an array of matches
-  }
-};
-
-let blog = [];
-const mainArticle = document.getElementById("main-article");
-
-const renderArticle = (articleId) => {
-  const article = document.getElementById(articleId);
-  const blogIndex = parseInt(articleId[articleId.length - 1]);
-  const images = extractSelfClosedTags("img", blog[blogIndex].content);
-  const paragraphs = extractTag("p", blog[blogIndex].content);
-  const blogThumbinal = article.querySelector(".blog__thumbinal");
-  const blogHeading = article.querySelector(".blog__heading");
-  const blogExcerpt = article.querySelector(".blog__excerpt");
-  blogThumbinal.innerHTML = images[0];
-  let articleLink = document.createElement("a");
-  articleLink.href = blog[blogIndex].link;
-  articleLink.target = "_blank";
-  articleLink.textContent = blog[blogIndex].title;
-  blogHeading.appendChild(articleLink);
-  blogExcerpt.innerHTML = paragraphs[0];
-};
-
-const limitExcerpt = () => {
-  const blogPosts = document.querySelectorAll(".blog__post");
-  blogPosts.forEach((blogPost) => {
-    const paragraph = blogPost.querySelector(".blog__excerpt p");
-    console.log(paragraph.textContent.slice(0, 50) + "...");
-    paragraph.textContent = paragraph.textContent.slice(0, 100) + "...";
+  menuToggle.addEventListener("click", () => {
+    const isOpen = siteMenu.classList.toggle("is-open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
   });
-};
 
-fetchArticles().then((response) => {
-  //console.log(response);
-  blog = response;
-  // Main article
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      siteMenu.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
 
-  console.log(blog[0].content);
-  const images = extractSelfClosedTags("img", blog[0].content);
-  console.log(images);
-  const paragraphs = extractTag("p", blog[0].content);
-  console.log(paragraphs);
-  const blogThumbinal = mainArticle.querySelector(".blog__thumbinal");
-  const blogHeading = mainArticle.querySelector(".blog__heading");
-  const blogExcerpt = mainArticle.querySelector(".blog__excerpt");
-  blogThumbinal.innerHTML = images[0];
-  let articleLink = document.createElement("a");
-  articleLink.href = blog[0].link;
-  articleLink.target = "_blank";
-  articleLink.textContent = blog[0].title;
-  blogHeading.appendChild(articleLink);
-  blogExcerpt.innerHTML = paragraphs[0] + paragraphs[1] + paragraphs[2];
-  // Side articles
-  renderArticle("article1");
-  renderArticle("article2");
-  renderArticle("article3");
-  renderArticle("article4");
-  renderArticle("article5");
-  renderArticle("article6");
-  limitExcerpt();
+const revealItems = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window && revealItems.length > 0) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.18 }
+  );
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+}
+
+const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+const sections = document.querySelectorAll("main section[id]");
+
+if ("IntersectionObserver" in window && navAnchors.length > 0 && sections.length > 0) {
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const id = entry.target.getAttribute("id");
+
+        navAnchors.forEach((link) => {
+          link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
+        });
+      });
+    },
+    {
+      rootMargin: "-45% 0px -45% 0px",
+      threshold: 0.01,
+    }
+  );
+
+  sections.forEach((section) => sectionObserver.observe(section));
+}
+
+document.querySelectorAll("[data-tilt]").forEach((card) => {
+  card.addEventListener("mousemove", (event) => {
+    const rect = card.getBoundingClientRect();
+    const px = (event.clientX - rect.left) / rect.width;
+    const py = (event.clientY - rect.top) / rect.height;
+    const rotateX = (0.5 - py) * 5;
+    const rotateY = (px - 0.5) * 7;
+
+    card.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "";
+  });
 });
 
-// Handle form data
-// Assuming you have a form with id "emailForm"
+const year = document.getElementById("year");
 
-const form = document.getElementById("contact-form");
-
-form.addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent default form submission
-
-  // Gather form data
-  const formData = new FormData(form);
-  const email = formData.get("email");
-  const message = formData.get("message");
-  const firstName = formData.get("firstName");
-  const lastName = formData.get("lastName");
-});
+if (year) {
+  year.textContent = String(new Date().getFullYear());
+}
