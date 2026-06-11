@@ -93,7 +93,7 @@ async function loadWritingArticles() {
   }
 
   try {
-    const response = await fetch("articles.json");
+    const response = await fetch("./articles.json");
 
     if (!response.ok) {
       throw new Error(`Failed to load articles: ${response.status}`);
@@ -132,9 +132,10 @@ async function loadWritingArticles() {
 
       if (revealObserver) {
         revealObserver.observe(card);
-      } else {
-        card.classList.add("is-visible");
       }
+
+      // Ensure dynamically inserted cards are visible even if the reveal observer misses them.
+      card.classList.add("is-visible");
     });
   } catch (error) {
     console.error(error);
