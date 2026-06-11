@@ -1,0 +1,20 @@
+[
+  {
+    "heading": "Finally Back in Control of My Tech Life",
+    "image": "images/articles/1.png",
+    "excerpt": "Hi everyone! I believe many people in the tech industry have been feeling the same way as I have. Nothing has been clear — what AI will take over, which roles will remain, which will disappear, and even what the responsibilities of each role will look like.",
+    "link": "https://medium.com/generative-ai/finding-clarity-after-chaos-in-tech-aad79c9442df"
+  },
+  {
+    "heading": "Built a Music Ear Training Tool with Python",
+    "image": "images/articles/2.png",
+    "excerpt": "Hi everyone! I hope you’re doing well. Today, I’m continuing my journey of experimenting with the intersection of technology and music. If you’re curious about my earlier experiments, you can check out my previous articles",
+    "link": "https://medium.com/age-of-awareness/how-to-learn-to-play-melodies-using-python-4c8c2d197f95"
+  },
+  {
+    "heading": "How I Explored AI Beyond the Hype by Implementing It From Scratch",
+    "image": "images/articles/3.png",
+    "excerpt": "Hi everyone! I’ve been experimenting with various AI tools, especially code generation tools. I didn’t want to rush into writing about them like I rushed into using them everywhere.",
+    "link": "https://medium.com/generative-ai/working-with-traditional-and-modern-ai-through-my-coding-journey-528d02815a8b"
+  }
+]

@@ -18,9 +18,10 @@ if (menuToggle && siteMenu) {
 }
 
 const revealItems = document.querySelectorAll(".reveal");
+let revealObserver;
 
 if ("IntersectionObserver" in window && revealItems.length > 0) {
-  const revealObserver = new IntersectionObserver(
+  revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
@@ -83,3 +84,61 @@ const year = document.getElementById("year");
 if (year) {
   year.textContent = String(new Date().getFullYear());
 }
+
+async function loadWritingArticles() {
+  const list = document.getElementById("article-list");
+
+  if (!list) {
+    return;
+  }
+
+  try {
+    const response = await fetch("articles.json");
+
+    if (!response.ok) {
+      throw new Error(`Failed to load articles: ${response.status}`);
+    }
+
+    const articles = await response.json();
+
+    list.innerHTML = "";
+
+    articles.slice(0, 3).forEach((article, index) => {
+      const card = document.createElement("a");
+      card.className = `article-card reveal${index === 0 ? " delay-1" : index === 1 ? " delay-2" : ""}`;
+      card.href = article.link || "#";
+      card.target = "_blank";
+      card.rel = "noreferrer";
+
+      const thumbinal = document.createElement("div");
+      thumbinal.className = "article-thumbinal";
+      const image = document.createElement("img");
+      image.src = article.image;
+      image.alt = article.heading;
+      thumbinal.appendChild(image);
+
+      const copy = document.createElement("div");
+      copy.className = "article-copy";
+      const heading = document.createElement("h3");
+      heading.textContent = article.heading;
+      const excerpt = document.createElement("p");
+      excerpt.textContent = article.excerpt;
+      copy.appendChild(heading);
+      copy.appendChild(excerpt);
+
+      card.appendChild(thumbinal);
+      card.appendChild(copy);
+      list.appendChild(card);
+
+      if (revealObserver) {
+        revealObserver.observe(card);
+      } else {
+        card.classList.add("is-visible");
+      }
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadWritingArticles);
