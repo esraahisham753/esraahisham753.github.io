@@ -30,7 +30,7 @@ if ("IntersectionObserver" in window && revealItems.length > 0) {
         revealObserver.unobserve(entry.target);
       });
     },
-    { threshold: 0.18 }
+    { threshold: 0.18 },
   );
 
   revealItems.forEach((item) => revealObserver.observe(item));
@@ -41,7 +41,11 @@ if ("IntersectionObserver" in window && revealItems.length > 0) {
 const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
 const sections = document.querySelectorAll("main section[id]");
 
-if ("IntersectionObserver" in window && navAnchors.length > 0 && sections.length > 0) {
+if (
+  "IntersectionObserver" in window &&
+  navAnchors.length > 0 &&
+  sections.length > 0
+) {
   const sectionObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -50,14 +54,17 @@ if ("IntersectionObserver" in window && navAnchors.length > 0 && sections.length
         const id = entry.target.getAttribute("id");
 
         navAnchors.forEach((link) => {
-          link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
+          link.classList.toggle(
+            "is-active",
+            link.getAttribute("href") === `#${id}`,
+          );
         });
       });
     },
     {
       rootMargin: "-45% 0px -45% 0px",
       threshold: 0.01,
-    }
+    },
   );
 
   sections.forEach((section) => sectionObserver.observe(section));
@@ -105,18 +112,20 @@ async function loadWritingArticles() {
 
     articles.slice(0, 3).forEach((article, index) => {
       const card = document.createElement("a");
-      card.className = `article-card reveal${index === 0 ? " delay-1" : index === 1 ? " delay-2" : ""}`;
+      card.className = `article-card reveal${index === 1 ? " delay-1" : index === 2 ? " delay-2" : ""}`;
       card.href = article.link || "#";
       card.target = "_blank";
       card.rel = "noreferrer";
 
-      const thumbinal = document.createElement("div");
-      thumbinal.className = "article-thumbinal";
-      const image = document.createElement("img");
-      image.src = article.image;
-      image.alt = article.heading;
-      thumbinal.appendChild(image);
+      // Column 1 — thumbnail (replaces number badge)
+const thumb = document.createElement("div");
+thumb.className = "article-thumbinal";
+const img = document.createElement("img");
+img.src = article.image;
+img.alt = article.heading;
+thumb.appendChild(img);
 
+      // Column 2 — heading + excerpt
       const copy = document.createElement("div");
       copy.className = "article-copy";
       const heading = document.createElement("h3");
@@ -126,15 +135,17 @@ async function loadWritingArticles() {
       copy.appendChild(heading);
       copy.appendChild(excerpt);
 
-      card.appendChild(thumbinal);
+      // Column 3 — arrow
+      const arrow = document.createElement("div");
+      arrow.className = "article-arrow";
+      arrow.textContent = "→";
+
+      card.appendChild(thumb);
       card.appendChild(copy);
+      card.appendChild(arrow);
       list.appendChild(card);
 
-      if (revealObserver) {
-        revealObserver.observe(card);
-      }
-
-      // Ensure dynamically inserted cards are visible even if the reveal observer misses them.
+      if (revealObserver) revealObserver.observe(card);
       card.classList.add("is-visible");
     });
   } catch (error) {

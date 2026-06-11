@@ -1001,7 +1001,7 @@ main {
 
 .article-card {
   display: grid;
-  grid-template-columns: 12rem minmax(0, 1fr);
+  grid-template-columns: auto minmax(0, 1fr);
   gap: 1rem;
   align-items: start;
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
@@ -1015,17 +1015,23 @@ main {
 }
 
 .article-thumbinal {
-  display: block;
+  width: 5.5rem;
+  height: 5.5rem;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
   overflow: hidden;
-  border-radius: var(--radius-lg);
-  min-height: 12rem;
+  border: 1px solid var(--line);
 }
 
 .article-thumbinal img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  transition: transform 260ms ease;
+}
+
+.article-card:hover .article-thumbinal img {
+  transform: scale(1.06);
 }
 
 .article-copy h3 {
@@ -1270,3 +1276,5 @@ footer {
     transform: none;
   }
 }
+
+
