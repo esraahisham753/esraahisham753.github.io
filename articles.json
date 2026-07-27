@@ -1,5 +1,11 @@
 [
   {
+    "heading": "Mastering the Foundations: Studying Older Technologies in the AI Era",
+    "image": "images/articles/5.png",
+    "excerpt": "Exploring how technology worked back in the ’70s through the eyes of an AI enthusiast. It’s an incredible journey into the foundations of modern computing, and I’d love for you to join me.",
+    "link": "https://medium.com/@esraahisham753/mastering-the-foundations-studying-older-technologies-in-the-ai-era-2db9562ceb9c"
+  },
+  {
     "heading": "AI makes Us More Human",
     "image": "images/articles/4.png",
     "excerpt": "The best way to discover the truth behind things is to explore them for yourself. Please approach this article with an open mind and never outsource your thinking. Together, we can turn our dream into reality.",
@@ -10,11 +16,5 @@
     "image": "images/articles/1.png",
     "excerpt": "Hi everyone! I believe many people in the tech industry have been feeling the same way as I have. Nothing has been clear — what AI will take over, which roles will remain, which will disappear, and even what the responsibilities of each role will look like.",
     "link": "https://medium.com/generative-ai/finding-clarity-after-chaos-in-tech-aad79c9442df"
-  },
-  {
-    "heading": "Built a Music Ear Training Tool with Python",
-    "image": "images/articles/2.png",
-    "excerpt": "Hi everyone! I hope you’re doing well. Today, I’m continuing my journey of experimenting with the intersection of technology and music. If you’re curious about my earlier experiments, you can check out my previous articles",
-    "link": "https://medium.com/age-of-awareness/how-to-learn-to-play-melodies-using-python-4c8c2d197f95"
   }
 ]
