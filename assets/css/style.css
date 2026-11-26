@@ -2654,5 +2654,432 @@ body::after {
     background: rgba(8, 17, 34, 0.98);
   }
 }
+/* Watercolor palette inspired by the willow pond reference */
+:root {
+  --base: #f5f2e8;
+  --mantle: #e8eee8;
+  --crust: #26352f;
+  --surface-0: #fffdf6;
+  --surface-1: #edf0e7;
+  --surface-2: #dce5dc;
+  --overlay: #778477;
+  --text: #293a33;
+  --subtext: #5b6b61;
+  --muted: #78857a;
+  --mauve: #57745b;
+  --pink: #c49367;
+  --blue: #355a7b;
+  --sapphire: #527895;
+  --sky: #d4e4e6;
+  --teal: #648b86;
+  --green: #687a46;
+  --yellow: #b28a4f;
+  --peach: #a87550;
+  --red: #a75f50;
+  --line: rgba(52, 75, 59, 0.14);
+  --line-strong: rgba(52, 75, 59, 0.25);
+  --panel: rgba(255, 253, 246, 0.91);
+  --panel-solid: #fffdf6;
+  --shadow-lg: 0 28px 80px rgba(48, 62, 48, 0.13);
+  --shadow-md: 0 14px 40px rgba(48, 62, 48, 0.09);
+  --radius-xl: 24px;
+  --radius-lg: 18px;
+  --radius-md: 13px;
+}
+
+body {
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+  background: radial-gradient(ellipse at 86% 7%, rgba(181, 198, 169, 0.26), transparent 34rem), radial-gradient(ellipse at 3% 35%, rgba(222, 203, 169, 0.2), transparent 36rem), linear-gradient(180deg, #f8f5ed 0%, var(--base) 52%, #eef1e8 100%);
+  background-attachment: fixed;
+}
+
+body::before,
+body::after,
+.terminal-grid {
+  display: none;
+}
+
+::selection {
+  background: #d7e0ca;
+  color: var(--crust);
+}
+
+.nav-shell {
+  border-color: rgba(68, 91, 67, 0.18);
+  background: rgba(255, 253, 246, 0.9);
+  box-shadow: 0 10px 34px rgba(48, 62, 48, 0.09);
+}
+
+.brand-mark {
+  border-color: rgba(178, 138, 79, 0.42);
+  background: linear-gradient(145deg, #718453, #46664d);
+  color: #fffdf6;
+  box-shadow: 0 5px 16px rgba(57, 84, 58, 0.2);
+}
+
+.brand-name,
+.hero h1,
+.section h2,
+.body-copy h3,
+.stack-card h3,
+.service-copy h3,
+.project-copy h3,
+.article-card h3,
+.contact-card h3,
+.education-copy h3,
+.quote-card blockquote,
+.portrait-note strong,
+.portrait-panel strong {
+  color: var(--crust);
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.brand-name {
+  font-size: 1.2rem;
+  letter-spacing: 0.035em;
+}
+
+.brand-role,
+.nav-links a,
+.lead,
+.section-head p,
+.body-copy p,
+.service-copy p,
+.project-copy p,
+.contact-card p,
+.article-card p,
+.quote-card p,
+.education-copy p,
+.quote-meta,
+.footer-shell {
+  color: var(--subtext);
+}
+
+.nav-links a:hover,
+.nav-links a.is-active {
+  color: #42644b;
+  background: rgba(104, 122, 70, 0.1);
+}
+
+.nav-cta {
+  border-color: rgba(178, 138, 79, 0.38);
+  background: #f1ecdc;
+  color: #4b6148 !important;
+}
+
+.menu-toggle {
+  border-color: var(--line);
+  background: var(--surface-1);
+  color: var(--text);
+}
+
+.eyebrow {
+  border-color: rgba(89, 118, 79, 0.22);
+  background: rgba(115, 145, 95, 0.1);
+  color: #526d48;
+}
+
+.eyebrow::after {
+  background: var(--yellow);
+}
+
+.hero h1 {
+  max-width: 13ch;
+  font-size: clamp(3.2rem, 6.4vw, 5.7rem);
+  line-height: 0.98;
+  text-shadow: none;
+}
+
+.section h2 {
+  text-shadow: none;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, #63794e, #47664e);
+  color: #fffdf6;
+  box-shadow: 0 9px 24px rgba(68, 97, 72, 0.2);
+}
+
+.button-primary:hover {
+  box-shadow: 0 12px 30px rgba(68, 97, 72, 0.28);
+}
+
+.button-secondary {
+  border-color: rgba(53, 90, 123, 0.23);
+  background: rgba(53, 90, 123, 0.07);
+  color: #355a7b;
+}
+
+.button-secondary:hover {
+  background: rgba(53, 90, 123, 0.12);
+}
+
+.chip,
+.mini-pill,
+.stack-list span,
+.project-tags span,
+.social-link {
+  border-color: rgba(67, 91, 69, 0.14);
+  background: rgba(255, 253, 246, 0.75);
+  color: #506257;
+}
+
+.chip::before,
+.mini-pill::before,
+.stack-list span::before {
+  color: var(--green);
+}
+
+.stat-card,
+.glass-card,
+.quote-card,
+.stack-card,
+.service-card,
+.education-card,
+.project-card,
+.article-card,
+.contact-card {
+  border-color: var(--line);
+  background: var(--panel);
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.stat-card strong {
+  color: var(--green);
+}
+
+.stat-card span {
+  color: var(--subtext);
+}
+
+.portrait-card {
+  min-height: 32rem;
+  padding: 1.25rem;
+  border-color: rgba(54, 75, 56, 0.24);
+  background: linear-gradient(180deg, rgba(28, 43, 35, 0.04), rgba(28, 43, 35, 0.12)), url("../../images/bg.jpg") center/cover no-repeat;
+  box-shadow: 0 26px 70px rgba(40, 56, 43, 0.2);
+}
+
+.portrait-card::before {
+  background: linear-gradient(180deg, rgba(255, 253, 246, 0.08), transparent 45%);
+}
+
+.portrait-frame {
+  position: absolute;
+  top: 1.35rem;
+  right: 1.35rem;
+  width: 7.25rem;
+  height: 7.25rem;
+  min-height: 0;
+  border: 4px solid rgba(255, 253, 246, 0.95);
+  border-radius: 50%;
+  background: var(--surface-0);
+  box-shadow: 0 8px 26px rgba(34, 47, 37, 0.2);
+}
+
+.portrait-frame img {
+  transform: none;
+  filter: saturate(0.9);
+}
+
+.portrait-topline,
+.portrait-note,
+.portrait-panel,
+.portrait-footer {
+  border-color: rgba(255, 253, 246, 0.68);
+  background: rgba(255, 253, 246, 0.93);
+  color: var(--text);
+  box-shadow: 0 12px 32px rgba(34, 47, 37, 0.15);
+  backdrop-filter: blur(14px);
+}
+
+.portrait-topline {
+  top: 1.35rem;
+  left: 1.35rem;
+  transform: none;
+  max-width: calc(100% - 10rem);
+  color: #526d48;
+}
+
+.portrait-note {
+  top: 11rem;
+  right: -0.75rem;
+}
+
+.portrait-panel {
+  left: 1.2rem;
+  bottom: 7rem;
+}
+
+.portrait-note span,
+.portrait-panel span {
+  color: #627847;
+}
+
+.portrait-note strong,
+.portrait-panel strong,
+.portrait-footer strong {
+  color: var(--crust);
+}
+
+.portrait-footer {
+  inset: auto 1.2rem 1.2rem;
+  border-color: rgba(53, 90, 123, 0.17);
+}
+
+.portrait-footer small {
+  color: var(--blue);
+}
+
+.inline-link,
+.education-copy a {
+  color: #496d53;
+}
+
+.quote-card {
+  border-color: rgba(97, 125, 81, 0.2);
+  background: radial-gradient(ellipse at 100% 0, rgba(203, 216, 186, 0.38), transparent 62%), rgba(255, 253, 246, 0.92);
+}
+
+.quote-card blockquote {
+  color: #47634b;
+}
+
+.quote-meta {
+  border-color: var(--line);
+}
+
+.stack-card:hover,
+.service-card:hover,
+.education-card:hover,
+.project-card:hover,
+.article-card:hover {
+  border-color: rgba(85, 117, 75, 0.32);
+  box-shadow: 0 22px 54px rgba(48, 62, 48, 0.15);
+}
+
+.service-media::after,
+.project-media::after {
+  background: linear-gradient(180deg, transparent 35%, rgba(37, 54, 44, 0.22) 100%);
+}
+
+.service-media img,
+.project-media img {
+  filter: saturate(0.88) contrast(1.01);
+}
+
+.service-tag,
+.project-index,
+.project-type {
+  border-color: rgba(255, 253, 246, 0.72);
+  background: rgba(255, 253, 246, 0.92);
+  color: #526d48;
+}
+
+.service-list span {
+  color: var(--text);
+}
+
+.service-list span::before {
+  color: var(--green);
+}
+
+.edu-logo {
+  border-color: var(--line);
+  background: var(--surface-0);
+}
+
+.education-year,
+.education-note {
+  border-color: rgba(178, 138, 79, 0.2);
+  background: rgba(178, 138, 79, 0.09);
+  color: #846637;
+}
+
+.project-media,
+.article-thumbinal {
+  border-color: var(--line);
+  background: var(--surface-1);
+}
+
+.project-link {
+  border-color: rgba(85, 117, 75, 0.22);
+  background: rgba(104, 122, 70, 0.08);
+  color: #4f6b49;
+}
+
+.project-link:hover {
+  background: rgba(104, 122, 70, 0.14);
+}
+
+.article-arrow {
+  color: var(--blue);
+}
+
+.contact-copy {
+  background: radial-gradient(ellipse at 100% 0, rgba(203, 216, 186, 0.32), transparent 62%), var(--panel);
+}
+
+.social-link::before {
+  color: var(--blue);
+}
+
+.social-link:hover {
+  border-color: rgba(53, 90, 123, 0.3);
+  color: var(--blue);
+}
+
+.footer-shell {
+  border-color: var(--line);
+}
+
+.footer-note {
+  color: var(--text);
+}
+
+.footer-note::before {
+  color: var(--green);
+}
+
+@media (max-width: 960px) {
+  .nav-links {
+    border-color: var(--line-strong);
+    background: rgba(255, 253, 246, 0.98);
+    box-shadow: var(--shadow-md);
+  }
+}
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: clamp(2.8rem, 13vw, 4rem);
+  }
+  .portrait-card {
+    min-height: 30rem;
+  }
+  .portrait-frame {
+    top: 4.8rem;
+    right: 0.9rem;
+    width: 5.8rem;
+    height: 5.8rem;
+  }
+  .portrait-topline {
+    top: 1rem;
+    left: 1rem;
+    right: 6.5rem;
+    display: block;
+    max-width: none;
+    font-size: 0.65rem;
+    line-height: 1.35;
+  }
+  .portrait-note {
+    top: 11rem;
+    right: 0.5rem;
+    max-width: 9.5rem;
+  }
+  .portrait-panel {
+    bottom: 10.5rem;
+    max-width: 9.5rem;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
